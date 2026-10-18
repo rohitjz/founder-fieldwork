@@ -105,13 +105,20 @@ function wireNotes() {
     });
   }
 }
+function reportVisualError(error) {
+  console.error("OpenUI illustration could not render:",error);
+  const warning=$("#visual-warning");
+  if(warning){warning.hidden=false;warning.textContent="The interactive model could not render. The lesson, check, and field note remain available.";}
+}
 function renderLesson() {
+  FieldworkVisuals.unmountLessonVisual();
   const l = currentLesson, n = lessons.indexOf(l);
   $("#workspace-content").innerHTML = `<div class="lesson-layout">
     <article class="lesson-article">
       <div class="lesson-meta"><span class="lesson-number">Lesson ${n+1} of ${lessons.length}</span><span>${esc(l.author)}</span></div>
       <h3 class="lesson-title" tabindex="-1">${esc(l.title)}</h3>
       <p class="lesson-idea">${esc(l.idea)}</p>
+      <div id="lesson-visual" data-lesson-visual="${l.id}" data-visual-state="loading"></div><p id="visual-warning" class="visual-error" role="alert" hidden></p>
       <div class="lesson-prose">${l.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")}
       <h4>At the founder's desk</h4><p class="case-text">${esc(l.case)}</p></div>
       <div class="comparison"><div><span>${esc(l.distinction[0])}</span><p>${esc(l.distinction[1])}</p></div><div><span>${esc(l.distinction[2])}</span><p>${esc(l.distinction[3])}</p></div></div>
@@ -130,6 +137,20 @@ function renderLesson() {
       <details><summary>See an example note</summary><p>${esc(l.example)}</p></details>
       <button id="complete-lesson" class="primary completion" type="button">Mark practice complete</button><p id="completion-hint" class="completion-hint"></p>
     </aside></div>`;
+  FieldworkVisuals.mountLessonVisual($("#lesson-visual"),l.id,{
+    onError:reportVisualError,
+    onAction:event=>{
+      if(event.type!=="append_field_note"||typeof event.params?.text!=="string"){
+        reportVisualError(new TypeError("Unsupported illustration action."));return;
+      }
+      const note=$("#lesson-note");
+      note.value=note.value.trim()?`${note.value}\n\n${event.params.text}`:event.params.text;
+      note.dispatchEvent(new Event("input",{bubbles:true}));
+      note.focus({preventScroll:true});
+      note.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"center"});
+      announce("Practice prompt added. Your existing note was kept.");
+    }
+  });
   $("#lesson-quiz").addEventListener("submit",event=>{
     event.preventDefault();
     const selected = Number(new FormData(event.currentTarget).get("answer"));
@@ -224,13 +245,17 @@ function route({focus=false}={}) {
     const id=routeHash.startsWith("lesson=")?routeHash.slice(7):lessons[0].id;
     currentLesson=lessons.find(l=>l.id===id)||lessons[0];
     renderLesson();
-  } else if(currentView==="lab") renderLab();
-  else renderNotebook();
+  } else {
+    FieldworkVisuals.unmountLessonVisual();
+    if(currentView==="lab")renderLab();else renderNotebook();
+  }
   $("#bench-title").textContent=currentView==="course"?"The founder's field guide":currentView==="lab"?"The evidence lab":"Your working notebook";
   for(const a of document.querySelectorAll("nav a[data-view]")) {
     if(a.dataset.view===currentView)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
   }
   renderIndex();updateProgress();
+  FieldworkVisuals.mountCourseRoute($("#course-map"),Math.floor(lessons.indexOf(currentLesson)/3),{onError:reportVisualError});
+  $("#course-map").hidden=currentView!=="course";
   if(focus && routeHash) {
     const target=$(currentView==="course"?".lesson-title":currentView==="lab"?"#lab-title":"#notebook-title");
     $("#workbench").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
