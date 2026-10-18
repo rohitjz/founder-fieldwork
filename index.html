@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en" data-palette="signature">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical founder learning bench. Turn startup advice into customer evidence through lessons, an interactive evidence cabinet, and your own field notes.">
+  <meta name="theme-color" content="#1c1d20">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1d20'/%3E%3Cpath d='M9 6H25V11H14V15H23V20H14V27H9Z' fill='%23ffd84d'/%3E%3C/svg%3E">
+  <title>Founder Fieldwork | From working app to customer evidence</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+html[data-palette="signature"] {
+  --cp-bg: #fafafa;
+  --cp-bg-elevated: #f1f1ee;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #ecece8;
+  --cp-border: #d6d6cf;
+  --cp-border-strong: #7c7d76;
+  --cp-text: #1c1d20;
+  --cp-text-muted: #595b56;
+  --cp-text-soft: #61635c;
+  --cp-accent: #ca8a04;
+  --cp-accent-hover: #a66d00;
+  --cp-accent-fg: #1c1d20;
+  --cp-accent-soft: #fff5ca;
+  --cp-highlight: #f7e7a0;
+  --cp-success: #13794d;
+  --cp-danger: #b83131;
+  --cp-warning: #ad4d18;
+  --cp-link: #695214;
+  --cp-panel: rgba(250,249,245,.74);
+  --cp-panel-strong: rgba(250,249,245,.96);
+  --cp-glass: rgba(250,249,245,.74);
+  --cp-dome: 0 0 6px rgba(0,0,0,.03),0 2px 8px rgba(0,0,0,.08),inset 2.5px 2.5px .5px -2.5px rgba(255,255,255,.95),inset -2.5px -2.5px .5px -2.5px rgba(0,0,0,.28),inset 1px 1px 1px -.5px rgba(255,255,255,.7),inset -1px -1px 1px -.5px rgba(0,0,0,.14),inset 0 0 6px 6px rgba(255,255,255,.08),inset 0 0 2px 2px rgba(255,255,255,.05),0 0 12px rgba(255,255,255,.15);
+  --cp-figure-paper: #e3e3da;
+  --cp-figure-top: #fafaf5;
+  --cp-shade-0: #b6b7af;
+  --cp-shade-1: #c4c5bb;
+  --cp-shade-2: #d2d3c8;
+  --cp-shade-3: #ddded3;
+  --cp-lit: #282a28;
+  --cp-lit-top: #f3dfa2;
+  --cp-figure-edge: #96998c;
+  --cp-figure-mid: #777b6b;
+  --cp-figure-low: #a7aa9c;
+}
+html[data-palette="signature"][data-theme="dark"] {
+  --cp-bg: #1c1d20;
+  --cp-bg-elevated: #252629;
+  --cp-surface: #2c2d30;
+  --cp-surface-soft: #323337;
+  --cp-border: #404145;
+  --cp-border-strong: #73756f;
+  --cp-text: #f2f1e9;
+  --cp-text-muted: #babbb0;
+  --cp-text-soft: #a2a597;
+  --cp-accent: #ffd84d;
+  --cp-accent-hover: #ffe378;
+  --cp-accent-fg: #1c1d20;
+  --cp-accent-soft: #393626;
+  --cp-highlight: #4a4228;
+  --cp-success: #5dd39e;
+  --cp-danger: #ff8585;
+  --cp-warning: #f59b68;
+  --cp-link: #e5cc79;
+  --cp-panel: rgba(44,45,48,.74);
+  --cp-panel-strong: rgba(37,38,41,.96);
+  --cp-glass: rgba(28,29,32,.72);
+  --cp-dome: 0 0 6px rgba(0,0,0,.22),0 4px 14px rgba(0,0,0,.45),inset 0 1px 0 0 rgba(255,255,255,.15),inset 2.5px 2.5px .5px -2px rgba(255,255,255,.15),inset -2.5px -2.5px .5px -2px rgba(255,255,255,.08),inset 1px 1px 1px -.5px rgba(255,255,255,.11),inset -1px -1px 1px -.5px rgba(255,255,255,.05),inset 0 0 8px 4px rgba(255,255,255,.03),0 0 14px rgba(255,255,255,.06);
+  --cp-figure-paper: #424640;
+  --cp-figure-top: #666b5e;
+  --cp-shade-0: #292d29;
+  --cp-shade-1: #333830;
+  --cp-shade-2: #40463a;
+  --cp-shade-3: #4e5448;
+  --cp-lit: #ece5c9;
+  --cp-lit-top: #9b8c50;
+  --cp-figure-edge: #b6bda7;
+  --cp-figure-mid: #a3ab90;
+  --cp-figure-low: #747d65;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font: 16px/1.65 "Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing: antialiased; }
+button,textarea,select { font: inherit; color: inherit; }
+button,a,input,textarea,summary { -webkit-tap-highlight-color: transparent; }
+button,summary { cursor: pointer; }
+button,a { touch-action: manipulation; }
+button:disabled { cursor: not-allowed; opacity: .58; }
+a { color: inherit; text-underline-offset: 4px; }
+button { min-height: 44px; }
+:focus-visible { outline: 2px solid var(--cp-accent); outline-offset: 5px; }
+::selection { background: var(--cp-highlight); color: var(--cp-text); }
+p { margin: 0 0 20px; }
+h1,h2,h3,h4 { line-height: 1.12; margin: 0; font-weight: 620; }
+svg { display: block; flex-shrink: 0; }
+[hidden] { display: none !important; }
+.wrap { max-width: 1280px; padding-inline: 44px; margin-inline: auto; }
+.lg-svg { position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden; }
+.lg-full { background: var(--cp-glass); -webkit-backdrop-filter: blur(3px) url("#liquid-distort") saturate(150%); backdrop-filter: blur(3px) url("#liquid-distort") saturate(150%); box-shadow: var(--cp-dome); isolation: isolate; border: none; }
+.topbar { position: sticky; z-index: 10; top: 16px; max-width: 1200px; margin: 16px auto 0; padding: 10px 16px 10px 22px; border-radius: 20px; display: flex; gap: 24px; align-items: center; }
+.brand { display: flex; gap: 12px; align-items: center; font-weight: 650; font-size: 18px; text-decoration: none; letter-spacing: -.6px; white-space: nowrap; }
+.brand svg { color: var(--cp-accent); }
+.topbar nav { display: flex; margin-left: auto; gap: 8px; align-items: center; }
+.topbar nav a { min-height: 44px; padding: 9px 14px; display: flex; gap: 8px; align-items: center; font-size: 14px; font-weight: 550; color: var(--cp-text-muted); text-decoration: none; border-radius: 12px; }
+.topbar nav a[aria-current="page"] { background: var(--cp-accent-soft); color: var(--cp-text); }
+#note-count { font-size: 12px; opacity: .8; font-variant-numeric: tabular-nums; }
+.icon-button { width: 44px; border: none; background: none; display: grid; place-items: center; border-radius: 12px; }
+.icon-button:hover,.topbar nav a:hover { background: var(--cp-surface-soft); color: var(--cp-text); }
+.hero { display: grid; grid-template-columns: 1.08fr 1fr; gap: 48px; align-items: center; padding-top: 76px; padding-bottom: 72px; }
+.source-link { font-size: 13px; color: var(--cp-text-muted); display: inline-flex; align-items: center; gap: 9px; margin-bottom: 28px; text-decoration: none; }
+.source-link:hover { text-decoration: underline; }
+.source-dot { width: 6px; height: 6px; background: var(--cp-accent); border-radius: 50%; }
+h1 { font-size: clamp(42px,5.3vw,76px); letter-spacing: -.065em; line-height: 1.02; max-width: 9em; }
+.hero-deck { font-size: 20px; line-height: 1.5; max-width: 24em; margin: 26px 0 14px; }
+.hero-support { font-size: 15px; color: var(--cp-text-muted); }
+.hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 28px; }
+.primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 14px; border: 0; background: var(--cp-accent); color: var(--cp-accent-fg); font-size: 14px; font-weight: 700; padding: 12px 20px; text-decoration: none; border-radius: 10px; }
+.primary:hover { background: var(--cp-accent-hover); }
+.text-action { font-size: 14px; color: var(--cp-text-muted); }
+.hero-footnote { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--cp-text-soft); margin-top: 40px; }
+.tiny-tiles { display: flex; gap: 3px; }
+.tiny-tiles i { width: 8px; height: 12px; border: 1px solid var(--cp-border-strong); }
+.tiny-tiles i:first-child { background: var(--cp-accent); border-color: var(--cp-accent); }
+.evidence-figure { margin: 0; border: 1px solid var(--cp-border); border-radius: 16px; overflow: hidden; position: relative; background: var(--cp-bg-elevated); }
+.figure-heading { display: flex; align-items: center; gap: 14px; padding: 18px 22px 0; font-size: 12px; color: var(--cp-text-muted); }
+.figure-heading h2 { font-size: 14px; font-weight: 550; margin-left: auto; }
+.live-indicator { width: 5px; height: 5px; border-radius: 50%; background: var(--cp-accent); }
+.cabinet-stage { overflow: hidden; height: 316px; padding: 0 14px; }
+.cabinet-svg { width: 100%; height: 100%; overflow: visible; }
+.iso-fill { fill: var(--cp-figure-paper); stroke: none; }
+.iso-top { fill: var(--cp-figure-top); stroke: none; }
+.iso-shade { stroke: none; }
+.iso-shade[data-shade="0"] { fill: var(--cp-shade-0); }
+.iso-shade[data-shade="1"] { fill: var(--cp-shade-1); }
+.iso-shade[data-shade="2"] { fill: var(--cp-shade-2); }
+.iso-shade[data-shade="3"] { fill: var(--cp-shade-3); }
+.iso-line { fill: none; stroke: var(--cp-figure-low); stroke-width: .6px; stroke-linecap: round; stroke-linejoin: round; }
+.iso-line[data-tone="hi"] { stroke: var(--cp-figure-edge); }
+.iso-line[data-tone="mid"] { stroke: var(--cp-figure-mid); }
+.iso-line[data-tone="lo"],.iso-line[data-tone="faint"] { stroke: var(--cp-figure-low); }
+.iso-dots circle { fill: var(--cp-figure-edge); }
+.iso-face-text { fill: var(--cp-figure-mid); font-family: inherit; letter-spacing: .5px; }
+.iso-solid[data-lit]>.iso-top { fill: var(--cp-figure-top); }
+.selected .iso-solid[data-lit]>.iso-top { fill: var(--cp-accent); }
+.selected .iso-solid[data-lit]>.iso-shade { fill: var(--cp-accent); }
+.selected .iso-solid[data-lit]>.iso-edge { stroke: var(--cp-lit); }
+[data-drawer].selected .iso-edge { stroke: var(--cp-lit); }
+.figure-controls { display: flex; gap: 4px; padding: 0 20px; }
+.figure-controls button { flex: 1; font-size: 12px; padding: 7px 10px; border: 1px solid var(--cp-border); background: none; border-radius: 8px; }
+.figure-controls button[aria-pressed="true"] { background: var(--cp-text); color: var(--cp-bg); border-color: var(--cp-text); }
+figcaption { padding: 18px 22px 20px; }
+#signal-example { font-size: 13px; line-height: 1.5; min-height: 40px; margin: 0 0 8px; }
+.figure-reading { font-size: 12px; line-height: 1.55; color: var(--cp-text-muted); margin: 0 0 12px; min-height: 38px; }
+.analogy-note { display: block; font-size: 11px; line-height: 1.5; color: var(--cp-text-soft); }
+.workbench { padding-bottom: 88px; scroll-margin-top: 100px; }
+.workbench:focus { outline: none; }
+.bench-heading { border-top: 1px solid var(--cp-border); padding: 28px 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.section-kicker { color: var(--cp-text-muted); font-size: 13px; margin-bottom: 8px; }
+.bench-heading h2 { font-size: 28px; letter-spacing: -.8px; }
+.progress-summary { min-width: 184px; font-size: 12px; color: var(--cp-text-muted); }
+progress { width: 100%; height: 4px; display: block; border: 0; border-radius: 3px; overflow: hidden; margin-top: 10px; appearance: none; background: var(--cp-border); }
+progress::-webkit-progress-bar { background: var(--cp-border); }
+progress::-webkit-progress-value { background: var(--cp-accent); }
+progress::-moz-progress-bar { background: var(--cp-accent); }
+.workspace { display: grid; grid-template-columns: 236px minmax(0,1fr); gap: 40px; }
+.index-heading { display: flex; justify-content: space-between; font-size: 12px; color: var(--cp-text-muted); margin-bottom: 20px; }
+.mobile-lesson { display: none; }
+.lesson-group { margin: 0 0 24px; }
+.lesson-group h3 { font-size: 13px; font-weight: 650; margin-bottom: 10px; color: var(--cp-text-muted); }
+.lesson-link { display: flex; gap: 10px; align-items: center; text-decoration: none; color: var(--cp-text-muted); font-size: 13px; padding: 10px 12px; border-radius: 9px; min-height: 44px; }
+.lesson-link .ordinal { font-size: 11px; width: 16px; flex-shrink: 0; opacity: .7; }
+.lesson-link[aria-current="step"] { background: var(--cp-accent-soft); color: var(--cp-text); box-shadow: inset 2px 0 0 var(--cp-accent); }
+.lesson-link:hover { color: var(--cp-text); background: var(--cp-surface); }
+.lesson-link .done-mark { margin-left: auto; color: var(--cp-success); width: 14px; }
+.index-note { font-size: 12px; color: var(--cp-text-soft); line-height: 1.7; padding: 20px 0 0; border-top: 1px solid var(--cp-border); }
+.source-index { font-size: 12px; color: var(--cp-text-muted); }
+#workspace-content { min-width: 0; }
+.lesson-layout { display: grid; grid-template-columns: minmax(0,1fr) 240px; gap: 32px; }
+.lesson-article { min-width: 0; }
+.lesson-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--cp-text-muted); margin: 0 0 14px; }
+.lesson-number { color: var(--cp-accent); }
+.lesson-title { font-size: clamp(28px,2.6vw,37px); letter-spacing: -1.25px; line-height: 1.13; margin-bottom: 20px; scroll-margin-top: 112px; }
+.lesson-title:focus { outline: none; }
+.lesson-idea { font-size: 18px; line-height: 1.55; margin-bottom: 24px; }
+.lesson-prose { font-size: 15px; line-height: 1.8; color: var(--cp-text-muted); }
+.lesson-prose p { margin-bottom: 18px; }
+.lesson-article h4 { font-size: 17px; margin: 32px 0 14px; letter-spacing: -.2px; }
+.case-text { padding-left: 18px; border-left: 2px solid var(--cp-border-strong); }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; border-block: 1px solid var(--cp-border); padding: 20px 0; }
+.comparison span { display: block; font-size: 11px; color: var(--cp-text-soft); margin-bottom: 7px; }
+.comparison p { font-size: 14px; line-height: 1.6; margin: 0; }
+.comparison>div+div { border-left: 1px solid var(--cp-border); padding-left: 20px; }
+.trap { font-size: 13px; color: var(--cp-text-muted); padding: 14px 0; border-top: 1px solid var(--cp-border); }
+.trap strong { color: var(--cp-text); font-weight: 600; }
+.quiz { margin-top: 32px; border-top: 1px solid var(--cp-border); padding-top: 6px; }
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+legend { font-size: 15px; line-height: 1.6; margin-bottom: 14px; font-weight: 550; padding: 0; }
+.answer { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--cp-border); border-radius: 10px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; cursor: pointer; min-height: 48px; }
+.answer:has(input:checked) { background: var(--cp-accent-soft); border-color: var(--cp-accent); }
+.answer input { margin: 4px 0 0; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--cp-accent); }
+.secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 16px; border: 1px solid var(--cp-border-strong); background: none; border-radius: 9px; font-size: 13px; font-weight: 550; text-decoration: none; }
+.secondary:hover { background: var(--cp-surface-soft); }
+.quiz button { margin-top: 8px; }
+.feedback { margin-top: 14px; font-size: 13px; padding: 14px; border-radius: 8px; background: var(--cp-surface-soft); }
+.feedback[data-result="correct"] { border-left: 2px solid var(--cp-success); }
+.feedback[data-result="incorrect"] { border-left: 2px solid var(--cp-warning); }
+.feedback p { margin: 0 0 5px; }
+.feedback p:last-child { margin: 0; }
+.fieldcard { background: var(--cp-surface); padding: 22px 20px; border-radius: 14px; box-shadow: var(--cp-dome); align-self: start; }
+.fieldcard h3 { font-size: 18px; letter-spacing: -.3px; margin-bottom: 14px; }
+.fieldcard .practice-task { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.practice-steps { margin: 0 0 20px; padding-left: 18px; color: var(--cp-text-muted); font-size: 12px; line-height: 1.8; }
+.practice-steps li { margin-bottom: 9px; padding-left: 2px; }
+.fieldcard label { font-size: 12px; font-weight: 550; line-height: 1.6; display: block; margin: 16px 0 10px; }
+textarea { resize: vertical; width: 100%; min-height: 190px; background: var(--cp-bg); border: 1px solid var(--cp-border-strong); border-radius: 9px; padding: 12px; font-size: 13px; line-height: 1.7; }
+textarea::placeholder { color: var(--cp-text-soft); opacity: 1; }
+.save-state { display: block; color: var(--cp-text-soft); font-size: 11px; margin-top: 8px; }
+.completion { width: 100%; margin-top: 20px; font-size: 12px; gap: 8px; padding-inline: 10px; }
+.completion-hint { font-size: 11px; color: var(--cp-text-muted); line-height: 1.6; margin: 9px 0 0; }
+.fieldcard details { font-size: 12px; margin-top: 18px; }
+summary { min-height: 44px; padding-block: 10px; }
+details p { color: var(--cp-text-muted); font-size: 13px; line-height: 1.7; margin-top: 12px; }
+.lesson-bottom { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--cp-border); }
+.takeaway { font-size: 17px; font-weight: 550; margin-bottom: 18px; }
+.bottom-actions { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+.bottom-actions a { font-size: 13px; min-height: 44px; display: flex; align-items: center; }
+.source-attribution { font-size: 11px; color: var(--cp-text-soft); margin-top: 24px; }
+.sources { border-top: 1px solid var(--cp-border); padding-top: 40px; padding-bottom: 60px; display: grid; grid-template-columns: 236px minmax(0,1fr); gap: 40px; }
+.sources h2 { font-size: 27px; letter-spacing: -.8px; margin-bottom: 18px; }
+.sources-intro>p:last-child { font-size: 13px; color: var(--cp-text-muted); }
+.source-body details { border-bottom: 1px solid var(--cp-border); padding-bottom: 14px; }
+.source-body summary { font-size: 15px; }
+.source-body ol { columns: 2; gap: 36px; padding-left: 18px; margin: 24px 0; }
+.source-body li { font-size: 12px; margin-bottom: 16px; padding-left: 4px; break-inside: avoid; }
+.source-body li span { display: block; color: var(--cp-text-muted); }
+.source-date { font-size: 11px; color: var(--cp-text-soft); max-width: 65em; }
+.footer { display: flex; gap: 16px; justify-content: space-between; padding-bottom: 30px; color: var(--cp-text-soft); font-size: 11px; flex-wrap: wrap; }
+.storage-error { max-width: 1100px; margin: 20px auto; padding: 16px; border: 1px solid var(--cp-warning); font-size: 13px; background: var(--cp-bg-elevated); }
+.lab-title,.notebook-title { font-size: 34px; letter-spacing: -1px; margin: 0 0 16px; }
+.lab-intro { font-size: 16px; color: var(--cp-text-muted); max-width: 48em; margin-bottom: 28px; }
+.lab-statement { font-size: 24px; line-height: 1.4; margin: 16px 0 24px; max-width: 28em; }
+.lab-actions { margin: 24px 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.lab-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.lab-options .answer { height: 100%; font-size: 14px; }
+.lab-readout { font-size: 12px; color: var(--cp-text-soft); margin-top: 20px; }
+.notebook-toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.notebook-entry { padding: 24px 0; border-top: 1px solid var(--cp-border); }
+.notebook-entry h4 { font-size: 18px; margin-bottom: 12px; }
+.notebook-entry label { display: block; font-size: 14px; color: var(--cp-text-muted); margin-bottom: 12px; }
+.notebook-entry textarea { min-height: 120px; }
+.notebook-entry .source-attribution { margin-top: 10px; }
+.reset-area { padding-top: 24px; border-top: 1px solid var(--cp-border); margin-top: 24px; font-size: 13px; }
+.reset-area p { color: var(--cp-text-muted); max-width: 55em; }
+.reset-confirm { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 30; background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 16px; }
+.skip-link:focus { top: 20px; }
+#print-course { display: none; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .lg-full { background: var(--cp-panel-strong); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (max-width: 1150px) {
+  .topbar { margin-inline: 24px; }
+  .wrap { padding-inline: 32px; }
+  .hero { gap: 32px; }
+  .lesson-layout { grid-template-columns: minmax(0,1fr); }
+  .fieldcard { max-width: none; margin-top: 16px; }
+  .fieldcard textarea { min-height: 130px; }
+  .workspace,.sources { gap: 32px; grid-template-columns: 220px minmax(0,1fr); }
+}
+@media (max-width: 760px) {
+  .wrap { padding-inline: 22px; }
+  .topbar { top: 8px; margin: 8px 12px 0; padding: 8px 10px 8px 14px; gap: 10px; flex-wrap: wrap; border-radius: 16px; }
+  .brand { font-size: 16px; gap: 8px; }
+  .brand svg { width: 22px; height: 26px; }
+  .topbar nav { order: 3; width: 100%; margin: 0; justify-content: space-between; gap: 2px; }
+  .topbar nav a { padding: 8px 12px; font-size: 12px; justify-content: center; flex: 1; }
+  .icon-button { margin-left: auto; }
+  html { scroll-padding-top: 148px; }
+  .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 40px; padding-bottom: 42px; }
+  .source-link { font-size: 11px; margin-bottom: 20px; }
+  h1 { font-size: clamp(40px,11.2vw,68px); max-width: none; }
+  .hero-deck { font-size: 18px; margin-top: 22px; }
+  .hero-support { font-size: 14px; }
+  .desktop-break { display: none; }
+  .hero-actions { gap: 18px; margin-top: 24px; }
+  .primary { padding-inline: 16px; }
+  .hero-footnote { margin-top: 24px; font-size: 11px; }
+  .evidence-figure { max-width: 500px; width: 100%; justify-self: center; }
+  .cabinet-stage { height: 280px; }
+  .figure-heading { padding-inline: 18px; }
+  .figure-controls { padding-inline: 16px; gap: 6px; }
+  .figure-controls button { padding-inline: 6px; }
+  figcaption { padding-inline: 18px; }
+  .bench-heading { display: block; padding: 24px 0; }
+  .bench-heading h2 { font-size: 25px; }
+  .progress-summary { max-width: 220px; margin-top: 18px; }
+  .workspace { display: block; }
+  .course-index { margin-bottom: 28px; }
+  .index-heading { margin-bottom: 12px; }
+  #lesson-list { display: none; }
+  .mobile-lesson { display: block; width: 100%; min-height: 48px; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--cp-border-strong); background: var(--cp-surface); font-size: 14px; }
+  .index-note,.source-index { display: none; }
+  .lesson-title { font-size: 31px; letter-spacing: -1px; scroll-margin-top: 150px; }
+  .lesson-idea { font-size: 18px; }
+  .lesson-prose { font-size: 16px; }
+  .comparison { grid-template-columns: 1fr; gap: 16px; }
+  .comparison>div+div { border-left: none; border-top: 1px solid var(--cp-border); padding: 16px 0 0; }
+  .answer { font-size: 14px; }
+  .fieldcard { padding: 24px; }
+  .fieldcard label,.practice-steps,.fieldcard .practice-task { font-size: 14px; }
+  .sources { display: block; padding-top: 30px; }
+  .sources-intro { max-width: 32em; margin-bottom: 20px; }
+  .source-body ol { columns: 1; }
+  .lab-title,.notebook-title { font-size: 30px; }
+  .lab-options { grid-template-columns: 1fr; }
+  .lab-statement { font-size: 23px; }
+  .workbench { scroll-margin-top: 140px; padding-bottom: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,*::before,*::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  :root,html[data-theme],html[data-palette="signature"],html[data-palette="signature"][data-theme="dark"] { --cp-bg: #ffffff; --cp-text: #000000; --cp-text-muted: #333333; --cp-border: #bbbbbb; color-scheme: light; }
+  .topbar,main,.footer,.storage-error,.skip-link { display: none !important; }
+  .lg-full { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--cp-bg); box-shadow: none; }
+  #print-course { display: block; font-size: 11pt; }
+  #print-course h1 { font-size: 28pt; margin-bottom: 20px; }
+  #print-course h2 { font-size: 20pt; margin: 28px 0 16px; }
+  #print-course h3 { margin: 18px 0 10px; }
+  #print-course article { break-before: page; }
+  #print-course a { overflow-wrap: anywhere; }
+  #print-course p { margin-bottom: 12px; white-space: pre-line; }
+  @page { margin: 18mm; }
+}
+</style>
+</head>
+<body>
+  <svg class="lg-svg" aria-hidden="true" focusable="false"><defs>
+    <filter id="liquid-distort" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.008" numOctaves="1" seed="5" result="turb"/>
+      <feGaussianBlur in="turb" stdDeviation="4" result="softNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="8" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+    <filter id="liquid-distort-sm" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.015" numOctaves="1" seed="7" result="turb"/>
+      <feGaussianBlur in="turb" stdDeviation="2" result="softNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="5" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+  </defs></svg>
+  <a class="skip-link" href="#workbench">Skip to learning material</a>
+  <header class="topbar lg-full">
+    <a class="brand" href="#" aria-label="Founder Fieldwork home">
+      <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M4 3H24V9H10V14H21V20H10V29H4V3Z" fill="currentColor"/><path d="M24 12V29H14V23H18V12H24Z" fill="currentColor" opacity=".45"/></svg>
+      <span>Founder Fieldwork</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a data-view="course" href="#lesson=problem">Learn</a>
+      <a data-view="lab" href="#lab">Evidence lab</a>
+      <a data-view="notebook" href="#notebook">Field notes <span id="note-count">0</span></a>
+    </nav>
+    <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to light theme">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1V4M12 20V23M1 12H4M20 12H23M4.2 4.2L6.3 6.3M17.7 17.7L19.8 19.8M4.2 19.8L6.3 17.7M17.7 6.3L19.8 4.2"/></svg>
+    </button>
+  </header>
+
+  <div id="storage-error" class="storage-error" role="status" hidden></div>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <a class="source-link" href="#sources"><span class="source-dot" aria-hidden="true"></span> A companion to @davecto's founder reel</a>
+        <h1 id="hero-title">Your app works.<br>Does the business?</h1>
+        <p class="hero-deck">Writing code got easier. Finding a problem worth solving still takes fieldwork.</p>
+        <p class="hero-support">Work through the ideas. Question the evidence.<br class="desktop-break"> Leave with a customer experiment you can run.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#lesson=problem">Start the fieldwork <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18"/></svg></a>
+          <a class="text-action" href="#lab">Try the evidence lab</a>
+        </div>
+        <div class="hero-footnote"><span class="tiny-tiles" aria-hidden="true"><i></i><i></i><i></i></span> Find the problem. Test the offer. Earn repeat use.</div>
+      </div>
+      <figure class="evidence-figure iso-plate" aria-labelledby="figure-heading">
+        <div class="figure-heading"><span>Fig. 1</span><h2 id="figure-heading">The evidence cabinet</h2><span class="live-indicator" aria-hidden="true"></span></div>
+        <div class="cabinet-stage"><svg class="cabinet-svg" viewBox="0 0 580 420" role="img" aria-labelledby="cabinet-title cabinet-description"><title id="cabinet-title">An evidence filing cabinet</title><desc id="cabinet-description">A physical analogy with drawers for opinions, observed behavior, and costly commitments. Choosing a signal opens its drawer. Drawer position is not a business score.</desc><g id="cabinet-parts"><g data-part="stand.foot--62--42" data-key="-63.00111126786224" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M297.3 259.5L314 254.6L324.5 262.4L324.5 276.9L307.8 281.8L297.3 274Z"/><path class="iso-shade" data-shade="0" d="M324.5 276.9L307.8 281.8L307.8 267.3L324.5 262.4Z"/><path class="iso-shade" data-shade="3" d="M307.8 281.8L297.3 274L297.3 259.5L307.8 267.3Z"/><path class="iso-top" d="M324.5 262.4L307.8 267.3L297.3 259.5L314 254.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M324.5 262.4L307.8 267.3L297.3 259.5"/><path class="iso-line iso-bevel" data-tone="faint" d="M324.5 262.4L307.9 267L297.3 259.5"/><path class="iso-line iso-edge" data-tone="lo" d="M297.3 259.5L314 254.6L324.5 262.4M324.5 276.9L307.8 281.8L297.3 274M324.5 262.4L324.5 276.9M297.3 259.5L297.3 274"/></g></g><g data-part="stand.foot--62-30" data-key="-29.31296367683395" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M197.1 288.9L213.8 284L224.2 291.9L224.2 306.4L207.5 311.3L197.1 303.4Z"/><path class="iso-shade" data-shade="0" d="M224.2 306.4L207.5 311.3L207.5 296.8L224.2 291.9Z"/><path class="iso-shade" data-shade="3" d="M207.5 311.3L197.1 303.4L197.1 288.9L207.5 296.8Z"/><path class="iso-top" d="M224.2 291.9L207.5 296.8L197.1 288.9L213.8 284Z"/><path class="iso-line iso-crease" data-tone="faint" d="M224.2 291.9L207.5 296.8L197.1 288.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M224.2 291.9L207.7 296.4L197.1 288.9"/><path class="iso-line iso-edge" data-tone="lo" d="M197.1 288.9L213.8 284L224.2 291.9M224.2 306.4L207.5 311.3L197.1 303.4M224.2 291.9L224.2 306.4M197.1 288.9L197.1 303.4"/></g></g><g data-part="stand.foot-50--42" data-key="20.862475546687914" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M394.8 332.7L411.5 327.8L421.9 335.7L421.9 350.2L405.2 355.1L394.8 347.2Z"/><path class="iso-shade" data-shade="0" d="M421.9 350.2L405.2 355.1L405.2 340.6L421.9 335.7Z"/><path class="iso-shade" data-shade="3" d="M405.2 355.1L394.8 347.2L394.8 332.7L405.2 340.6Z"/><path class="iso-top" d="M421.9 335.7L405.2 340.6L394.8 332.7L411.5 327.8Z"/><path class="iso-line iso-crease" data-tone="faint" d="M421.9 335.7L405.2 340.6L394.8 332.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M421.9 335.7L405.4 340.2L394.8 332.7"/><path class="iso-line iso-edge" data-tone="lo" d="M394.8 332.7L411.5 327.8L421.9 335.7M421.9 350.2L405.2 355.1L394.8 347.2M421.9 335.7L421.9 350.2M394.8 332.7L394.8 347.2"/></g></g><g data-part="stand.foot-50-30" data-key="54.550623137716215" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M294.5 362.1L311.2 357.2L321.7 365.1L321.7 379.6L305 384.5L294.5 376.6Z"/><path class="iso-shade" data-shade="0" d="M321.7 379.6L305 384.5L305 370L321.7 365.1Z"/><path class="iso-shade" data-shade="3" d="M305 384.5L294.5 376.6L294.5 362.1L305 370Z"/><path class="iso-top" d="M321.7 365.1L305 370L294.5 362.1L311.2 357.2Z"/><path class="iso-line iso-crease" data-tone="faint" d="M321.7 365.1L305 370L294.5 362.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M321.7 365.1L305.1 369.6L294.5 362.1"/><path class="iso-line iso-edge" data-tone="lo" d="M294.5 362.1L311.2 357.2L321.7 365.1M321.7 379.6L305 384.5L294.5 376.6M321.7 365.1L321.7 379.6M294.5 362.1L294.5 376.6"/></g></g><g data-part="frame.plinth" data-key="54.57062313771622" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M180.4 280.7L316.8 240.7L438.6 332.2L438.6 338L302.2 378.1L180.4 286.5Z"/><path class="iso-shade" data-shade="0" d="M438.6 338L302.2 378.1L302.2 372.3L438.6 332.2Z"/><path class="iso-shade" data-shade="3" d="M302.2 378.1L180.4 286.5L180.4 280.7L302.2 372.3Z"/><path class="iso-top" d="M438.6 332.2L302.2 372.3L180.4 280.7L316.8 240.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M438.6 332.2L302.2 372.3L180.4 280.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M438.6 332.2L302.3 371.9L180.4 280.7"/><path class="iso-line iso-edge" data-tone="hi" d="M180.4 280.7L316.8 240.7L438.6 332.2M438.6 338L302.2 378.1L180.4 286.5M438.6 332.2L438.6 338M180.4 280.7L180.4 286.5"/></g></g><g data-part="frame.back" data-key="54.59062313771622" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M311.4 29.4L317 27.7L430.1 112.7L430.1 330.2L424.5 331.8L311.4 246.8Z"/><path class="iso-shade" data-shade="0" d="M430.1 330.2L424.5 331.8L424.5 114.4L430.1 112.7Z"/><path class="iso-shade" data-shade="3" d="M424.5 331.8L311.4 246.8L311.4 29.4L424.5 114.4Z"/><path class="iso-top" d="M430.1 112.7L424.5 114.4L311.4 29.4L317 27.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M430.1 112.7L424.5 114.4L311.4 29.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M430.1 112.7L424.7 114L311.4 29.4"/><path class="iso-line iso-edge" data-tone="lo" d="M311.4 29.4L317 27.7L430.1 112.7M430.1 330.2L424.5 331.8L311.4 246.8M430.1 112.7L430.1 330.2M311.4 29.4L311.4 246.8"/></g></g><g data-part="frame.left" data-key="54.610623137716225" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M188.9 65.3L311.4 29.4L314.9 32L314.9 249.5L192.4 285.4L188.9 282.8Z"/><path class="iso-shade" data-shade="0" d="M314.9 249.5L192.4 285.4L192.4 67.9L314.9 32Z"/><path class="iso-shade" data-shade="3" d="M192.4 285.4L188.9 282.8L188.9 65.3L192.4 67.9Z"/><path class="iso-top" d="M314.9 32L192.4 67.9L188.9 65.3L311.4 29.4Z"/><path class="iso-line iso-crease" data-tone="faint" d="M314.9 32L192.4 67.9L188.9 65.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M314.9 32L192.5 67.6L188.9 65.3"/><path class="iso-line iso-edge" data-tone="mid" d="M188.9 65.3L311.4 29.4L314.9 32M314.9 249.5L192.4 285.4L188.9 282.8M314.9 32L314.9 249.5M188.9 65.3L188.9 282.8"/></g></g><g data-part="frame.shelf-0" data-key="54.63062313771623" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M192.4 281.1L314.9 245.1L421.1 324.9L421.1 329.2L298.5 365.2L192.4 285.4Z"/><path class="iso-shade" data-shade="0" d="M421.1 329.2L298.5 365.2L298.5 360.8L421.1 324.9Z"/><path class="iso-shade" data-shade="3" d="M298.5 365.2L192.4 285.4L192.4 281.1L298.5 360.8Z"/><path class="iso-top" d="M421.1 324.9L298.5 360.8L192.4 281.1L314.9 245.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M421.1 324.9L298.5 360.8L192.4 281.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M421.1 324.9L298.7 360.5L192.4 281.1"/><path class="iso-line iso-edge" data-tone="lo" d="M192.4 281.1L314.9 245.1L421.1 324.9M421.1 329.2L298.5 365.2L192.4 285.4M421.1 324.9L421.1 329.2M192.4 281.1L192.4 285.4"/></g></g><g data-part="frame.rail-0--61" data-key="54.63062313771623" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M199.3 274.7L309.3 242.4L311.9 244.4L311.9 248.7L201.9 281L199.3 279Z"/><path class="iso-shade" data-shade="0" d="M311.9 248.7L201.9 281L201.9 276.6L311.9 244.4Z"/><path class="iso-shade" data-shade="3" d="M201.9 281L199.3 279L199.3 274.7L201.9 276.6Z"/><path class="iso-top" d="M311.9 244.4L201.9 276.6L199.3 274.7L309.3 242.4Z"/><path class="iso-line iso-crease" data-tone="faint" d="M311.9 244.4L201.9 276.6L199.3 274.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M311.9 244.4L202.1 276.3L199.3 274.7"/><path class="iso-line iso-edge" data-tone="mid" d="M199.3 274.7L309.3 242.4L311.9 244.4M311.9 248.7L201.9 281L199.3 279M311.9 244.4L311.9 248.7M199.3 274.7L199.3 279"/></g></g><g data-part="opinion.back" data-key="54.63062313771623" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M311.9 200.9L316.1 199.6L417.1 275.5L417.1 320.4L412.9 321.6L311.9 245.8Z"/><path class="iso-shade" data-shade="0" d="M417.1 320.4L412.9 321.6L412.9 276.7L417.1 275.5Z"/><path class="iso-shade" data-shade="3" d="M412.9 321.6L311.9 245.8L311.9 200.9L412.9 276.7Z"/><path class="iso-top" d="M417.1 275.5L412.9 276.7L311.9 200.9L316.1 199.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 275.5L412.9 276.7L311.9 200.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 275.5L413 276.4L311.9 200.9"/><path class="iso-line iso-edge" data-tone="lo" d="M311.9 200.9L316.1 199.6L417.1 275.5M417.1 320.4L412.9 321.6L311.9 245.8M417.1 275.5L417.1 320.4M311.9 200.9L311.9 245.8"/></g></g><g data-part="frame.rail-1--61" data-key="54.63062313771623" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M199.3 203.6L309.3 171.4L311.9 173.3L311.9 177.7L201.9 209.9L199.3 208Z"/><path class="iso-shade" data-shade="0" d="M311.9 177.7L201.9 209.9L201.9 205.6L311.9 173.3Z"/><path class="iso-shade" data-shade="3" d="M201.9 209.9L199.3 208L199.3 203.6L201.9 205.6Z"/><path class="iso-top" d="M311.9 173.3L201.9 205.6L199.3 203.6L309.3 171.4Z"/><path class="iso-line iso-crease" data-tone="faint" d="M311.9 173.3L201.9 205.6L199.3 203.6"/><path class="iso-line iso-bevel" data-tone="faint" d="M311.9 173.3L202.1 205.2L199.3 203.6"/><path class="iso-line iso-edge" data-tone="mid" d="M199.3 203.6L309.3 171.4L311.9 173.3M311.9 177.7L201.9 209.9L199.3 208M311.9 173.3L311.9 177.7M199.3 203.6L199.3 208"/></g></g><g data-part="frame.rail-2--61" data-key="54.63062313771623" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M199.3 132.6L309.3 100.3L311.9 102.3L311.9 106.6L201.9 138.9L199.3 136.9Z"/><path class="iso-shade" data-shade="0" d="M311.9 106.6L201.9 138.9L201.9 134.5L311.9 102.3Z"/><path class="iso-shade" data-shade="3" d="M201.9 138.9L199.3 136.9L199.3 132.6L201.9 134.5Z"/><path class="iso-top" d="M311.9 102.3L201.9 134.5L199.3 132.6L309.3 100.3Z"/><path class="iso-line iso-crease" data-tone="faint" d="M311.9 102.3L201.9 134.5L199.3 132.6"/><path class="iso-line iso-bevel" data-tone="faint" d="M311.9 102.3L202.1 134.2L199.3 132.6"/><path class="iso-line iso-edge" data-tone="mid" d="M199.3 132.6L309.3 100.3L311.9 102.3M311.9 106.6L201.9 138.9L199.3 136.9M311.9 102.3L311.9 106.6M199.3 132.6L199.3 136.9"/></g></g><g data-part="opinion.floor" data-key="54.65062313771623" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M204.7 277.3L316.1 244.6L417.1 320.4L417.1 323.3L305.7 356L204.7 280.2Z"/><path class="iso-shade" data-shade="0" d="M417.1 323.3L305.7 356L305.7 353.1L417.1 320.4Z"/><path class="iso-shade" data-shade="3" d="M305.7 356L204.7 280.2L204.7 277.3L305.7 353.1Z"/><path class="iso-top" d="M417.1 320.4L305.7 353.1L204.7 277.3L316.1 244.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 320.4L305.7 353.1L204.7 277.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 320.4L305.8 352.7L204.7 277.3"/><path class="iso-line iso-edge" data-tone="lo" d="M204.7 277.3L316.1 244.6L417.1 320.4M417.1 323.3L305.7 356L204.7 280.2M417.1 320.4L417.1 323.3M204.7 277.3L204.7 280.2"/></g></g><g data-part="opinion.side--58" data-key="54.65062313771623" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M204.7 232.3L311.9 200.9L314.6 202.8L314.6 247.8L207.3 279.2L204.7 277.3Z"/><path class="iso-shade" data-shade="0" d="M314.6 247.8L207.3 279.2L207.3 234.3L314.6 202.8Z"/><path class="iso-shade" data-shade="3" d="M207.3 279.2L204.7 277.3L204.7 232.3L207.3 234.3Z"/><path class="iso-top" d="M314.6 202.8L207.3 234.3L204.7 232.3L311.9 200.9Z"/><path class="iso-line iso-crease" data-tone="faint" d="M314.6 202.8L207.3 234.3L204.7 232.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M314.6 202.8L207.5 233.9L204.7 232.3"/><path class="iso-line iso-edge" data-tone="mid" d="M204.7 232.3L311.9 200.9L314.6 202.8M314.6 247.8L207.3 279.2L204.7 277.3M314.6 202.8L314.6 247.8M204.7 232.3L204.7 277.3"/></g></g><g data-part="opinion.paper-0" data-key="54.670623137716234" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M226.8 279.9L304.8 257L386.6 318.5L386.6 319.3L308.6 342.2L226.8 280.8Z"/><path class="iso-shade" data-shade="0" d="M386.6 319.3L308.6 342.2L308.6 341.4L386.6 318.5Z"/><path class="iso-shade" data-shade="3" d="M308.6 342.2L226.8 280.8L226.8 279.9L308.6 341.4Z"/><path class="iso-top" d="M386.6 318.5L308.6 341.4L226.8 279.9L304.8 257Z"/><path class="iso-line iso-crease" data-tone="faint" d="M386.6 318.5L308.6 341.4L226.8 279.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M386.6 318.5L308.8 341L226.8 279.9"/><path class="iso-line" data-tone="lo" data-free="" d="M298.7 267L349.2 304.9"/><path class="iso-line" data-tone="lo" data-free="" d="M290.4 269.4L333 301.5"/><path class="iso-line" data-tone="lo" data-free="" d="M282 271.9L316.8 298"/><path class="iso-line iso-edge" data-tone="hi" d="M226.8 279.9L304.8 257L386.6 318.5M386.6 319.3L308.6 342.2L226.8 280.8M386.6 318.5L386.6 319.3M226.8 279.9L226.8 280.8"/></g></g><g data-part="opinion.paper-1" data-key="54.69062313771624" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M225.8 280.4L303.8 257.6L385.5 319L385.5 319.9L307.6 342.7L225.8 281.3Z"/><path class="iso-shade" data-shade="0" d="M385.5 319.9L307.6 342.7L307.6 341.9L385.5 319Z"/><path class="iso-shade" data-shade="3" d="M307.6 342.7L225.8 281.3L225.8 280.4L307.6 341.9Z"/><path class="iso-top" d="M385.5 319L307.6 341.9L225.8 280.4L303.8 257.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M385.5 319L307.6 341.9L225.8 280.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M385.5 319L307.7 341.5L225.8 280.4"/><path class="iso-line" data-tone="lo" data-free="" d="M297.7 267.5L348.1 305.4"/><path class="iso-line" data-tone="lo" data-free="" d="M289.3 270L331.9 302"/><path class="iso-line" data-tone="lo" data-free="" d="M281 272.4L315.8 298.6"/><path class="iso-line iso-edge" data-tone="hi" d="M225.8 280.4L303.8 257.6L385.5 319M385.5 319.9L307.6 342.7L225.8 281.3M385.5 319L385.5 319.9M225.8 280.4L225.8 281.3"/></g></g><g data-part="opinion.paper-2" data-key="54.71062313771624" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M224.7 281L302.7 258.1L384.5 319.5L384.5 320.4L306.5 343.3L224.7 281.8Z"/><path class="iso-shade" data-shade="0" d="M384.5 320.4L306.5 343.3L306.5 342.4L384.5 319.5Z"/><path class="iso-shade" data-shade="3" d="M306.5 343.3L224.7 281.8L224.7 281L306.5 342.4Z"/><path class="iso-top" d="M384.5 319.5L306.5 342.4L224.7 281L302.7 258.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M384.5 319.5L306.5 342.4L224.7 281"/><path class="iso-line iso-bevel" data-tone="faint" d="M384.5 319.5L306.7 342.1L224.7 281"/><path class="iso-line" data-tone="lo" data-free="" d="M296.6 268L347.1 306"/><path class="iso-line" data-tone="lo" data-free="" d="M288.3 270.5L330.9 302.5"/><path class="iso-line" data-tone="lo" data-free="" d="M279.9 273L314.7 299.1"/><path class="iso-line iso-edge" data-tone="hi" d="M224.7 281L302.7 258.1L384.5 319.5M384.5 320.4L306.5 343.3L224.7 281.8M384.5 319.5L384.5 320.4M224.7 281L224.7 281.8"/></g></g><g data-part="opinion.side-55" data-key="54.73062313771624" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M303 306.2L410.3 274.7L412.9 276.7L412.9 321.6L305.7 353.1L303 351.1Z"/><path class="iso-shade" data-shade="0" d="M412.9 321.6L305.7 353.1L305.7 308.1L412.9 276.7Z"/><path class="iso-shade" data-shade="3" d="M305.7 353.1L303 351.1L303 306.2L305.7 308.1Z"/><path class="iso-top" d="M412.9 276.7L305.7 308.1L303 306.2L410.3 274.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M412.9 276.7L305.7 308.1L303 306.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M412.9 276.7L305.8 307.8L303 306.2"/><path class="iso-line iso-edge" data-tone="mid" d="M303 306.2L410.3 274.7L412.9 276.7M412.9 321.6L305.7 353.1L303 351.1M412.9 276.7L412.9 321.6M303 306.2L303 351.1"/></g></g><g data-part="opinion.front" data-key="54.750623137716246" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M199.2 225.2L204.7 223.6L305.7 299.4L305.7 356L300.1 357.6L199.2 281.8Z"/><path class="iso-shade" data-shade="0" d="M305.7 356L300.1 357.6L300.1 301.1L305.7 299.4Z"/><path class="iso-shade" data-shade="3" d="M300.1 357.6L199.2 281.8L199.2 225.2L300.1 301.1Z"/><path class="iso-top" d="M305.7 299.4L300.1 301.1L199.2 225.2L204.7 223.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M305.7 299.4L300.1 301.1L199.2 225.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M305.7 299.4L300.3 300.7L199.2 225.2"/><g class="iso-dots" data-tone="hi"><circle cx="204.4" cy="278.5" r="0.65"/><circle cx="294.9" cy="346.4" r="0.65"/><circle cx="204.4" cy="237.9" r="0.65"/><circle cx="294.9" cy="305.9" r="0.65"/></g><path class="iso-line iso-edge" data-tone="hi" d="M199.2 225.2L204.7 223.6L305.7 299.4M305.7 356L300.1 357.6L199.2 281.8M305.7 299.4L305.7 356M199.2 225.2L199.2 281.8"/></g></g><g data-part="opinion.label-frame" data-key="54.77062313771625" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M224.4 256.7L225.3 256.5L274 293.1L274 307.6L273.1 307.8L224.4 271.2Z"/><path class="iso-shade" data-shade="0" d="M274 307.6L273.1 307.8L273.1 293.3L274 293.1Z"/><path class="iso-shade" data-shade="3" d="M273.1 307.8L224.4 271.2L224.4 256.7L273.1 293.3Z"/><path class="iso-top" d="M274 293.1L273.1 293.3L224.4 256.7L225.3 256.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M274 293.1L273.1 293.3L224.4 256.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M274 293.1L273.3 293L224.4 256.7"/><path class="iso-line iso-edge" data-tone="mid" d="M224.4 256.7L225.3 256.5L274 293.1M274 307.6L273.1 307.8L224.4 271.2M274 293.1L274 307.6M224.4 256.7L224.4 271.2"/></g></g><g data-part="opinion.pull-mount--18" data-key="54.77062313771625" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M227 292.6L234 290.5L236.6 292.5L236.6 298.3L229.6 300.3L227 298.4Z"/><path class="iso-shade" data-shade="0" d="M236.6 298.3L229.6 300.3L229.6 294.5L236.6 292.5Z"/><path class="iso-shade" data-shade="3" d="M229.6 300.3L227 298.4L227 292.6L229.6 294.5Z"/><path class="iso-top" d="M236.6 292.5L229.6 294.5L227 292.6L234 290.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M236.6 292.5L229.6 294.5L227 292.6"/><path class="iso-line iso-bevel" data-tone="faint" d="M236.6 292.5L229.8 294.2L227 292.6"/><path class="iso-line iso-edge" data-tone="hi" d="M227 292.6L234 290.5L236.6 292.5M236.6 298.3L229.6 300.3L227 298.4M236.6 292.5L236.6 298.3M227 292.6L227 298.4"/></g></g><g data-part="opinion.pull-mount-15" data-key="54.77062313771625" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M255.7 314.2L262.7 312.1L265.3 314.1L265.3 319.9L258.3 321.9L255.7 320Z"/><path class="iso-shade" data-shade="0" d="M265.3 319.9L258.3 321.9L258.3 316.1L265.3 314.1Z"/><path class="iso-shade" data-shade="3" d="M258.3 321.9L255.7 320L255.7 314.2L258.3 316.1Z"/><path class="iso-top" d="M265.3 314.1L258.3 316.1L255.7 314.2L262.7 312.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M265.3 314.1L258.3 316.1L255.7 314.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M265.3 314.1L258.5 315.8L255.7 314.2"/><path class="iso-line iso-edge" data-tone="hi" d="M255.7 314.2L262.7 312.1L265.3 314.1M265.3 319.9L258.3 321.9L255.7 320M265.3 314.1L265.3 319.9M255.7 314.2L255.7 320"/></g></g><g data-part="opinion.label-insert" data-key="54.79062313771625" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid" data-lit=""><path class="iso-fill" d="M227.3 262.4L227.9 262.2L269.7 293.6L269.7 302.3L269.1 302.5L227.3 271.1Z"/><path class="iso-shade" data-shade="0" d="M269.7 302.3L269.1 302.5L269.1 293.8L269.7 293.6Z"/><path class="iso-shade" data-shade="3" d="M269.1 302.5L227.3 271.1L227.3 262.4L269.1 293.8Z"/><path class="iso-top" d="M269.7 293.6L269.1 293.8L227.3 262.4L227.9 262.2Z"/><path class="iso-line iso-crease" data-tone="faint" d="M269.7 293.6L269.1 293.8L227.3 262.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M269.7 293.6L269.3 293.4L227.3 262.4"/><path class="iso-line iso-edge" data-tone="lo" d="M227.3 262.4L227.9 262.2L269.7 293.6M269.7 302.3L269.1 302.5L227.3 271.1M269.7 293.6L269.7 302.3M227.3 262.4L227.3 271.1"/></g></g><g data-part="opinion.pull" data-key="54.79062313771625" data-lift="12.16516440787133" data-drawer="opinion"><g class="iso-solid"><path class="iso-fill" d="M222.8 293.8L227 292.6L258.3 316.1L258.3 321.9L254.1 323.1L222.8 299.6Z"/><path class="iso-shade" data-shade="0" d="M258.3 321.9L254.1 323.1L254.1 317.3L258.3 316.1Z"/><path class="iso-shade" data-shade="3" d="M254.1 323.1L222.8 299.6L222.8 293.8L254.1 317.3Z"/><path class="iso-top" d="M258.3 316.1L254.1 317.3L222.8 293.8L227 292.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M258.3 316.1L254.1 317.3L222.8 293.8"/><path class="iso-line iso-bevel" data-tone="faint" d="M258.3 316.1L254.3 317L222.8 293.8"/><path class="iso-line iso-edge" data-tone="hi" d="M222.8 293.8L227 292.6L258.3 316.1M258.3 321.9L254.1 323.1L222.8 299.6M258.3 316.1L258.3 321.9M222.8 293.8L222.8 299.6"/></g></g><g data-part="frame.rail-0-58" data-key="62.273850892635814" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M302.9 352.5L412.9 320.2L415.5 322.1L415.5 326.5L305.5 358.8L302.9 356.8Z"/><path class="iso-shade" data-shade="0" d="M415.5 326.5L305.5 358.8L305.5 354.4L415.5 322.1Z"/><path class="iso-shade" data-shade="3" d="M305.5 358.8L302.9 356.8L302.9 352.5L305.5 354.4Z"/><path class="iso-top" d="M415.5 322.1L305.5 354.4L302.9 352.5L412.9 320.2Z"/><path class="iso-line iso-crease" data-tone="faint" d="M415.5 322.1L305.5 354.4L302.9 352.5"/><path class="iso-line iso-bevel" data-tone="faint" d="M415.5 322.1L305.6 354.1L302.9 352.5"/><path class="iso-line iso-edge" data-tone="mid" d="M302.9 352.5L412.9 320.2L415.5 322.1M415.5 326.5L305.5 358.8L302.9 356.8M415.5 322.1L415.5 326.5M302.9 352.5L302.9 356.8"/></g></g><g data-part="behavior.back" data-key="65.35514199460364" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M311.9 129.8L316.1 128.6L417.1 204.4L417.1 249.4L412.9 250.6L311.9 174.8Z"/><path class="iso-shade" data-shade="0" d="M417.1 249.4L412.9 250.6L412.9 205.7L417.1 204.4Z"/><path class="iso-shade" data-shade="3" d="M412.9 250.6L311.9 174.8L311.9 129.8L412.9 205.7Z"/><path class="iso-top" d="M417.1 204.4L412.9 205.7L311.9 129.8L316.1 128.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 204.4L412.9 205.7L311.9 129.8"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 204.4L413 205.3L311.9 129.8"/><path class="iso-line iso-edge" data-tone="lo" d="M311.9 129.8L316.1 128.6L417.1 204.4M417.1 249.4L412.9 250.6L311.9 174.8M417.1 204.4L417.1 249.4M311.9 129.8L311.9 174.8"/></g></g><g data-part="behavior.side--58" data-key="65.37514199460364" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M204.7 161.3L311.9 129.8L314.6 131.8L314.6 176.7L207.3 208.2L204.7 206.2Z"/><path class="iso-shade" data-shade="0" d="M314.6 176.7L207.3 208.2L207.3 163.2L314.6 131.8Z"/><path class="iso-shade" data-shade="3" d="M207.3 208.2L204.7 206.2L204.7 161.3L207.3 163.2Z"/><path class="iso-top" d="M314.6 131.8L207.3 163.2L204.7 161.3L311.9 129.8Z"/><path class="iso-line iso-crease" data-tone="faint" d="M314.6 131.8L207.3 163.2L204.7 161.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M314.6 131.8L207.5 162.9L204.7 161.3"/><path class="iso-line iso-edge" data-tone="mid" d="M204.7 161.3L311.9 129.8L314.6 131.8M314.6 176.7L207.3 208.2L204.7 206.2M314.6 131.8L314.6 176.7M204.7 161.3L204.7 206.2"/></g></g><g data-part="frame.shelf-1" data-key="66.85578754558756" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M192.4 210L314.9 174.1L421.1 253.8L421.1 258.2L298.5 294.1L192.4 214.4Z"/><path class="iso-shade" data-shade="0" d="M421.1 258.2L298.5 294.1L298.5 289.8L421.1 253.8Z"/><path class="iso-shade" data-shade="3" d="M298.5 294.1L192.4 214.4L192.4 210L298.5 289.8Z"/><path class="iso-top" d="M421.1 253.8L298.5 289.8L192.4 210L314.9 174.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M421.1 253.8L298.5 289.8L192.4 210"/><path class="iso-line iso-bevel" data-tone="faint" d="M421.1 253.8L298.7 289.4L192.4 210"/><path class="iso-line iso-edge" data-tone="lo" d="M192.4 210L314.9 174.1L421.1 253.8M421.1 258.2L298.5 294.1L192.4 214.4M421.1 253.8L421.1 258.2M192.4 210L192.4 214.4"/></g></g><g data-part="behavior.floor" data-key="66.87578754558756" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M204.7 206.2L316.1 173.5L417.1 249.4L417.1 252.3L305.7 284.9L204.7 209.1Z"/><path class="iso-shade" data-shade="0" d="M417.1 252.3L305.7 284.9L305.7 282L417.1 249.4Z"/><path class="iso-shade" data-shade="3" d="M305.7 284.9L204.7 209.1L204.7 206.2L305.7 282Z"/><path class="iso-top" d="M417.1 249.4L305.7 282L204.7 206.2L316.1 173.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 249.4L305.7 282L204.7 206.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 249.4L305.8 281.7L204.7 206.2"/><path class="iso-line iso-edge" data-tone="lo" d="M204.7 206.2L316.1 173.5L417.1 249.4M417.1 252.3L305.7 284.9L204.7 209.1M417.1 249.4L417.1 252.3M204.7 206.2L204.7 209.1"/></g></g><g data-part="behavior.paper-0" data-key="66.89578754558755" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M226.8 208.9L304.8 186L386.6 247.4L386.6 248.3L308.6 271.2L226.8 209.7Z"/><path class="iso-shade" data-shade="0" d="M386.6 248.3L308.6 271.2L308.6 270.3L386.6 247.4Z"/><path class="iso-shade" data-shade="3" d="M308.6 271.2L226.8 209.7L226.8 208.9L308.6 270.3Z"/><path class="iso-top" d="M386.6 247.4L308.6 270.3L226.8 208.9L304.8 186Z"/><path class="iso-line iso-crease" data-tone="faint" d="M386.6 247.4L308.6 270.3L226.8 208.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M386.6 247.4L308.8 270L226.8 208.9"/><path class="iso-line" data-tone="lo" data-free="" d="M298.7 196L349.2 233.9"/><path class="iso-line" data-tone="lo" data-free="" d="M290.4 198.4L333 230.4"/><path class="iso-line" data-tone="lo" data-free="" d="M282 200.9L316.8 227"/><path class="iso-line iso-edge" data-tone="hi" d="M226.8 208.9L304.8 186L386.6 247.4M386.6 248.3L308.6 271.2L226.8 209.7M386.6 247.4L386.6 248.3M226.8 208.9L226.8 209.7"/></g></g><g data-part="behavior.paper-1" data-key="66.91578754558755" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M225.8 209.4L303.8 186.5L385.5 248L385.5 248.8L307.6 271.7L225.8 210.3Z"/><path class="iso-shade" data-shade="0" d="M385.5 248.8L307.6 271.7L307.6 270.8L385.5 248Z"/><path class="iso-shade" data-shade="3" d="M307.6 271.7L225.8 210.3L225.8 209.4L307.6 270.8Z"/><path class="iso-top" d="M385.5 248L307.6 270.8L225.8 209.4L303.8 186.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M385.5 248L307.6 270.8L225.8 209.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M385.5 248L307.7 270.5L225.8 209.4"/><path class="iso-line" data-tone="lo" data-free="" d="M297.7 196.5L348.1 234.4"/><path class="iso-line" data-tone="lo" data-free="" d="M289.3 198.9L331.9 231"/><path class="iso-line" data-tone="lo" data-free="" d="M281 201.4L315.8 227.5"/><path class="iso-line iso-edge" data-tone="hi" d="M225.8 209.4L303.8 186.5L385.5 248M385.5 248.8L307.6 271.7L225.8 210.3M385.5 248L385.5 248.8M225.8 209.4L225.8 210.3"/></g></g><g data-part="behavior.paper-2" data-key="66.93578754558754" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M224.7 209.9L302.7 187L384.5 248.5L384.5 249.4L306.5 272.2L224.7 210.8Z"/><path class="iso-shade" data-shade="0" d="M384.5 249.4L306.5 272.2L306.5 271.4L384.5 248.5Z"/><path class="iso-shade" data-shade="3" d="M306.5 272.2L224.7 210.8L224.7 209.9L306.5 271.4Z"/><path class="iso-top" d="M384.5 248.5L306.5 271.4L224.7 209.9L302.7 187Z"/><path class="iso-line iso-crease" data-tone="faint" d="M384.5 248.5L306.5 271.4L224.7 209.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M384.5 248.5L306.7 271L224.7 209.9"/><path class="iso-line" data-tone="lo" data-free="" d="M296.6 197L347.1 234.9"/><path class="iso-line" data-tone="lo" data-free="" d="M288.3 199.5L330.9 231.5"/><path class="iso-line" data-tone="lo" data-free="" d="M279.9 201.9L314.7 228.1"/><path class="iso-line iso-edge" data-tone="hi" d="M224.7 209.9L302.7 187L384.5 248.5M384.5 249.4L306.5 272.2L224.7 210.8M384.5 248.5L384.5 249.4M224.7 209.9L224.7 210.8"/></g></g><g data-part="frame.rail-1-58" data-key="74.49901530050714" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M302.9 281.4L412.9 249.1L415.5 251.1L415.5 255.5L305.5 287.7L302.9 285.8Z"/><path class="iso-shade" data-shade="0" d="M415.5 255.5L305.5 287.7L305.5 283.4L415.5 251.1Z"/><path class="iso-shade" data-shade="3" d="M305.5 287.7L302.9 285.8L302.9 281.4L305.5 283.4Z"/><path class="iso-top" d="M415.5 251.1L305.5 283.4L302.9 281.4L412.9 249.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M415.5 251.1L305.5 283.4L302.9 281.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M415.5 251.1L305.6 283L302.9 281.4"/><path class="iso-line iso-edge" data-tone="mid" d="M302.9 281.4L412.9 249.1L415.5 251.1M415.5 255.5L305.5 287.7L302.9 285.8M415.5 251.1L415.5 255.5M302.9 281.4L302.9 285.8"/></g></g><g data-part="behavior.side-55" data-key="75.16840350284158" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M303 235.1L410.3 203.7L412.9 205.7L412.9 250.6L305.7 282L303 280.1Z"/><path class="iso-shade" data-shade="0" d="M412.9 250.6L305.7 282L305.7 237.1L412.9 205.7Z"/><path class="iso-shade" data-shade="3" d="M305.7 282L303 280.1L303 235.1L305.7 237.1Z"/><path class="iso-top" d="M412.9 205.7L305.7 237.1L303 235.1L410.3 203.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M412.9 205.7L305.7 237.1L303 235.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M412.9 205.7L305.8 236.8L303 235.1"/><path class="iso-line iso-edge" data-tone="mid" d="M303 235.1L410.3 203.7L412.9 205.7M412.9 250.6L305.7 282L303 280.1M412.9 205.7L412.9 250.6M303 235.1L303 280.1"/></g></g><g data-part="behavior.front" data-key="75.18840350284158" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M199.2 154.2L204.7 152.6L305.7 228.4L305.7 284.9L300.1 286.6L199.2 210.8Z"/><path class="iso-shade" data-shade="0" d="M305.7 284.9L300.1 286.6L300.1 230L305.7 228.4Z"/><path class="iso-shade" data-shade="3" d="M300.1 286.6L199.2 210.8L199.2 154.2L300.1 230Z"/><path class="iso-top" d="M305.7 228.4L300.1 230L199.2 154.2L204.7 152.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M305.7 228.4L300.1 230L199.2 154.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M305.7 228.4L300.3 229.7L199.2 154.2"/><g class="iso-dots" data-tone="hi"><circle cx="204.4" cy="207.4" r="0.65"/><circle cx="294.9" cy="275.4" r="0.65"/><circle cx="204.4" cy="166.8" r="0.65"/><circle cx="294.9" cy="234.8" r="0.65"/></g><path class="iso-line iso-edge" data-tone="hi" d="M199.2 154.2L204.7 152.6L305.7 228.4M305.7 284.9L300.1 286.6L199.2 210.8M305.7 228.4L305.7 284.9M199.2 154.2L199.2 210.8"/></g></g><g data-part="behavior.label-frame" data-key="75.20840350284158" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M224.4 185.7L225.3 185.4L274 222L274 236.5L273.1 236.8L224.4 200.2Z"/><path class="iso-shade" data-shade="0" d="M274 236.5L273.1 236.8L273.1 222.3L274 222Z"/><path class="iso-shade" data-shade="3" d="M273.1 236.8L224.4 200.2L224.4 185.7L273.1 222.3Z"/><path class="iso-top" d="M274 222L273.1 222.3L224.4 185.7L225.3 185.4Z"/><path class="iso-line iso-crease" data-tone="faint" d="M274 222L273.1 222.3L224.4 185.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M274 222L273.3 221.9L224.4 185.7"/><path class="iso-line iso-edge" data-tone="mid" d="M224.4 185.7L225.3 185.4L274 222M274 236.5L273.1 236.8L224.4 200.2M274 222L274 236.5M224.4 185.7L224.4 200.2"/></g></g><g data-part="behavior.pull-mount--18" data-key="75.20840350284158" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M227 221.5L234 219.5L236.6 221.5L236.6 227.3L229.6 229.3L227 227.3Z"/><path class="iso-shade" data-shade="0" d="M236.6 227.3L229.6 229.3L229.6 223.5L236.6 221.5Z"/><path class="iso-shade" data-shade="3" d="M229.6 229.3L227 227.3L227 221.5L229.6 223.5Z"/><path class="iso-top" d="M236.6 221.5L229.6 223.5L227 221.5L234 219.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M236.6 221.5L229.6 223.5L227 221.5"/><path class="iso-line iso-bevel" data-tone="faint" d="M236.6 221.5L229.8 223.2L227 221.5"/><path class="iso-line iso-edge" data-tone="hi" d="M227 221.5L234 219.5L236.6 221.5M236.6 227.3L229.6 229.3L227 227.3M236.6 221.5L236.6 227.3M227 221.5L227 227.3"/></g></g><g data-part="behavior.pull-mount-15" data-key="75.20840350284158" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M255.7 243.1L262.7 241.1L265.3 243L265.3 248.8L258.3 250.9L255.7 248.9Z"/><path class="iso-shade" data-shade="0" d="M265.3 248.8L258.3 250.9L258.3 245.1L265.3 243Z"/><path class="iso-shade" data-shade="3" d="M258.3 250.9L255.7 248.9L255.7 243.1L258.3 245.1Z"/><path class="iso-top" d="M265.3 243L258.3 245.1L255.7 243.1L262.7 241.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M265.3 243L258.3 245.1L255.7 243.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M265.3 243L258.5 244.7L255.7 243.1"/><path class="iso-line iso-edge" data-tone="hi" d="M255.7 243.1L262.7 241.1L265.3 243M265.3 248.8L258.3 250.9L255.7 248.9M265.3 243L265.3 248.8M255.7 243.1L255.7 248.9"/></g></g><g data-part="behavior.label-insert" data-key="75.22840350284157" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid" data-lit=""><path class="iso-fill" d="M227.3 191.3L227.9 191.2L269.7 222.6L269.7 231.3L269.1 231.4L227.3 200Z"/><path class="iso-shade" data-shade="0" d="M269.7 231.3L269.1 231.4L269.1 222.7L269.7 222.6Z"/><path class="iso-shade" data-shade="3" d="M269.1 231.4L227.3 200L227.3 191.3L269.1 222.7Z"/><path class="iso-top" d="M269.7 222.6L269.1 222.7L227.3 191.3L227.9 191.2Z"/><path class="iso-line iso-crease" data-tone="faint" d="M269.7 222.6L269.1 222.7L227.3 191.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M269.7 222.6L269.3 222.4L227.3 191.3"/><path class="iso-line iso-edge" data-tone="lo" d="M227.3 191.3L227.9 191.2L269.7 222.6M269.7 231.3L269.1 231.4L227.3 200M269.7 222.6L269.7 231.3M227.3 191.3L227.3 200"/></g></g><g data-part="behavior.pull" data-key="75.22840350284157" data-lift="12.16516440787133" data-drawer="behavior"><g class="iso-solid"><path class="iso-fill" d="M222.8 222.8L227 221.5L258.3 245.1L258.3 250.9L254.1 252.1L222.8 228.6Z"/><path class="iso-shade" data-shade="0" d="M258.3 250.9L254.1 252.1L254.1 246.3L258.3 245.1Z"/><path class="iso-shade" data-shade="3" d="M254.1 252.1L222.8 228.6L222.8 222.8L254.1 246.3Z"/><path class="iso-top" d="M258.3 245.1L254.1 246.3L222.8 222.8L227 221.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M258.3 245.1L254.1 246.3L222.8 222.8"/><path class="iso-line iso-bevel" data-tone="faint" d="M258.3 245.1L254.3 246L222.8 222.8"/><path class="iso-line iso-edge" data-tone="hi" d="M222.8 222.8L227 221.5L258.3 245.1M258.3 250.9L254.1 252.1L222.8 228.6M258.3 245.1L258.3 250.9M222.8 222.8L222.8 228.6"/></g></g><g data-part="commitment.back" data-key="78.34062917796692" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M311.9 58.8L316.1 57.6L417.1 133.4L417.1 178.3L412.9 179.6L311.9 103.7Z"/><path class="iso-shade" data-shade="0" d="M417.1 178.3L412.9 179.6L412.9 134.6L417.1 133.4Z"/><path class="iso-shade" data-shade="3" d="M412.9 179.6L311.9 103.7L311.9 58.8L412.9 134.6Z"/><path class="iso-top" d="M417.1 133.4L412.9 134.6L311.9 58.8L316.1 57.6Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 133.4L412.9 134.6L311.9 58.8"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 133.4L413 134.3L311.9 58.8"/><path class="iso-line iso-edge" data-tone="lo" d="M311.9 58.8L316.1 57.6L417.1 133.4M417.1 178.3L412.9 179.6L311.9 103.7M417.1 133.4L417.1 178.3M311.9 58.8L311.9 103.7"/></g></g><g data-part="commitment.side--58" data-key="78.36062917796691" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M204.7 90.2L311.9 58.8L314.6 60.7L314.6 105.7L207.3 137.1L204.7 135.2Z"/><path class="iso-shade" data-shade="0" d="M314.6 105.7L207.3 137.1L207.3 92.2L314.6 60.7Z"/><path class="iso-shade" data-shade="3" d="M207.3 137.1L204.7 135.2L204.7 90.2L207.3 92.2Z"/><path class="iso-top" d="M314.6 60.7L207.3 92.2L204.7 90.2L311.9 58.8Z"/><path class="iso-line iso-crease" data-tone="faint" d="M314.6 60.7L207.3 92.2L204.7 90.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M314.6 60.7L207.5 91.9L204.7 90.2"/><path class="iso-line iso-edge" data-tone="mid" d="M204.7 90.2L311.9 58.8L314.6 60.7M314.6 105.7L207.3 137.1L204.7 135.2M314.6 60.7L314.6 105.7M204.7 90.2L204.7 135.2"/></g></g><g data-part="frame.shelf-2" data-key="79.08095195345888" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M192.4 139L314.9 103L421.1 182.8L421.1 187.1L298.5 223.1L192.4 143.3Z"/><path class="iso-shade" data-shade="0" d="M421.1 187.1L298.5 223.1L298.5 218.7L421.1 182.8Z"/><path class="iso-shade" data-shade="3" d="M298.5 223.1L192.4 143.3L192.4 139L298.5 218.7Z"/><path class="iso-top" d="M421.1 182.8L298.5 218.7L192.4 139L314.9 103Z"/><path class="iso-line iso-crease" data-tone="faint" d="M421.1 182.8L298.5 218.7L192.4 139"/><path class="iso-line iso-bevel" data-tone="faint" d="M421.1 182.8L298.7 218.4L192.4 139"/><path class="iso-line iso-edge" data-tone="lo" d="M192.4 139L314.9 103L421.1 182.8M421.1 187.1L298.5 223.1L192.4 143.3M421.1 182.8L421.1 187.1M192.4 139L192.4 143.3"/></g></g><g data-part="commitment.floor" data-key="79.10095195345887" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M204.7 135.2L316.1 102.5L417.1 178.3L417.1 181.2L305.7 213.9L204.7 138.1Z"/><path class="iso-shade" data-shade="0" d="M417.1 181.2L305.7 213.9L305.7 211L417.1 178.3Z"/><path class="iso-shade" data-shade="3" d="M305.7 213.9L204.7 138.1L204.7 135.2L305.7 211Z"/><path class="iso-top" d="M417.1 178.3L305.7 211L204.7 135.2L316.1 102.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M417.1 178.3L305.7 211L204.7 135.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M417.1 178.3L305.8 210.7L204.7 135.2"/><path class="iso-line iso-edge" data-tone="lo" d="M204.7 135.2L316.1 102.5L417.1 178.3M417.1 181.2L305.7 213.9L204.7 138.1M417.1 178.3L417.1 181.2M204.7 135.2L204.7 138.1"/></g></g><g data-part="commitment.paper-0" data-key="79.12095195345887" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M226.8 137.8L304.8 114.9L386.6 176.4L386.6 177.3L308.6 200.1L226.8 138.7Z"/><path class="iso-shade" data-shade="0" d="M386.6 177.3L308.6 200.1L308.6 199.3L386.6 176.4Z"/><path class="iso-shade" data-shade="3" d="M308.6 200.1L226.8 138.7L226.8 137.8L308.6 199.3Z"/><path class="iso-top" d="M386.6 176.4L308.6 199.3L226.8 137.8L304.8 114.9Z"/><path class="iso-line iso-crease" data-tone="faint" d="M386.6 176.4L308.6 199.3L226.8 137.8"/><path class="iso-line iso-bevel" data-tone="faint" d="M386.6 176.4L308.8 198.9L226.8 137.8"/><path class="iso-line" data-tone="lo" data-free="" d="M298.7 124.9L349.2 162.8"/><path class="iso-line" data-tone="lo" data-free="" d="M290.4 127.4L333 159.4"/><path class="iso-line" data-tone="lo" data-free="" d="M282 129.8L316.8 156"/><path class="iso-line iso-edge" data-tone="hi" d="M226.8 137.8L304.8 114.9L386.6 176.4M386.6 177.3L308.6 200.1L226.8 138.7M386.6 176.4L386.6 177.3M226.8 137.8L226.8 138.7"/></g></g><g data-part="commitment.paper-1" data-key="79.14095195345887" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M225.8 138.4L303.8 115.5L385.5 176.9L385.5 177.8L307.6 200.7L225.8 139.2Z"/><path class="iso-shade" data-shade="0" d="M385.5 177.8L307.6 200.7L307.6 199.8L385.5 176.9Z"/><path class="iso-shade" data-shade="3" d="M307.6 200.7L225.8 139.2L225.8 138.4L307.6 199.8Z"/><path class="iso-top" d="M385.5 176.9L307.6 199.8L225.8 138.4L303.8 115.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M385.5 176.9L307.6 199.8L225.8 138.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M385.5 176.9L307.7 199.5L225.8 138.4"/><path class="iso-line" data-tone="lo" data-free="" d="M297.7 125.4L348.1 163.4"/><path class="iso-line" data-tone="lo" data-free="" d="M289.3 127.9L331.9 159.9"/><path class="iso-line" data-tone="lo" data-free="" d="M281 130.3L315.8 156.5"/><path class="iso-line iso-edge" data-tone="hi" d="M225.8 138.4L303.8 115.5L385.5 176.9M385.5 177.8L307.6 200.7L225.8 139.2M385.5 176.9L385.5 177.8M225.8 138.4L225.8 139.2"/></g></g><g data-part="commitment.paper-2" data-key="79.16095195345886" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M224.7 138.9L302.7 116L384.5 177.5L384.5 178.3L306.5 201.2L224.7 139.7Z"/><path class="iso-shade" data-shade="0" d="M384.5 178.3L306.5 201.2L306.5 200.3L384.5 177.5Z"/><path class="iso-shade" data-shade="3" d="M306.5 201.2L224.7 139.7L224.7 138.9L306.5 200.3Z"/><path class="iso-top" d="M384.5 177.5L306.5 200.3L224.7 138.9L302.7 116Z"/><path class="iso-line iso-crease" data-tone="faint" d="M384.5 177.5L306.5 200.3L224.7 138.9"/><path class="iso-line iso-bevel" data-tone="faint" d="M384.5 177.5L306.7 200L224.7 138.9"/><path class="iso-line" data-tone="lo" data-free="" d="M296.6 126L347.1 163.9"/><path class="iso-line" data-tone="lo" data-free="" d="M288.3 128.4L330.9 160.5"/><path class="iso-line" data-tone="lo" data-free="" d="M279.9 130.9L314.7 157"/><path class="iso-line iso-edge" data-tone="hi" d="M224.7 138.9L302.7 116L384.5 177.5M384.5 178.3L306.5 201.2L224.7 139.7M384.5 177.5L384.5 178.3M224.7 138.9L224.7 139.7"/></g></g><g data-part="frame.rail-2-58" data-key="93.37520208893" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M302.9 210.4L412.9 178.1L415.5 180.1L415.5 184.4L305.5 216.7L302.9 214.7Z"/><path class="iso-shade" data-shade="0" d="M415.5 184.4L305.5 216.7L305.5 212.3L415.5 180.1Z"/><path class="iso-shade" data-shade="3" d="M305.5 216.7L302.9 214.7L302.9 210.4L305.5 212.3Z"/><path class="iso-top" d="M415.5 180.1L305.5 212.3L302.9 210.4L412.9 178.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M415.5 180.1L305.5 212.3L302.9 210.4"/><path class="iso-line iso-bevel" data-tone="faint" d="M415.5 180.1L305.6 212L302.9 210.4"/><path class="iso-line iso-edge" data-tone="mid" d="M302.9 210.4L412.9 178.1L415.5 180.1M415.5 184.4L305.5 216.7L302.9 214.7M415.5 180.1L415.5 184.4M302.9 210.4L302.9 214.7"/></g></g><g data-part="commitment.side-55" data-key="98.17251007935025" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M303 164.1L410.3 132.7L412.9 134.6L412.9 179.6L305.7 211L303 209Z"/><path class="iso-shade" data-shade="0" d="M412.9 179.6L305.7 211L305.7 166.1L412.9 134.6Z"/><path class="iso-shade" data-shade="3" d="M305.7 211L303 209L303 164.1L305.7 166.1Z"/><path class="iso-top" d="M412.9 134.6L305.7 166.1L303 164.1L410.3 132.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M412.9 134.6L305.7 166.1L303 164.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M412.9 134.6L305.8 165.7L303 164.1"/><path class="iso-line iso-edge" data-tone="mid" d="M303 164.1L410.3 132.7L412.9 134.6M412.9 179.6L305.7 211L303 209M412.9 134.6L412.9 179.6M303 164.1L303 209"/></g></g><g data-part="commitment.front" data-key="98.19251007935024" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M199.2 83.2L204.7 81.5L305.7 157.4L305.7 213.9L300.1 215.5L199.2 139.7Z"/><path class="iso-shade" data-shade="0" d="M305.7 213.9L300.1 215.5L300.1 159L305.7 157.4Z"/><path class="iso-shade" data-shade="3" d="M300.1 215.5L199.2 139.7L199.2 83.2L300.1 159Z"/><path class="iso-top" d="M305.7 157.4L300.1 159L199.2 83.2L204.7 81.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M305.7 157.4L300.1 159L199.2 83.2"/><path class="iso-line iso-bevel" data-tone="faint" d="M305.7 157.4L300.3 158.7L199.2 83.2"/><g class="iso-dots" data-tone="hi"><circle cx="204.4" cy="136.4" r="0.65"/><circle cx="294.9" cy="204.4" r="0.65"/><circle cx="204.4" cy="95.8" r="0.65"/><circle cx="294.9" cy="163.8" r="0.65"/></g><path class="iso-line iso-edge" data-tone="hi" d="M199.2 83.2L204.7 81.5L305.7 157.4M305.7 213.9L300.1 215.5L199.2 139.7M305.7 157.4L305.7 213.9M199.2 83.2L199.2 139.7"/></g></g><g data-part="commitment.label-frame" data-key="98.21251007935024" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M224.4 114.6L225.3 114.4L274 151L274 165.5L273.1 165.7L224.4 129.1Z"/><path class="iso-shade" data-shade="0" d="M274 165.5L273.1 165.7L273.1 151.2L274 151Z"/><path class="iso-shade" data-shade="3" d="M273.1 165.7L224.4 129.1L224.4 114.6L273.1 151.2Z"/><path class="iso-top" d="M274 151L273.1 151.2L224.4 114.6L225.3 114.4Z"/><path class="iso-line iso-crease" data-tone="faint" d="M274 151L273.1 151.2L224.4 114.6"/><path class="iso-line iso-bevel" data-tone="faint" d="M274 151L273.3 150.9L224.4 114.6"/><path class="iso-line iso-edge" data-tone="mid" d="M224.4 114.6L225.3 114.4L274 151M274 165.5L273.1 165.7L224.4 129.1M274 151L274 165.5M224.4 114.6L224.4 129.1"/></g></g><g data-part="commitment.pull-mount--18" data-key="98.21251007935024" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M227 150.5L234 148.5L236.6 150.4L236.6 156.2L229.6 158.3L227 156.3Z"/><path class="iso-shade" data-shade="0" d="M236.6 156.2L229.6 158.3L229.6 152.5L236.6 150.4Z"/><path class="iso-shade" data-shade="3" d="M229.6 158.3L227 156.3L227 150.5L229.6 152.5Z"/><path class="iso-top" d="M236.6 150.4L229.6 152.5L227 150.5L234 148.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M236.6 150.4L229.6 152.5L227 150.5"/><path class="iso-line iso-bevel" data-tone="faint" d="M236.6 150.4L229.8 152.1L227 150.5"/><path class="iso-line iso-edge" data-tone="hi" d="M227 150.5L234 148.5L236.6 150.4M236.6 156.2L229.6 158.3L227 156.3M236.6 150.4L236.6 156.2M227 150.5L227 156.3"/></g></g><g data-part="commitment.pull-mount-15" data-key="98.21251007935024" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M255.7 172.1L262.7 170L265.3 172L265.3 177.8L258.3 179.8L255.7 177.9Z"/><path class="iso-shade" data-shade="0" d="M265.3 177.8L258.3 179.8L258.3 174L265.3 172Z"/><path class="iso-shade" data-shade="3" d="M258.3 179.8L255.7 177.9L255.7 172.1L258.3 174Z"/><path class="iso-top" d="M265.3 172L258.3 174L255.7 172.1L262.7 170Z"/><path class="iso-line iso-crease" data-tone="faint" d="M265.3 172L258.3 174L255.7 172.1"/><path class="iso-line iso-bevel" data-tone="faint" d="M265.3 172L258.5 173.7L255.7 172.1"/><path class="iso-line iso-edge" data-tone="hi" d="M255.7 172.1L262.7 170L265.3 172M265.3 177.8L258.3 179.8L255.7 177.9M265.3 172L265.3 177.8M255.7 172.1L255.7 177.9"/></g></g><g data-part="commitment.pull" data-key="98.21251007935024" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid"><path class="iso-fill" d="M222.8 151.7L227 150.5L258.3 174L258.3 179.8L254.1 181.1L222.8 157.5Z"/><path class="iso-shade" data-shade="0" d="M258.3 179.8L254.1 181.1L254.1 175.3L258.3 174Z"/><path class="iso-shade" data-shade="3" d="M254.1 181.1L222.8 157.5L222.8 151.7L254.1 175.3Z"/><path class="iso-top" d="M258.3 174L254.1 175.3L222.8 151.7L227 150.5Z"/><path class="iso-line iso-crease" data-tone="faint" d="M258.3 174L254.1 175.3L222.8 151.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M258.3 174L254.3 174.9L222.8 151.7"/><path class="iso-line iso-edge" data-tone="hi" d="M222.8 151.7L227 150.5L258.3 174M258.3 179.8L254.1 181.1L222.8 157.5M258.3 174L258.3 179.8M222.8 151.7L222.8 157.5"/></g></g><g data-part="commitment.label-insert" data-key="98.23251007935023" data-lift="12.16516440787133" data-drawer="commitment"><g class="iso-solid" data-lit=""><path class="iso-fill" d="M227.3 120.3L227.9 120.1L269.7 151.5L269.7 160.2L269.1 160.4L227.3 129Z"/><path class="iso-shade" data-shade="0" d="M269.7 160.2L269.1 160.4L269.1 151.7L269.7 151.5Z"/><path class="iso-shade" data-shade="3" d="M269.1 160.4L227.3 129L227.3 120.3L269.1 151.7Z"/><path class="iso-top" d="M269.7 151.5L269.1 151.7L227.3 120.3L227.9 120.1Z"/><path class="iso-line iso-crease" data-tone="faint" d="M269.7 151.5L269.1 151.7L227.3 120.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M269.7 151.5L269.3 151.3L227.3 120.3"/><path class="iso-line iso-edge" data-tone="lo" d="M227.3 120.3L227.9 120.1L269.7 151.5M269.7 160.2L269.1 160.4L227.3 129M269.7 151.5L269.7 160.2M227.3 120.3L227.3 129"/></g></g><g data-part="frame.right" data-key="110.35767448722157" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M298.5 147.7L421.1 111.7L424.5 114.4L424.5 331.8L302 367.8L298.5 365.2Z"/><path class="iso-shade" data-shade="0" d="M424.5 331.8L302 367.8L302 150.3L424.5 114.4Z"/><path class="iso-shade" data-shade="3" d="M302 367.8L298.5 365.2L298.5 147.7L302 150.3Z"/><path class="iso-top" d="M424.5 114.4L302 150.3L298.5 147.7L421.1 111.7Z"/><path class="iso-line iso-crease" data-tone="faint" d="M424.5 114.4L302 150.3L298.5 147.7"/><path class="iso-line iso-bevel" data-tone="faint" d="M424.5 114.4L302.2 150L298.5 147.7"/><path class="iso-line" data-tone="lo" d="M407.82491809724735,316.429744954886L318.7076176120614,342.5730528513358L318.7076176120614,165.70217855966686L407.82491809724735,139.55887066321716Z"/><g class="iso-dots" data-tone="hi"><circle cx="402.3" cy="312.3" r="0.65"/><circle cx="324.3" cy="335.1" r="0.65"/><circle cx="402.3" cy="147" r="0.65"/><circle cx="324.3" cy="169.9" r="0.65"/></g><path class="iso-line iso-edge" data-tone="hi" d="M298.5 147.7L421.1 111.7L424.5 114.4M424.5 331.8L302 367.8L298.5 365.2M424.5 114.4L424.5 331.8M298.5 147.7L298.5 365.2"/></g></g><g data-part="frame.cap" data-key="110.37767448722157" data-lift="0"><g class="iso-solid"><path class="iso-fill" d="M182.1 57.3L318.6 17.3L436.9 106.2L436.9 113.5L300.4 153.5L182.1 64.6Z"/><path class="iso-shade" data-shade="0" d="M436.9 113.5L300.4 153.5L300.4 146.2L436.9 106.2Z"/><path class="iso-shade" data-shade="3" d="M300.4 153.5L182.1 64.6L182.1 57.3L300.4 146.2Z"/><path class="iso-top" d="M436.9 106.2L300.4 146.2L182.1 57.3L318.6 17.3Z"/><path class="iso-line iso-crease" data-tone="faint" d="M436.9 106.2L300.4 146.2L182.1 57.3"/><path class="iso-line iso-bevel" data-tone="faint" d="M436.9 106.2L300.6 145.9L182.1 57.3"/><path class="iso-line" data-tone="lo" d="M422.4 104.1L422.6 104.2L422.7 104.4L422.7 104.5L422.7 104.7L422.6 104.8L422.4 104.9L422.2 105.1L421.9 105.2L305 139.5L304.7 139.5L304.4 139.6L304 139.6L303.7 139.6L303.4 139.5L303.1 139.4L302.9 139.3L302.7 139.2L196.5 59.5L196.4 59.3L196.3 59.2L196.3 59L196.3 58.9L196.4 58.7L196.6 58.6L196.8 58.5L197.1 58.4L314 24.1L314.3 24L314.6 24L315 24L315.3 24L315.6 24L315.9 24.1L316.1 24.2L316.3 24.3Z"/><g class="iso-dots" data-tone="hi"><circle cx="314.9" cy="24.7" r="0.65"/><circle cx="421.1" cy="104.5" r="0.65"/><circle cx="197.9" cy="59.1" r="0.65"/><circle cx="304.1" cy="138.8" r="0.65"/></g><text class="iso-face-text" data-tone="mid" transform="matrix(0.87 0.654 -1.392 0.408 264.939 80.304)" font-size="5" text-anchor="start">EVIDENCE</text><path class="iso-line iso-edge" data-tone="hi" d="M182.1 57.3L318.6 17.3L436.9 106.2M436.9 113.5L300.4 153.5L182.1 64.6M436.9 106.2L436.9 113.5M182.1 57.3L182.1 64.6"/></g></g></g></svg></div>
+        <div class="figure-controls" role="group" aria-label="Inspect an evidence category">
+          <button type="button" data-signal="0" aria-pressed="false">Opinion</button>
+          <button type="button" data-signal="1" aria-pressed="true">Behavior</button>
+          <button type="button" data-signal="2" aria-pressed="false">Commitment</button>
+        </div>
+        <figcaption>
+          <p id="signal-example">A bookkeeper shows the reminder spreadsheet used at the last close.</p>
+          <p id="signal-reading" class="figure-reading" aria-live="polite">A visible workaround. Useful evidence, not proof of demand.</p>
+          <span class="analogy-note">A filing analogy, not a startup score. Choose a signal to open its drawer.</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="workbench" class="workbench wrap" tabindex="-1" aria-label="Learning workbench">
+      <div class="bench-heading">
+        <div><p class="section-kicker">From advice to an actual test</p><h2 id="bench-title">The founder's field guide</h2></div>
+        <div class="progress-summary"><span id="progress-text">0 of 9 practices complete</span><progress id="course-progress" max="9" value="0" aria-label="Completed lesson practices"></progress></div>
+      </div>
+      <div class="workspace">
+        <aside class="course-index" aria-label="Lesson navigation">
+          <div class="index-heading"><span>Your route</span><span id="lesson-position">1 / 9</span></div>
+          <label class="sr-only" for="mobile-lesson">Choose a lesson</label><select id="mobile-lesson" class="mobile-lesson"></select>
+          <div id="lesson-list"></div>
+          <p class="index-note">One project, nine decisions.<br>Take the useful detour.</p>
+          <a class="source-index" href="#sources">Reading list &amp; provenance</a>
+        </aside>
+        <div id="workspace-content"></div>
+      </div>
+    </section>
+
+    <section id="sources" class="sources wrap" aria-labelledby="sources-title">
+      <div class="sources-intro"><p class="section-kicker">Follow the argument back</p><h2 id="sources-title">Read the originals.</h2><p>The lessons, examples, and exercises here are original teaching material. The linked resources carry the authors' fuller arguments.</p></div>
+      <div class="source-body">
+        <details>
+          <summary>What came from the reel, and what was added?</summary>
+          <p>The public <a href="https://www.instagram.com/reels/DeW-3XAxxpG/" rel="noopener noreferrer">reel by @davecto</a> says building an app and building a business are different jobs. Its caption names Paul Graham, Y Combinator, and <em>The Mom Test</em>, but offers the full nine-resource list through a comment-triggered message.</p>
+          <p>That full list was not available in the inspected public material. This is an independently curated companion, not a reconstruction of the creator's list. We selected readings from the named sources, then added Stripe, Rahul Vohra's Superhuman case study, and Sam Altman's playbook. Each lesson labels its provenance.</p>
+          <p>The receipt-chasing business is a fictional running example. Practice counts measure course activity, never business viability. No market-size claims, startup-success probabilities, or universal product-market-fit thresholds are implied.</p>
+        </details>
+        <ol id="reading-list"></ol>
+        <p class="source-date">Public source pages and titles checked on 18 October 2026. Advice is context-dependent. Test it against your customers, constraints, and responsibilities.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>Built for the work after the prototype.</span><span>Notes stay in this browser. No account. No analytics.</span><a href="https://github.com/rohitjz/founder-fieldwork">View on GitHub</a></footer>
+  <section id="print-course" aria-label="Printable learning guide"></section>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <noscript><section class="wrap"><h2>This learning bench needs JavaScript.</h2><p>Enable it to open the lessons and keep local field notes. The source explanation above is readable without it. Start by investigating a real problem, asking about recent behavior, and testing a small useful outcome.</p></section></noscript>
+  <script>const lessons=[{"id":"problem","group":"Find the problem","short":"Notice expensive friction","title":"Start with a problem someone already has.","author":"Paul Graham","resource":"How to Get Startup Ideas","url":"https://paulgraham.com/startupideas.html","origin":"Selected from an author named in the reel","idea":"An imaginable market is easy to describe. An urgent problem leaves evidence in someone's day.","paragraphs":["Graham argues for noticing real problems rather than inventing plausible startup pitches. A useful starting point is a task you understand closely, with people you can reach. Your own frustration is a lead to investigate, not proof that other people will buy.","Look for a specific person, a recurring situation, and a costly workaround. Cost can mean time, money, delay, or risk. Someone spending effort to solve a problem tells you more than someone agreeing that the idea sounds useful."],"case":"Our fictional founder wants to build an AI assistant for everyone who handles money. A narrower observation is more useful: independent bookkeepers chase missing client receipts before each monthly close. Now there is a workflow to investigate and a person to find.","distinction":["Weak starting point","An AI tool for small businesses.","Testable starting point","Independent bookkeepers repeatedly chase missing receipts before closing a client's books."],"task":"Write a problem statement without naming your product.","steps":["Choose a person you can realistically reach.","Describe the last situation in which the problem occurred.","Record the workaround and the cost. Mark guesses as guesses."],"prompt":"Who struggles, in what situation, and what do they do about it today?","example":"Independent bookkeepers lose time chasing missing receipts before monthly close. I still need to check how often this happens and which part is most painful.","trap":"A narrow first customer is a learning choice, not a claim that the whole market is small. Do not turn your own experience into a market-size estimate.","quiz":{"question":"Which observation gives you the best starting point?","options":["The market has millions of small businesses.","A bookkeeper shows the reminder spreadsheet they use every close.","Your friends think your app name is memorable."],"correct":1,"explanations":["A large category says little about urgency or access to customers.","A specific workaround exposes a real workflow. You still need to check frequency and cost.","A reaction to branding is not evidence of a costly customer problem."]},"takeaway":"Find a workaround before you build its replacement."},{"id":"interviews","group":"Find the problem","short":"Ask about the last time","title":"Get the story before you pitch the solution.","author":"Rob Fitzpatrick","resource":"The Mom Test","url":"https://www.momtestbook.com/","origin":"Book explicitly named in the reel","idea":"A customer conversation should reveal what happened, not recruit someone to applaud your idea.","paragraphs":["Fitzpatrick's approach steers conversations toward the person's life and specific past behavior. Questions about what someone might use invite guesswork. A pitch can make it harder for the person to tell you that the problem does not matter.","Ask for a recent example, then follow the sequence: what started the work, what they tried, who was involved, and what happened afterward. Keep observed facts separate from your interpretation. Ask permission before taking sensitive notes or viewing customer material."],"case":"Instead of asking whether an AI reminder bot sounds useful, ask the bookkeeper to describe their most recent close. You learn that reminder writing is quick, but finding which documents are still missing is slow. That changes what you should test.","distinction":["Leading question","Would you pay for my automatic receipt chaser?","Learning question","Walk me through how you handled missing receipts on your last close."],"task":"Rewrite your interview questions so they can uncover an inconvenient answer.","steps":["Remove the product name and the promised benefit.","Ask for one recent event and its actual sequence.","Ask what they tried and why it did or did not help."],"prompt":"Write three questions about past behavior. What answer would make you reconsider your idea?","example":"Walk me through your last close. How did you identify the missing items? What happened when a client did not respond? I would reconsider if the work was rare or already handled well.","trap":"Do not treat a friendly conversation as validation. Interest, access to a workflow, and an agreement to a pilot are different signals.","quiz":{"question":"A customer says, 'I'd definitely use that.' What should you do next?","options":["Count them as a future paying customer.","Ask them to repeat the compliment for your website.","Ask about the last time the problem happened and what they actually did."],"correct":2,"explanations":["A prediction of future use is not a purchase or observed use.","A testimonial cannot resolve whether the underlying problem matters.","A concrete past event can expose frequency, workarounds, and consequences."]},"takeaway":"Make it easy for the customer to disagree."},{"id":"learning","group":"Find the problem","short":"Choose the next uncertainty","title":"Keep the learning loop close to the customer.","author":"Y Combinator","resource":"YC's essential startup advice","url":"https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice","origin":"Selected from an organization named in the reel","idea":"Building and talking to users should change each other. Neither is a box to tick once.","paragraphs":["YC's advice connects launching, talking to users, and iteration. For a solo founder, the practical question is what you need to learn next. Another feature can feel productive while leaving the most important uncertainty untouched.","Separate a belief about the problem from a belief about the solution. Someone may genuinely struggle with a workflow but refuse access to the data your product needs. Test that constraint before you automate the workflow."],"case":"The bookkeeper confirms that missing receipts are painful. But they will not connect a client's inbox to an unknown app. A safe test might use a redacted checklist or sample files. A better reminder model cannot fix a missing permission.","distinction":["Output","Build another inbox integration.","Learning outcome","Find out whether the customer can and will share the inputs the service needs."],"task":"Name the uncertainty that could make your current plan fail.","steps":["Write one assumption about the customer or workflow.","Describe an observation that would contradict it.","Choose the smallest safe way to obtain that observation."],"prompt":"What do you need to learn before more building makes sense?","example":"I assume bookkeepers can provide a redacted missing-document checklist. I will ask one to show how that checklist is created before building an importer.","trap":"A small early sample can guide a next step. It does not establish representative demand or prove that all customers behave the same way.","quiz":{"question":"Users want the outcome but cannot share the required data. What comes next?","options":["Test a permissible input or a different workflow.","Add more features until the product feels credible.","Declare demand validated and buy ads."],"correct":0,"explanations":["The input constraint can block the service. Investigate a safe alternative before investing further.","Feature count does not solve permission, trust, or data access.","Interest in an outcome does not establish that your delivery model can work."]},"takeaway":"Build to answer a question you can name."},{"id":"mvp","group":"Test the offer","short":"Cut to one useful outcome","title":"Make the smallest version useful to someone.","author":"Michael Seibel / Y Combinator","resource":"How to plan an MVP","url":"https://www.ycombinator.com/library/6f-how-to-plan-an-mvp","origin":"Selected from an organization named in the reel","idea":"A minimum viable product is a small way to deliver and test value, not a small collection of unfinished features.","paragraphs":["Seibel encourages founders to limit scope, launch, and learn from real users. Decide which user, which task, and which outcome the first version must support. Everything else needs to justify delaying that test.","Minimum does not excuse unsafe handling, broken promises, or unusable work. Manual delivery can reduce technical scope, but the customer should understand what is manual and what the pilot does not do."],"case":"The first receipt-chasing service could accept a permitted checklist and return a clear missing-item summary. It does not need bank sync, forecasting, or a team dashboard. The useful test is whether the summary helps the bookkeeper complete the close.","distinction":["Feature bundle","Dashboard, AI chat, bank sync, forecasting, reminders.","First useful result","A checked list of missing items for one close, with a clear handoff."],"task":"Write a pilot scope that fits on a short note.","steps":["Name the input the customer can safely provide.","Define the output and the customer's next action.","List what you will deliberately leave out and what must still be reliable."],"prompt":"What is the smallest complete outcome, and what will you leave out?","example":"Input: a redacted receipt checklist. Output: a reviewed list of missing items. Leave out inbox access, automated sending, and bank sync. The customer reviews the output before using it.","trap":"A prototype that gets clicks can test comprehension. It cannot by itself prove that the service delivers value, retains users, or earns money.","quiz":{"question":"Which MVP scope answers the most useful question?","options":["A polished landing page with every planned feature.","One safe workflow that produces a result the target user can use.","An architecture that can support a hypothetical million customers."],"correct":1,"explanations":["A landing page can test a message, but not whether the proposed workflow works.","A complete, narrow outcome lets you observe usefulness while keeping scope small.","Early scale does not answer whether the first customer wants the result."]},"takeaway":"Cut features. Keep the customer's outcome."},{"id":"manual","group":"Test the offer","short":"Do the work by hand","title":"Learn the service before you automate it.","author":"Paul Graham","resource":"Do Things That Don't Scale","url":"https://paulgraham.com/ds.html","origin":"Selected from an author named in the reel","idea":"Early customer work can be deliberately manual when it teaches you what should become repeatable.","paragraphs":["Graham argues that early founders often need to recruit users individually and give unusually close attention to their experience. Waiting for a self-serve growth engine can mean waiting without learning.","Manual service exposes exceptions, trust concerns, and the steps customers value. Record the time and resources it takes. A delighted customer is useful evidence, but a service that requires unsustainable effort still needs a better delivery model."],"case":"You sit with a bookkeeper, prepare the missing-item summary, and watch them use it. They ignore your carefully written reminder and use only the client-by-client checklist. Automating the reminder first would have accelerated the wrong part.","distinction":["Premature automation","Build a workflow engine before watching one complete job.","Useful manual work","Deliver one outcome, observe the handoff, and record the recurring steps."],"task":"Design a small concierge pilot you can deliver honestly.","steps":["Recruit a specific person through a channel you can actually reach.","Agree on scope, permissions, and what happens to their data.","Track the steps, delivery time, failure points, and customer's response."],"prompt":"What will you deliver manually, and which repeated step might deserve automation?","example":"I will prepare a reviewed missing-item summary from a permitted checklist. I will record the steps and time, then check which parts recur across jobs.","trap":"Do not disguise manual work as an autonomous AI system. Also ask whether close founder attention is masking friction that future users would face.","quiz":{"question":"A manual pilot delights a customer but takes most of your week. What does that show?","options":["The whole business is ready to scale.","Manual delivery was a mistake and taught you nothing.","The outcome may matter, while delivery cost and repeatability still need testing."],"correct":2,"explanations":["Usefulness is only one part of a viable business.","Manual work can expose exactly where time goes and what users value.","You learned something about value and something about operational limits. Keep both."]},"takeaway":"Automate the repeated work you understand."},{"id":"launch","group":"Test the offer","short":"Put the offer in reach","title":"A launch is a chance to learn, not a verdict.","author":"Kat Mañalac / Y Combinator","resource":"How to launch (again and again)","url":"https://www.ycombinator.com/library/6i-how-to-launch-again-and-again","origin":"Selected from an organization named in the reel","idea":"Use repeated, relevant launches to put a clear offer in front of people who might need it.","paragraphs":["The YC lesson treats launching as something founders can do repeatedly. A small launch can expose unclear language, missing trust, poor targeting, or a weak offer. A quiet first attempt does not isolate which of those failed.","Choose a reachable audience and a specific next action. Track the path from exposure to conversation to use. Change one meaningful part of the next attempt so you can interpret the result."],"case":"A general social post gets polite reactions. A permitted post in a bookkeeper community describes the missing-receipt workflow and offers a scoped pilot. You record who asked for details, who brought a real checklist, and who actually tried the output.","distinction":["Vague launch","My AI finance app is live. Thoughts?","Clear offer","If you chase receipts during monthly close, I am testing a reviewed missing-item summary. Here is the scope and how to request a pilot."],"task":"Write a small launch with an audience and a next step.","steps":["Pick one relevant channel and follow its rules.","Describe the problem and outcome without unsupported promises.","Ask for a concrete action and decide what you will record."],"prompt":"Where will you reach the customer, what will you offer, and what action will you observe?","example":"Ask a community moderator about a pilot invitation. Explain the missing-item summary, its limits, and the permitted inputs. Record requests, completed trials, and reasons for declining separately.","trap":"A lack of replies can mean weak distribution, an unclear message, low trust, or low demand. Avoid declaring the product dead or successful from one launch.","quiz":{"question":"A broad launch gets almost no replies. What can you conclude?","options":["You need to investigate audience, message, trust, and offer before diagnosing demand.","No one has the problem.","The answer is always a larger ad budget."],"correct":0,"explanations":["The observation has several possible explanations. A narrower follow-up can separate them.","You have not shown that the right people understood and considered a credible offer.","More exposure can repeat the same targeting or message problem at greater cost."]},"takeaway":"Make the next launch easier to interpret."},{"id":"pricing","group":"Earn repeat use","short":"Make a real offer","title":"Test a price against a clear unit of value.","author":"Stripe","resource":"SaaS pricing models: a guide","url":"https://stripe.com/resources/more/saas-pricing-models-101","origin":"Added companion reading, not confirmed in the reel's list","idea":"Your price, billing unit, and delivery cost should describe a business the customer can understand.","paragraphs":["Stripe explains pricing approaches such as subscriptions, tiers, and usage-based billing. The unit you charge for affects predictability and incentives. Start with how the customer receives value rather than copying another company's pricing table.","A real offer tests more than asking whether a price sounds fair. State the scope, amount, billing period or unit, cancellation terms, and delivery limits. Account for service costs, including AI usage and manual review. An accepted pilot is evidence of that offer, not proof of enduring demand."],"case":"The bookkeeper might evaluate a price per client close more easily than a price per AI token. But you still need to test whether that unit fits their workflow and whether your delivery costs leave room for a business.","distinction":["Unclear offer","Pay for some AI credits and see what happens.","Inspectable offer","A defined fee for a reviewed missing-item summary, with the scope, inputs, and cancellation terms stated."],"task":"Draft an offer you could honestly deliver.","steps":["Choose a billing unit tied to how the customer works.","State the scope and any limits before asking for agreement.","List delivery costs and ask for a real next step without pressure."],"prompt":"What are you charging for, what does it cost to deliver, and what would count as acceptance?","example":"Charge per scoped close review, with an agreed checklist size and human review included. Track time and service costs. Count an agreed paid pilot separately from someone saying the price sounds reasonable.","trap":"Do not take payment for something you cannot deliver or hide automatic renewal. Cost-plus arithmetic alone does not establish willingness to pay.","quiz":{"question":"Which signal most directly tests willingness to pay for this pilot?","options":["A survey respondent says the price seems fair.","An informed customer accepts a clearly scoped paid pilot.","The pricing page looks similar to an established company's."],"correct":1,"explanations":["A reaction to a hypothetical price can differ from a real purchase decision.","A real agreement tests this offer under its stated terms. Repeat value and delivery economics remain open.","Presentation does not establish customer value or commercial demand."]},"takeaway":"Price the outcome clearly enough to be declined."},{"id":"retention","group":"Earn repeat use","short":"Find the reason to return","title":"Look for repeated value, not a launch-day spike.","author":"Rahul Vohra / First Round Review","resource":"How Superhuman Built an Engine to Find Product Market Fit","url":"https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/","origin":"Added companion reading, not confirmed in the reel's list","idea":"Understand who gets value, what they value, and why others leave.","paragraphs":["Vohra describes how Superhuman used customer feedback and segmentation to make product-market fit more actionable. A segment is a group of users with something relevant in common. Patterns can disappear when you average unlike users together.","Use surveys as one input, alongside actual use, repeat purchases, and cancellation reasons. For a small pilot, inspect individual journeys before treating percentages as reliable. The case study's survey benchmark is not a universal pass mark, so this course does not turn it into a business score."],"case":"Some bookkeepers try the summary once and disappear. Others return at the next monthly close. Weekly logins would misread this workflow. Ask what triggered the return and compare users at a relevant stage in their own cycle.","distinction":["Vanity measure","Everyone who ever signed up.","Useful observation","Which eligible users returned for the next close, what they did, and why others did not."],"task":"Define repeat value at the customer's natural cadence.","steps":["Name the event that creates another need for the product.","Define who had a real opportunity to return.","Record return behavior and ask about both useful and disappointing experiences."],"prompt":"When should a customer need this again, and what would a meaningful return look like?","example":"At the next eligible monthly close, check whether the bookkeeper requests another reviewed summary and uses it to complete the task. Ask non-returners what changed or failed.","trap":"Daily engagement is not appropriate for every product. Survey sentiment, retention, payment, and product-market fit are related questions, not interchangeable metrics.","quiz":{"question":"A monthly workflow has few daily logins. What should you check?","options":["Whether users log in every morning.","Whether the landing page needs more animation.","Whether eligible customers return and get value at the next monthly workflow."],"correct":2,"explanations":["Daily activity can be the wrong cadence for the job.","Visual polish cannot diagnose repeated usefulness by itself.","Measure return against a real opportunity to use the product, then investigate the reasons."]},"takeaway":"Measure return when the need returns."},{"id":"focus","group":"Earn repeat use","short":"Choose the next experiment","title":"Spend the week on the uncertainty that matters.","author":"Sam Altman","resource":"Startup Playbook: focus and execution","url":"https://playbook.samaltman.com/#focus","origin":"Added companion reading, not confirmed in the reel's list","idea":"A small team's capacity makes focus a decision about what to leave undone.","paragraphs":["Altman's playbook connects product, users, execution, and focus. For this course, turn that into a bounded weekly decision: which uncertainty is most likely to invalidate the plan, and what evidence can you gather next?","Choose a test with a time limit, a visible result, and a rule for what you will do afterward. The rule can be qualitative when evidence is sparse. Separate continue, change, and stop conditions before you become attached to the result. Sustainable effort and necessary care remain constraints."],"case":"You could add a dashboard, write a launch thread, or investigate why last month's users did not return. If repeat usefulness is the open question, contact those users and inspect the next close. Postpone the dashboard unless it helps answer that question.","distinction":["Busy week","Ship every feature people mentioned.","Learning week","Test one consequential assumption and decide what the result changes."],"task":"Write a one-week experiment and a decision rule.","steps":["State the assumption and the evidence you need.","Choose a reachable customer, action, and review date.","Name what you will postpone and what would make you continue, change, or stop."],"prompt":"What will you test next, what would change your mind, and what will you leave undone?","example":"Before next Friday, ask eligible pilot users about their next close and offer a clearly scoped repeat service. If they need it but reject the workflow, change delivery. If the problem has disappeared, reconsider the segment. Postpone the dashboard.","trap":"A busy calendar is not evidence of progress. Equally, an arbitrary tiny sample is not a statistical go/no-go rule. State what you learned and what remains uncertain.","quiz":{"question":"Which weekly plan is easiest to learn from?","options":["Test a named assumption, collect observable evidence, and review a prewritten decision rule.","Improve the app until it feels finished.","Build every requested feature and decide what it means afterward."],"correct":0,"explanations":["The plan links effort to a decision while making uncertainty explicit.","Finished is not an observable customer outcome.","Several simultaneous changes make the result harder to interpret and may exceed your capacity."]},"takeaway":"End the week with a better decision."}];
+const signals=[{"text":"A friend says the idea sounds useful.","category":"opinion","why":"This is a reaction to an idea. It does not establish a recent problem, real use, or purchase.","next":"Ask for a recent example of the problem without pitching."},{"text":"A bookkeeper shows the reminder spreadsheet used at the last close.","category":"behavior","why":"You can inspect a past workaround. That supports the existence of a workflow, not willingness to switch.","next":"Check the frequency, consequence, and hardest step."},{"text":"A customer accepts a clearly scoped paid pilot.","category":"commitment","why":"They have committed resources to this offer. Delivery, repeated value, and sustainable economics remain untested.","next":"Deliver the promised outcome and inspect whether it helped."},{"text":"Someone says they would pay if you added more features.","category":"opinion","why":"A hypothetical purchase remains an opinion, even when it mentions money.","next":"Explore the last problem and make a concrete, honest offer."},{"text":"An eligible pilot user returns at the next monthly close.","category":"behavior","why":"This is observed repeat behavior. Investigate the value they received; one return is not proof of broad product-market fit.","next":"Ask what brought them back and inspect the completed task."},{"text":"A bookkeeper schedules a pilot and agrees to prepare a permitted sample checklist.","category":"commitment","why":"A specific investment of time and effort is a commitment. Verify whether it happens before treating it as completed behavior.","next":"Confirm scope and permissions, then observe the pilot."}];
+const cabinetMotion=[-36.20390332210678,10.62071883293271];
+const categories = ["opinion", "behavior", "commitment"];
+
+function evaluateSignal(signal, answer) {
+  if (!categories.includes(answer)) throw new RangeError("Choose a valid evidence category.");
+  return { correct: signal.category === answer, category: signal.category, explanation: signal.why, next: signal.next };
+}
+
+function emptyProgress() {
+  return { version: 1, notes: {}, passed: [], completed: [], theme: "dark" };
+}
+
+function parseProgress(raw, ids) {
+  const saved = JSON.parse(raw);
+  if (!saved || saved.version !== 1 || typeof saved.notes !== "object" || saved.notes === null ||
+      Array.isArray(saved.notes) || !Array.isArray(saved.passed) || !Array.isArray(saved.completed) ||
+      !["dark", "light"].includes(saved.theme)) {
+    throw new TypeError("Saved field notes have an unsupported format.");
+  }
+  const notes = {};
+  for (const id of ids) {
+    if (Object.hasOwn(saved.notes, id)) {
+      if (typeof saved.notes[id] !== "string") throw new TypeError("A saved field note is not text.");
+      notes[id] = saved.notes[id];
+    }
+  }
+  const passed = [...new Set(saved.passed.filter(id => ids.includes(id)))];
+  const completed = [...new Set(saved.completed.filter(id => ids.includes(id) && passed.includes(id) && notes[id]?.trim()))];
+  return { version: 1, notes, passed, completed, theme: saved.theme };
+}
+
+function canComplete(state, id) {
+  return state.passed.includes(id) && Boolean(state.notes[id]?.trim());
+}
+
+function makeNotebook(lessons, state) {
+  const lines = ["# Founder Fieldwork", "", "Original companion course inspired by @davecto's reel.", "The full nine-resource list was not publicly visible. This is an independently curated selection.", "", "Personal notes exported from this browser. Course completion is not business validation.", ""];
+  for (const lesson of lessons) {
+    lines.push(`## ${lesson.short}`, "", `${lesson.author}: ${lesson.resource}`, lesson.url, "", `Practice: ${lesson.task}`, "", state.notes[lesson.id]?.trim() || "(No note yet.)", "", `Practice complete: ${state.completed.includes(lesson.id) ? "yes" : "no"}`, "");
+  }
+  return lines.join("\n");
+}
+
+const $ = selector => document.querySelector(selector);
+const esc = value => String(value).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const storageKey = "founder-fieldwork-v1";
+const ids = lessons.map(l => l.id);
+let state = emptyProgress();
+let storageAvailable = true;
+let storageCorrupt = false;
+let saveTimer;
+let currentLesson = lessons[0];
+let currentView = "course";
+let labIndex = 0;
+let labChecked = false;
+let labCorrect = 0;
+
+function storageError(message) {
+  const banner = $("#storage-error");
+  banner.textContent = message;
+  banner.hidden = false;
+}
+try {
+  const raw = localStorage.getItem(storageKey);
+  if (raw !== null) state = parseProgress(raw, ids);
+} catch (error) {
+  if (error instanceof SyntaxError || error instanceof TypeError) {
+    storageCorrupt = true;
+    storageError("Saved notes could not be read. They have not been overwritten. Export the original saved data from Field notes, then explicitly reset it to enable saving.");
+  } else {
+    storageAvailable = false;
+    storageError("Browser storage is unavailable. You can work in this tab, but notes will not survive a reload. Export them before leaving.");
+  }
+  console.error("Fieldwork storage could not be loaded:", error);
+}
+const requestedTheme = new URLSearchParams(location.search).get("scoutTheme");
+if (["light","dark"].includes(requestedTheme)) state.theme = requestedTheme;
+document.documentElement.dataset.theme = state.theme;
+
+function save() {
+  clearTimeout(saveTimer);
+  if (!storageAvailable || storageCorrupt) return false;
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(state));
+    return true;
+  } catch (error) {
+    storageAvailable = false;
+    storageError("Your latest changes could not be saved in this browser. Export field notes now so they are not lost.");
+    console.error("Fieldwork notes could not be saved:", error);
+    return false;
+  }
+}
+function announce(message) { $("#announcement").textContent = message; }
+function updateThemeButton() {
+  $("#theme-toggle").setAttribute("aria-label", `Switch to ${state.theme === "dark" ? "light" : "dark"} theme`);
+}
+$("#theme-toggle").addEventListener("click", () => {
+  state.theme = state.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = state.theme;
+  updateThemeButton();
+  save();
+});
+updateThemeButton();
+
+function updateProgress() {
+  const n = state.completed.length;
+  $("#progress-text").textContent = `${n} of ${lessons.length} practices complete`;
+  $("#course-progress").value = n;
+  $("#note-count").textContent = Object.values(state.notes).filter(n => n.trim()).length;
+}
+function renderIndex() {
+  const groups = [...new Set(lessons.map(l => l.group))];
+  $("#lesson-list").innerHTML = groups.map(group => `<section class="lesson-group"><h3>${esc(group)}</h3>${lessons.filter(l=>l.group===group).map(l => {
+    const i = lessons.indexOf(l), done = state.completed.includes(l.id);
+    return `<a class="lesson-link" href="#lesson=${l.id}"${currentView==="course"&&currentLesson.id===l.id ? ' aria-current="step"' : ""}><span class="ordinal">${i+1}</span><span>${esc(l.short)}</span>${done ? '<svg class="done-mark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-label="Practice complete"><path d="M3 8L6.5 11.5L13 4.5"/></svg>' : ""}</a>`;
+  }).join("")}</section>`).join("");
+  $("#lesson-position").textContent = `${lessons.indexOf(currentLesson)+1} / ${lessons.length}`;
+  $("#mobile-lesson").innerHTML = groups.map(group=>`<optgroup label="${esc(group)}">${lessons.filter(l=>l.group===group).map(l=>`<option value="${l.id}">${lessons.indexOf(l)+1}. ${esc(l.short)}</option>`).join("")}</optgroup>`).join("");
+  $("#mobile-lesson").value = currentLesson.id;
+}
+$("#mobile-lesson").addEventListener("change",event=>{location.hash="lesson="+event.target.value;});
+function completionState() {
+  const button = $("#complete-lesson");
+  if (!button) return;
+  const done = state.completed.includes(currentLesson.id);
+  button.disabled = !canComplete(state,currentLesson.id) || done;
+  button.textContent = done ? "Practice complete" : "Mark practice complete";
+  $("#completion-hint").textContent = done ? "This records your practice, not business validation." :
+    !state.passed.includes(currentLesson.id) ? "Answer the check correctly and write a field note to complete this practice." :
+    !state.notes[currentLesson.id]?.trim() ? "Write a field note to complete this practice." : "Ready when your note describes a real next step.";
+}
+function noteStatus(saved) {
+  for (const el of document.querySelectorAll(".save-state")) {
+    el.textContent = saved ? "Saved in this browser" : "Not saved to storage. Export before leaving.";
+  }
+}
+function wireNotes() {
+  for (const textarea of document.querySelectorAll("textarea[data-note]")) {
+    textarea.addEventListener("input", () => {
+      const id = textarea.dataset.note;
+      state.notes[id] = textarea.value;
+      if (!textarea.value.trim()) state.completed = state.completed.filter(item=>item!==id);
+      completionState(); updateProgress(); renderIndex();
+      const status = textarea.parentElement.querySelector(".save-state");
+      if(status) status.textContent = storageAvailable&&!storageCorrupt ? "Saving..." : "Not saved to storage. Export before leaving.";
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(()=>noteStatus(save()),300);
+    });
+  }
+}
+function renderLesson() {
+  const l = currentLesson, n = lessons.indexOf(l);
+  $("#workspace-content").innerHTML = `<div class="lesson-layout">
+    <article class="lesson-article">
+      <div class="lesson-meta"><span class="lesson-number">Lesson ${n+1} of ${lessons.length}</span><span>${esc(l.author)}</span></div>
+      <h3 class="lesson-title" tabindex="-1">${esc(l.title)}</h3>
+      <p class="lesson-idea">${esc(l.idea)}</p>
+      <div class="lesson-prose">${l.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")}
+      <h4>At the founder's desk</h4><p class="case-text">${esc(l.case)}</p></div>
+      <div class="comparison"><div><span>${esc(l.distinction[0])}</span><p>${esc(l.distinction[1])}</p></div><div><span>${esc(l.distinction[2])}</span><p>${esc(l.distinction[3])}</p></div></div>
+      <p class="trap"><strong>Where this breaks.</strong> ${esc(l.trap)}</p>
+      <form id="lesson-quiz" class="quiz"><h4>Check your judgment</h4><fieldset><legend>${esc(l.quiz.question)}</legend>
+      ${l.quiz.options.map((o,i)=>`<label class="answer"><input type="radio" name="answer" value="${i}" required><span>${esc(o)}</span></label>`).join("")}
+      </fieldset><button class="secondary" type="submit">Check answer</button><div id="quiz-feedback" class="feedback" aria-live="polite" hidden></div></form>
+      <div class="lesson-bottom"><p class="takeaway">${esc(l.takeaway)}</p><div class="bottom-actions">${n>0?`<a href="#lesson=${lessons[n-1].id}">Previous lesson</a>`:'<a href="#lab">Try the evidence lab</a>'}${n<lessons.length-1?`<a href="#lesson=${lessons[n+1].id}">Next: ${esc(lessons[n+1].short)}</a>`:'<a href="#notebook">Review your field notes</a>'}</div></div>
+      <p class="source-attribution">Reading: <a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a><br>${esc(l.origin)}. Lesson and exercises are original.</p>
+    </article>
+    <aside class="fieldcard" aria-labelledby="practice-heading">
+      <h3 id="practice-heading">Take it into the field.</h3><p class="practice-task">${esc(l.task)}</p>
+      <ol class="practice-steps">${l.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+      <label for="lesson-note">${esc(l.prompt)}</label><textarea id="lesson-note" data-note="${l.id}" placeholder="Keep this specific to your project.">${esc(state.notes[l.id]||"")}</textarea>
+      <span class="save-state" role="status">${storageAvailable&&!storageCorrupt ? "Notes save locally as you write" : "Storage unavailable. Export your notes."}</span>
+      <details><summary>See an example note</summary><p>${esc(l.example)}</p></details>
+      <button id="complete-lesson" class="primary completion" type="button">Mark practice complete</button><p id="completion-hint" class="completion-hint"></p>
+    </aside></div>`;
+  $("#lesson-quiz").addEventListener("submit",event=>{
+    event.preventDefault();
+    const selected = Number(new FormData(event.currentTarget).get("answer"));
+    const correct = selected===l.quiz.correct;
+    const feedback = $("#quiz-feedback");
+    feedback.hidden = false;
+    feedback.dataset.result = correct ? "correct" : "incorrect";
+    feedback.textContent = `${correct ? "That's the useful distinction." : "Reconsider the evidence."} ${l.quiz.explanations[selected]}`;
+    if(correct&&!state.passed.includes(l.id)) { state.passed.push(l.id); save(); }
+    completionState();
+  });
+  $("#complete-lesson").addEventListener("click",()=>{
+    if (!canComplete(state,l.id) || state.completed.includes(l.id)) return;
+    state.completed.push(l.id); save(); updateProgress(); renderIndex(); completionState();
+    announce(`Practice complete: ${l.short}.`);
+  });
+  completionState(); wireNotes();
+}
+function renderLab() {
+  const final = labIndex>=signals.length;
+  $("#workspace-content").innerHTML = `<section aria-labelledby="lab-title"><p class="lesson-meta">Practice separating the signal from the story</p><h3 id="lab-title" class="lab-title" tabindex="-1">What does the evidence say?</h3>
+    <p class="lab-intro">An opinion, observed behavior, and a costly commitment answer different questions. Sort the signal, then inspect what it still does not prove.</p>
+    ${final ? `<p class="lab-statement">You sorted ${labCorrect} of ${signals.length} signals correctly on the first try.</p><p class="lab-intro">This was a classification exercise, not a test of your business. Take one claim from your project and ask what evidence actually supports it.</p><button id="restart-lab" class="secondary" type="button">Practice again</button><a class="secondary" href="#lesson=focus">Plan your next experiment</a>` :
+    `<p class="lesson-meta">Signal ${labIndex+1} of ${signals.length}</p><p class="lab-statement">${esc(signals[labIndex].text)}</p>
+    <form id="lab-form"><fieldset><legend>Which drawer does it belong in?</legend><div class="lab-options">${categories.map(c=>`<label class="answer"><input type="radio" name="category" value="${c}" required><span>${c[0].toUpperCase()+c.slice(1)}</span></label>`).join("")}</div></fieldset>
+    <div class="lab-actions"><button id="check-signal" class="primary" type="submit">Inspect the signal</button><button id="next-signal" class="secondary" type="button" hidden>Next signal</button></div>
+    <div id="lab-feedback" class="feedback" aria-live="polite" hidden></div></form><p class="lab-readout">Opinion: a reaction or prediction. Behavior: something that happened. Commitment: a specific investment of time, effort, or money.</p>`}
+    </section>`;
+  if(final) {
+    $("#restart-lab").addEventListener("click",()=>{labIndex=0;labCorrect=0;labChecked=false;renderLab();});
+    return;
+  }
+  labChecked=false;
+  $("#lab-form").addEventListener("submit",event=>{
+    event.preventDefault();
+    if(labChecked) return;
+    const choice = new FormData(event.currentTarget).get("category");
+    const result = evaluateSignal(signals[labIndex],choice);
+    if(result.correct) labCorrect++;
+    labChecked=true;
+    const feedback=$("#lab-feedback");
+    feedback.hidden=false; feedback.dataset.result=result.correct?"correct":"incorrect";
+    feedback.innerHTML=`<p><strong>${result.correct?"Correct classification.":"This belongs in "+result.category+"."}</strong> ${esc(result.explanation)}</p><p>Next: ${esc(result.next)}</p>`;
+    selectDrawer(result.category,{text:signals[labIndex].text,reading:result.explanation});
+    $("#check-signal").disabled=true;
+    for (const input of document.querySelectorAll('#lab-form input')) input.disabled=true;
+    $("#next-signal").hidden=false;
+    $("#next-signal").textContent=labIndex===signals.length-1?"Review your practice":"Next signal";
+  });
+  $("#next-signal").addEventListener("click",()=>{labIndex++;renderLab();$("#lab-title").focus({preventScroll:true});});
+}
+function download(filename,text,type="text/markdown;charset=utf-8") {
+  const blob=new Blob([text],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function preparePrint() {
+  $("#print-course").innerHTML=`<h1>Founder Fieldwork</h1><p>An original learning companion inspired by @davecto's reel. The full nine-resource list was not public; these readings are independently curated.</p><p>Fictional running case: a receipt-chasing service for independent bookkeepers. Examples and timings are exercises, not claims about a real business.</p>`+
+    lessons.map(l=>`<article><h2>${esc(l.title)}</h2><p>${esc(l.author)}: <a href="${esc(l.url)}">${esc(l.resource)}</a></p><p>${esc(l.origin)}.</p><h3>The idea</h3><p>${esc(l.idea)}</p>${l.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")}<h3>Worked example</h3><p>${esc(l.case)}</p><h3>Where this breaks</h3><p>${esc(l.trap)}</p><h3>Practice</h3><p>${esc(l.task)}</p><ol>${l.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol><p>${esc(l.prompt)}</p><h3>Your field note</h3><p>${esc(state.notes[l.id]||"(No note yet.)")}</p><h3>Check your judgment</h3><p>${esc(l.quiz.question)}</p><ol>${l.quiz.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ol><p>Answer: ${l.quiz.correct+1}. ${esc(l.quiz.explanations[l.quiz.correct])}</p></article>`).join("");
+}
+function renderNotebook() {
+  $("#workspace-content").innerHTML=`<section aria-labelledby="notebook-title"><h3 id="notebook-title" class="notebook-title" tabindex="-1">Your field notes.</h3><p class="lab-intro">Carry one project through the course. These notes stay in this browser. Export a copy before clearing site data or moving devices. Avoid storing private customer details here.</p>
+    <div class="notebook-toolbar"><button class="primary" id="export-notes" type="button">Export field notes</button><button class="secondary" id="print-guide" type="button">Print full guide</button>${storageCorrupt?'<button class="secondary" id="export-original" type="button">Export original saved data</button>':""}</div>
+    ${lessons.map((l,i)=>`<section class="notebook-entry"><h4>${i+1}. ${esc(l.short)}</h4><label for="note-${l.id}">${esc(l.prompt)}</label><textarea id="note-${l.id}" data-note="${l.id}" placeholder="Your observation or next step.">${esc(state.notes[l.id]||"")}</textarea><span class="save-state" role="status">${storageAvailable&&!storageCorrupt?"Saved locally as you write":"Not saved to storage. Export before leaving."}</span><p class="source-attribution"><a href="#lesson=${l.id}">Return to lesson</a>${state.completed.includes(l.id)?" / Practice complete":""}</p></section>`).join("")}
+    <div class="reset-area"><p>Reset removes this course's notes and progress from this browser. It does not touch other sites or downloaded copies.</p><button class="secondary" id="reset-request" type="button" aria-expanded="false">Reset this course</button><div id="reset-confirm" class="reset-confirm" hidden><span>Export first if you need a copy.</span><button class="secondary" id="reset-cancel" type="button">Keep my notes</button><button class="secondary" id="reset-yes" type="button">Delete my course notes</button></div></div></section>`;
+  $("#export-notes").addEventListener("click",()=>{save();download("founder-fieldwork-notes.md",makeNotebook(lessons,state));announce("Field notes exported.");});
+  $("#print-guide").addEventListener("click",()=>{preparePrint();window.print();});
+  if(storageCorrupt) $("#export-original").addEventListener("click",()=>{
+    try { const original=localStorage.getItem(storageKey);if(original===null)throw new Error("The original saved record is no longer present.");download("founder-fieldwork-original.txt",original,"text/plain;charset=utf-8"); }
+    catch(error) {storageError("The original saved data could not be exported. Browser storage may be blocked. Your current notes can still be exported separately.");console.error(error);}
+  });
+  $("#reset-request").addEventListener("click",()=>{$("#reset-confirm").hidden=false;$("#reset-request").setAttribute("aria-expanded","true");$("#reset-cancel").focus();});
+  $("#reset-cancel").addEventListener("click",()=>{$("#reset-confirm").hidden=true;$("#reset-request").setAttribute("aria-expanded","false");$("#reset-request").focus();});
+  $("#reset-yes").addEventListener("click",()=>{
+    clearTimeout(saveTimer);
+    try {localStorage.removeItem(storageKey);}
+    catch(error) {storageError("Reset failed because this browser blocked storage access. Your notes have not been cleared in this tab.");console.error(error);return;}
+    const theme=state.theme;state=emptyProgress();state.theme=theme;
+    storageCorrupt=false;storageAvailable=true;$("#storage-error").hidden=true;
+    save();updateProgress();renderIndex();renderNotebook();$("#notebook-title").focus({preventScroll:true});announce("Course notes and progress reset.");
+  });
+  wireNotes();
+}
+function route({focus=false}={}) {
+  save();
+  const routeHash=location.hash.slice(1);
+  if(routeHash==="sources") return;
+  const oldView=currentView;
+  currentView=routeHash==="lab"?"lab":routeHash==="notebook"?"notebook":"course";
+  if(currentView==="course") {
+    const id=routeHash.startsWith("lesson=")?routeHash.slice(7):lessons[0].id;
+    currentLesson=lessons.find(l=>l.id===id)||lessons[0];
+    renderLesson();
+  } else if(currentView==="lab") renderLab();
+  else renderNotebook();
+  $("#bench-title").textContent=currentView==="course"?"The founder's field guide":currentView==="lab"?"The evidence lab":"Your working notebook";
+  for(const a of document.querySelectorAll("nav a[data-view]")) {
+    if(a.dataset.view===currentView)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  }
+  renderIndex();updateProgress();
+  if(focus && routeHash) {
+    const target=$(currentView==="course"?".lesson-title":currentView==="lab"?"#lab-title":"#notebook-title");
+    $("#workbench").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
+    target.focus({preventScroll:true});
+  }
+  if(oldView!=="lab"&&currentView==="lab") announce("Evidence lab. Classify a signal, then inspect what it does not prove.");
+}
+window.addEventListener("hashchange",()=>route({focus:true}));
+window.addEventListener("pagehide",save);
+window.addEventListener("beforeprint",preparePrint);
+$("#reading-list").innerHTML=lessons.map(l=>`<li><a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a><span>${esc(l.author)}</span></li>`).join("");
+
+const reduceMotion=matchMedia("(prefers-reduced-motion: reduce)");
+const parts=[...document.querySelectorAll("#cabinet-parts>[data-part]")];
+const opening=Object.fromEntries(categories.map(c=>[c,0]));
+let selectedDrawer="behavior",visible=false,frame=0,last=0;
+function paintCabinet() {
+  for(const part of parts) {
+    const share=opening[part.dataset.drawer]||0;
+    part.setAttribute("transform",`translate(${cabinetMotion[0]*share} ${cabinetMotion[1]*share})`);
+    part.classList.toggle("selected",part.dataset.drawer===selectedDrawer);
+  }
+  const sorted=[...parts].sort((a,b)=>(Number(a.dataset.key)+Number(a.dataset.lift)*(opening[a.dataset.drawer]||0))-(Number(b.dataset.key)+Number(b.dataset.lift)*(opening[b.dataset.drawer]||0)));
+  for(const part of sorted) $("#cabinet-parts").append(part);
+}
+function tick(now) {
+  const dt=last?Math.min((now-last)/1000,1/30):1/60;last=now;
+  let moving=false;
+  for(const c of categories) {
+    const target=c===selectedDrawer?1:0;
+    opening[c]=reduceMotion.matches?target:opening[c]+(target-opening[c])*(1-Math.exp(-dt/.16));
+    if(Math.abs(target-opening[c])<.001)opening[c]=target;else moving=true;
+  }
+  paintCabinet();
+  frame=visible&&moving?requestAnimationFrame(tick):0;
+}
+function wakeCabinet() {
+  if(reduceMotion.matches) {
+    for(const c of categories)opening[c]=c===selectedDrawer?1:0;
+    paintCabinet();return;
+  }
+  if(visible&&!frame){last=0;frame=requestAnimationFrame(tick);}
+}
+function selectDrawer(category,preview=previews.find(p=>p.category===category)) {
+  if(!categories.includes(category))throw new RangeError("Unknown cabinet drawer.");
+  selectedDrawer=category;
+  for(const button of document.querySelectorAll("[data-signal]")) {
+    button.setAttribute("aria-pressed",String(previews[Number(button.dataset.signal)].category===category));
+  }
+  $("#signal-example").textContent=preview.text;
+  $("#signal-reading").textContent=preview.reading;
+  wakeCabinet();
+}
+const previews=[
+  {category:"opinion",text:signals[0].text,reading:"An encouraging reaction. The problem and willingness to pay are still untested."},
+  {category:"behavior",text:signals[1].text,reading:"A visible workaround. Useful evidence, not proof of demand."},
+  {category:"commitment",text:signals[2].text,reading:"A specific investment in this offer. Repeat value and delivery economics remain open."}
+];
+for(const button of document.querySelectorAll("[data-signal]")) button.addEventListener("click",()=>{
+  const preview=previews[Number(button.dataset.signal)];
+  selectDrawer(preview.category,preview);
+});
+new IntersectionObserver(entries=>{
+  visible=entries[entries.length-1].isIntersecting;
+  if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}else if(visible)wakeCabinet();
+},{rootMargin:"120px 0px"}).observe($(".cabinet-stage"));
+reduceMotion.addEventListener("change",wakeCabinet);
+route();
+if(location.hash.startsWith("#lesson=")||location.hash==="#lab"||location.hash==="#notebook") {
+  requestAnimationFrame(()=>$("#workbench").scrollIntoView({behavior:"instant",block:"start"}));
+}
+</script>
+</body>
+</html>

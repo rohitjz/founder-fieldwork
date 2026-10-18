@@ -1,0 +1,66 @@
+# Founder Fieldwork
+
+[Open the learning bench](https://rohitjz.github.io/founder-fieldwork/)
+
+An interactive learning companion for solo founders and people building apps with AI. Work through customer discovery, a useful first product, manual pilots, distribution, pricing, repeat value, and a weekly experiment.
+
+## What is here
+
+- Nine original lessons with a fictional running case, exercises, explained knowledge checks, and linked primary readings.
+- An interactive Anatomy evidence cabinet. Its drawers separate opinions, observed behavior, and commitments. It is an explicit physical analogy, not a business scoring model.
+- A six-signal evidence classification exercise.
+- Editable field notes saved in your browser, Markdown export, and a printable full course.
+- Dark and light modes, keyboard controls, reduced-motion support, deep-linked lessons, and responsive layouts.
+
+## Source boundary
+
+Inspired by [@davecto's reel](https://www.instagram.com/reels/DeW-3XAxxpG/). The public caption names Paul Graham, Y Combinator, and *The Mom Test*, but offers the complete nine-resource list through a comment-triggered message. That full list was not present in the inspected public material.
+
+This project does **not** claim to reproduce the creator's list. It selects readings from the named sources and adds clearly labeled companion reading from Stripe, Rahul Vohra's Superhuman case study, and Sam Altman's playbook. Lessons, examples, worksheets, and checks are original. No video, book text, article passages, customer records, or credentials are redistributed.
+
+The reading list and each lesson show provenance. A course completion mark records a correct check and a written note, not customer validation.
+
+## Visual direction
+
+Three directions were considered: a reading shelf, a startup scoreboard, and an evidence workbench. The workbench was chosen because the learning task is to act on advice and inspect evidence. A scoreboard would imply certainty the course cannot supply.
+
+The page uses Rohit's charcoal-and-yellow primary brand, with an interactive filing cabinet as the central visual. The underlying `--cp-*` theme contract is retained, with explicit signature-brand overrides instead of the artifact skill's rose defaults. The readable type stack is Segoe UI/Aptos with local system fallbacks.
+
+Liquid-glass refraction and the validated layered dome shadow belong to floating navigation. The inline practice panel uses the shadow-only material. Reading text and the technical SVG remain unglazed. Light-mode button text is dark to preserve contrast on the yellow signal.
+
+The cabinet contains 57 recorded solids built with the Anatomy kit. Drawer motion, selected category, and captions use the same category model. Geometry is checked at rest and through each drawer's travel; parts are depth-sorted as they move.
+
+## Run and maintain
+
+No dependencies or API keys are required. Use Node 20+ and Python 3 for the commands below.
+
+```sh
+npm run build
+npm test
+npm run audit
+python3 -m http.server 8768 --bind 127.0.0.1
+```
+
+Open `http://127.0.0.1:8768/`. You can also download the generated `index.html` and use it offline. Storage behavior for `file:` URLs varies by browser; export notes before moving the file.
+
+- `src/lessons.mjs`: lesson copy, primary links, and practice scenarios.
+- `src/model.mjs`: progress validation, evidence classification, and export.
+- `src/cabinet.mjs`: recorded geometry and the motion vector.
+- `src/template.html`, `src/style.css`, `src/app.js`: page structure, brand materials, and interaction.
+- `build.mjs`: creates the self-contained `index.html`.
+- `tests/model.test.mjs`: content, state, model, and artifact checks.
+- `tests/browser-check.js`: browser interaction regression check. Run against the loopback server with `playwright-cli run-code --filename=tests/browser-check.js` or an equivalent Playwright page runner.
+
+Regenerate `index.html` after changing sources. GitHub Pages serves the committed file from `main`.
+
+## Privacy and recovery
+
+The page makes no API calls and contains no analytics or external runtime assets. Notes use the local-storage key `founder-fieldwork-v1`. They are not uploaded to GitHub.
+
+If storage is blocked, the page reports the problem and keeps the current session usable. Export notes before leaving. Unreadable saved data is preserved until you explicitly reset it; the notebook provides an export of the original record. Reset removes only this course's stored record after confirmation.
+
+Do not put private customer details into this learning tool. Browser storage is not an encrypted notebook or a backup.
+
+## Credits
+
+The vendored geometry and audit kit comes from the installed Anatomy skill, copyright 2026 Ryan, under the MIT license in `vendor/LICENSE`. Its code is preserved with attribution. The startup source links belong to their respective authors and publishers.
