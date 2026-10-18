@@ -5,13 +5,13 @@ import { build } from "esbuild";
 import { createParser } from "@openuidev/react-lang";
 import { lessons, signals } from "./src/lessons.mjs";
 import { buildCabinet } from "./src/cabinet.mjs";
-import { createVisualLibrary, visualPrograms, courseRouteProgram } from "./src/visual-programs.mjs";
+import { createVisualLibrary, visualPrograms } from "./src/visual-programs.mjs";
 
 process.chdir(fileURLToPath(new URL(".", import.meta.url)));
 const figure = buildCabinet({ audit: process.argv.includes("--audit") });
 const visualLibrary=createVisualLibrary();
 const parser=createParser(visualLibrary.toJSONSchema(),visualLibrary.root);
-for(const [name,program] of Object.entries({...visualPrograms,route:courseRouteProgram(0)})) {
+for(const [name,program] of Object.entries(visualPrograms)) {
   const result=parser.parse(program);
   if(result.meta.errors.length||result.meta.unresolved.length)throw new Error(`Invalid OpenUI program ${name}: ${JSON.stringify(result.meta)}`);
 }
@@ -33,13 +33,13 @@ for(const name of packages) {
   notices.push(`\n===== ${name} ${meta.version} =====\n${await readFile(license,"utf8")}`);
 }
 const noticeText=notices.join("\n");
-const [template, css, model, app] = await Promise.all([
+const [template, css, model, learning, app] = await Promise.all([
   readFile("src/template.html","utf8"), readFile("src/style.css","utf8"),
-  readFile("src/model.mjs","utf8"), readFile("src/app.js","utf8")
+  readFile("src/model.mjs","utf8"),readFile("src/learning.mjs","utf8"),readFile("src/app.js","utf8")
 ]);
 const safeJSON = value => JSON.stringify(value).replaceAll("<","\\u003c");
-const script = `const lessons=${safeJSON(lessons)};\nconst signals=${safeJSON(signals)};\nconst cabinetMotion=${safeJSON(figure.motion)};\n${model.replaceAll("export ","")}\n${app}`;
+const script = `const lessons=${safeJSON(lessons)};\nconst signals=${safeJSON(signals)};\nconst cabinetMotion=${safeJSON(figure.motion)};\nconst visualLessonIds=${safeJSON(Object.keys(visualPrograms))};\n${model.replaceAll("export ","")}\n${learning.replaceAll("export ","")}\n${app}`;
 const html = template.replace("/* APP_STYLES */",()=>css).replace("<!-- CABINET -->",()=>figure.svg).replace("/* OPENUI_RENDERER */",()=>visuals).replace("/* THIRD_PARTY_LICENSES */",()=>noticeText.replace(/<\/script/gi,"<\\/script")).replace("/* APP_SCRIPT */",()=>script);
 await writeFile("index.html",html);
 await writeFile("THIRD_PARTY_NOTICES.txt",noticeText);
-console.log(`Built index.html: ${Buffer.byteLength(html).toLocaleString()} bytes, ${lessons.length} validated OpenUI playbooks, ${figure.count} true-shape cabinet parts.`);
+console.log(`Built index.html: ${Buffer.byteLength(html).toLocaleString()} bytes, ${lessons.length} guided lessons, ${Object.keys(visualPrograms).length} validated interactive examples, ${figure.count} optional lab parts.`);

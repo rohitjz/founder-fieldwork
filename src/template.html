@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical founder learning bench. Turn startup advice into customer evidence through lessons, an interactive evidence cabinet, and your own field notes.">
+  <meta name="description" content="A focused founder course. Learn one idea, check your understanding, and apply it to your own project.">
   <meta name="theme-color" content="#1c1d20">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1d20'/%3E%3Cpath d='M9 6H25V11H14V15H23V20H14V27H9Z' fill='%23ffd84d'/%3E%3C/svg%3E">
-  <title>Founder Fieldwork | From working app to customer evidence</title>
+  <title>Founder Fieldwork | Learn the work after the prototype</title>
   <script>
     (() => {
       const param = new URLSearchParams(window.location.search).get("scoutTheme");
@@ -29,88 +29,36 @@
       <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="5" xChannelSelector="R" yChannelSelector="B"/>
     </filter>
   </defs></svg>
-  <a class="skip-link" href="#workbench">Skip to learning material</a>
-  <header class="topbar lg-full">
-    <a class="brand" href="#" aria-label="Founder Fieldwork home">
-      <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M4 3H24V9H10V14H21V20H10V29H4V3Z" fill="currentColor"/><path d="M24 12V29H14V23H18V12H24Z" fill="currentColor" opacity=".45"/></svg>
-      <span>Founder Fieldwork</span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a data-view="course" href="#lesson=problem">Learn</a>
-      <a data-view="lab" href="#lab">Evidence lab</a>
-      <a data-view="notebook" href="#notebook">Field notes <span id="note-count">0</span></a>
-    </nav>
-    <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to light theme">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1V4M12 20V23M1 12H4M20 12H23M4.2 4.2L6.3 6.3M17.7 17.7L19.8 19.8M4.2 19.8L6.3 17.7M17.7 6.3L19.8 4.2"/></svg>
-    </button>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#course" aria-label="Founder Fieldwork course">
+        <svg width="22" height="26" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M4 3H24V9H10V14H21V20H10V29H4V3Z" fill="currentColor"/><path d="M24 12V29H14V23H18V12H24Z" fill="currentColor" opacity=".45"/></svg>
+        <span><span class="brand-full">Founder </span>Fieldwork</span>
+      </a>
+      <nav aria-label="Main navigation"><a href="#course" data-nav="course">Course</a><a href="#notebook" data-nav="notebook">Notebook</a></nav>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to light theme">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1V4M12 20V23M1 12H4M20 12H23M4.2 4.2L6.3 6.3M17.7 17.7L19.8 19.8M4.2 19.8L6.3 17.7M17.7 6.3L19.8 4.2"/></svg>
+      </button>
+    </div>
   </header>
-
   <div id="storage-error" class="storage-error" role="status" hidden></div>
-  <main>
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <a class="source-link" href="#sources"><span class="source-dot" aria-hidden="true"></span> A companion to @davecto's founder reel</a>
-        <h1 id="hero-title">Your app works.<br>Does the business?</h1>
-        <p class="hero-deck">Writing code got easier. Finding a problem worth solving still takes fieldwork.</p>
-        <p class="hero-support">Work through the ideas. Question the evidence.<br class="desktop-break"> Leave with a customer experiment you can run.</p>
-        <div class="hero-actions">
-          <a class="primary" href="#lesson=problem">Start the fieldwork <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18"/></svg></a>
-          <a class="text-action" href="#lab">Try the evidence lab</a>
-        </div>
-        <div class="hero-footnote"><span class="tiny-tiles" aria-hidden="true"><i></i><i></i><i></i></span> Find the problem. Test the offer. Earn repeat use.</div>
-      </div>
+  <main id="main-content" tabindex="-1">
+    <div id="view-content"></div>
+    <section id="lab-section" class="page lab-page" hidden aria-labelledby="lab-title">
+      <a class="back-link" href="#course">Back to the course</a>
+      <div id="lab-questions"></div>
       <figure class="evidence-figure iso-plate" aria-labelledby="figure-heading">
-        <div class="figure-heading"><span>Fig. 1</span><h2 id="figure-heading">The evidence cabinet</h2><span class="live-indicator" aria-hidden="true"></span></div>
+        <div class="figure-heading"><span>Optional practice</span><h2 id="figure-heading">The evidence cabinet</h2></div>
         <div class="cabinet-stage"><!-- CABINET --></div>
-        <div class="figure-controls" role="group" aria-label="Inspect an evidence category">
-          <button type="button" data-signal="0" aria-pressed="false">Opinion</button>
-          <button type="button" data-signal="1" aria-pressed="true">Behavior</button>
-          <button type="button" data-signal="2" aria-pressed="false">Commitment</button>
-        </div>
-        <figcaption>
-          <p id="signal-example">A bookkeeper shows the reminder spreadsheet used at the last close.</p>
-          <p id="signal-reading" class="figure-reading" aria-live="polite">A visible workaround. Useful evidence, not proof of demand.</p>
-          <span class="analogy-note">A filing analogy, not a startup score. Choose a signal to open its drawer.</span>
-        </figcaption>
+        <figcaption><p id="signal-reading">Check your classification to open the matching drawer.</p><p class="small">A filing analogy, not a startup score. Opinions, behavior, and commitments answer different questions.</p></figcaption>
       </figure>
     </section>
-
-    <section id="workbench" class="workbench wrap" tabindex="-1" aria-label="Learning workbench">
-      <div class="bench-heading">
-        <div><p class="section-kicker">From advice to an actual test</p><h2 id="bench-title">The founder's field guide</h2></div>
-        <div class="progress-summary"><span id="progress-text">0 of 9 practices complete</span><progress id="course-progress" max="9" value="0" aria-label="Completed lesson practices"></progress></div>
-      </div>
-      <div id="course-map" class="course-map" data-visual-state="loading"></div>
-      <div class="workspace">
-        <aside class="course-index" aria-label="Lesson navigation">
-          <div class="index-heading"><span>Your route</span><span id="lesson-position">1 / 9</span></div>
-          <label class="sr-only" for="mobile-lesson">Choose a lesson</label><select id="mobile-lesson" class="mobile-lesson"></select>
-          <div id="lesson-list"></div>
-          <p class="index-note">One project, nine decisions.<br>Take the useful detour.</p>
-          <a class="source-index" href="#sources">Reading list &amp; provenance</a>
-        </aside>
-        <div id="workspace-content"></div>
-      </div>
-    </section>
-
-    <section id="sources" class="sources wrap" aria-labelledby="sources-title">
-      <div class="sources-intro"><p class="section-kicker">Follow the argument back</p><h2 id="sources-title">Read the originals.</h2><p>The lessons, examples, and exercises here are original teaching material. The linked resources carry the authors' fuller arguments.</p></div>
-      <div class="source-body">
-        <details>
-          <summary>What came from the reel, and what was added?</summary>
-          <p>The public <a href="https://www.instagram.com/reels/DeW-3XAxxpG/" rel="noopener noreferrer">reel by @davecto</a> says building an app and building a business are different jobs. Its caption names Paul Graham, Y Combinator, and <em>The Mom Test</em>, but offers the full nine-resource list through a comment-triggered message.</p>
-          <p>That full list was not available in the inspected public material. This is an independently curated companion, not a reconstruction of the creator's list. We selected readings from the named sources, then added Stripe, Rahul Vohra's Superhuman case study, and Sam Altman's playbook. Each lesson labels its provenance.</p>
-          <p>The receipt-chasing business is a fictional running example. Practice counts measure course activity, never business viability. No market-size claims, startup-success probabilities, or universal product-market-fit thresholds are implied.</p>
-        </details>
-        <ol id="reading-list"></ol>
-        <p class="source-date">Public source pages and titles checked on 18 October 2026. Advice is context-dependent. Test it against your customers, constraints, and responsibilities.</p>
-      </div>
-    </section>
   </main>
-  <footer class="wrap footer"><span>Built for the work after the prototype.</span><span>Notes stay in this browser. No account. No analytics.</span><a href="https://github.com/rohitjz/founder-fieldwork">View on GitHub</a></footer>
+  <footer class="page footer"><span>Notes stay in your browser.</span><a href="#sources">Reading list</a><a href="#lab">Evidence practice</a><a href="https://github.com/rohitjz/founder-fieldwork">GitHub</a></footer>
   <section id="print-course" aria-label="Printable learning guide"></section>
   <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
-  <noscript><section class="wrap"><h2>This learning bench needs JavaScript.</h2><p>Enable it to open the lessons and keep local field notes. The source explanation above is readable without it. Start by investigating a real problem, asking about recent behavior, and testing a small useful outcome.</p></section></noscript>
+  <noscript><section class="page"><h1>This course needs JavaScript.</h1><p>Enable it to open lessons and keep local notes. The course covers customer discovery, a useful first product, early customers, pricing, and repeat use.</p></section></noscript>
   <script>/* OPENUI_RENDERER */</script>
   <script id="third-party-licenses" type="text/plain">/* THIRD_PARTY_LICENSES */</script>
   <script>/* APP_SCRIPT */</script>

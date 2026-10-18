@@ -4,9 +4,9 @@ export const lessons = [
     title: "Start with a problem someone already has.",
     author: "Paul Graham", resource: "How to Get Startup Ideas",
     url: "https://paulgraham.com/startupideas.html", origin: "Selected from an author named in the reel",
-    idea: "An imaginable market is easy to describe. An urgent problem leaves evidence in someone's day.",
+    idea: "Start with a person who repeatedly struggles with a task. Look for the workaround they already use.",
     paragraphs: [
-      "Graham argues for noticing real problems rather than inventing plausible startup pitches. A useful starting point is a task you understand closely, with people you can reach. Your own frustration is a lead to investigate, not proof that other people will buy.",
+      "A real problem leaves a trace: time spent, money paid, a delay, or a workaround. Find people you can reach and ask to see that trace. A problem you have yourself is a useful lead. Other people's behavior is what you still need to investigate.",
       "Look for a specific person, a recurring situation, and a costly workaround. Cost can mean time, money, delay, or risk. Someone spending effort to solve a problem tells you more than someone agreeing that the idea sounds useful."
     ],
     case: "Our fictional founder wants to build an AI assistant for everyone who handles money. A narrower observation is more useful: independent bookkeepers chase missing client receipts before each monthly close. Now there is a workflow to investigate and a person to find.",
@@ -24,9 +24,9 @@ export const lessons = [
     title: "Get the story before you pitch the solution.",
     author: "Rob Fitzpatrick", resource: "The Mom Test",
     url: "https://www.momtestbook.com/", origin: "Book explicitly named in the reel",
-    idea: "A customer conversation should reveal what happened, not recruit someone to applaud your idea.",
+    idea: "Ask what the customer has already done. A recent real event tells you more than a prediction about your app.",
     paragraphs: [
-      "Fitzpatrick's approach steers conversations toward the person's life and specific past behavior. Questions about what someone might use invite guesswork. A pitch can make it harder for the person to tell you that the problem does not matter.",
+      "When you describe your solution first, a person may react to the pitch instead of explaining their problem. Ask them to walk through a recent situation. Follow what they tried, where it failed, and what it cost. Ask permission before viewing client information or keeping sensitive notes.",
       "Ask for a recent example, then follow the sequence: what started the work, what they tried, who was involved, and what happened afterward. Keep observed facts separate from your interpretation. Ask permission before taking sensitive notes or viewing customer material."
     ],
     case: "Instead of asking whether an AI reminder bot sounds useful, ask the bookkeeper to describe their most recent close. You learn that reminder writing is quick, but finding which documents are still missing is slow. That changes what you should test.",
@@ -44,9 +44,9 @@ export const lessons = [
     title: "Keep the learning loop close to the customer.",
     author: "Y Combinator", resource: "YC's essential startup advice",
     url: "https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice", origin: "Selected from an organization named in the reel",
-    idea: "Building and talking to users should change each other. Neither is a box to tick once.",
+    idea: "Test the assumption that could stop your plan from working before you build around it.",
     paragraphs: [
-      "YC's advice connects launching, talking to users, and iteration. For a solo founder, the practical question is what you need to learn next. Another feature can feel productive while leaving the most important uncertainty untouched.",
+      "An assumption is something your plan depends on but you have not checked. A customer might want the result while refusing the data access your service needs. Write down the uncertain condition. Choose a small, safe test that could show you are wrong.",
       "Separate a belief about the problem from a belief about the solution. Someone may genuinely struggle with a workflow but refuse access to the data your product needs. Test that constraint before you automate the workflow."
     ],
     case: "The bookkeeper confirms that missing receipts are painful. But they will not connect a client's inbox to an unknown app. A safe test might use a redacted checklist or sample files. A better reminder model cannot fix a missing permission.",
@@ -64,9 +64,9 @@ export const lessons = [
     title: "Make the smallest version useful to someone.",
     author: "Michael Seibel / Y Combinator", resource: "How to plan an MVP",
     url: "https://www.ycombinator.com/library/6f-how-to-plan-an-mvp", origin: "Selected from an organization named in the reel",
-    idea: "A minimum viable product is a small way to deliver and test value, not a small collection of unfinished features.",
+    idea: "Build the smallest complete way to help one kind of customer do one useful job.",
     paragraphs: [
-      "Seibel encourages founders to limit scope, launch, and learn from real users. Decide which user, which task, and which outcome the first version must support. Everything else needs to justify delaying that test.",
+      "This first version is often called a minimum viable product, or MVP. Its job is to test an outcome with a real user. Cut features that do not help answer that question. Keep the permissions, reliability, and honesty needed to deliver the small outcome safely.",
       "Minimum does not excuse unsafe handling, broken promises, or unusable work. Manual delivery can reduce technical scope, but the customer should understand what is manual and what the pilot does not do."
     ],
     case: "The first receipt-chasing service could accept a permitted checklist and return a clear missing-item summary. It does not need bank sync, forecasting, or a team dashboard. The useful test is whether the summary helps the bookkeeper complete the close.",
@@ -84,9 +84,9 @@ export const lessons = [
     title: "Learn the service before you automate it.",
     author: "Paul Graham", resource: "Do Things That Don't Scale",
     url: "https://paulgraham.com/ds.html", origin: "Selected from an author named in the reel",
-    idea: "Early customer work can be deliberately manual when it teaches you what should become repeatable.",
+    idea: "Deliver the result yourself before deciding which parts to automate.",
     paragraphs: [
-      "Graham argues that early founders often need to recruit users individually and give unusually close attention to their experience. Waiting for a self-serve growth engine can mean waiting without learning.",
+      "A manual pilot is a small service you perform by hand. Watching one complete job exposes exceptions, trust concerns, and the steps the customer values. Record the time and resources it takes. A useful service and a sustainable way to deliver it are separate things to test.",
       "Manual service exposes exceptions, trust concerns, and the steps customers value. Record the time and resources it takes. A delighted customer is useful evidence, but a service that requires unsustainable effort still needs a better delivery model."
     ],
     case: "You sit with a bookkeeper, prepare the missing-item summary, and watch them use it. They ignore your carefully written reminder and use only the client-by-client checklist. Automating the reminder first would have accelerated the wrong part.",
@@ -104,9 +104,9 @@ export const lessons = [
     title: "A launch is a chance to learn, not a verdict.",
     author: "Kat Mañalac / Y Combinator", resource: "How to launch (again and again)",
     url: "https://www.ycombinator.com/library/6i-how-to-launch-again-and-again", origin: "Selected from an organization named in the reel",
-    idea: "Use repeated, relevant launches to put a clear offer in front of people who might need it.",
+    idea: "Show a clear offer to a relevant audience and ask for one observable next step.",
     paragraphs: [
-      "The YC lesson treats launching as something founders can do repeatedly. A small launch can expose unclear language, missing trust, poor targeting, or a weak offer. A quiet first attempt does not isolate which of those failed.",
+      "A launch is an opportunity to learn from putting your offer in front of people. You can do it more than once. Choose an audience that might have the problem, explain a specific outcome, and ask for a concrete action. A quiet first attempt does not tell you which part failed.",
       "Choose a reachable audience and a specific next action. Track the path from exposure to conversation to use. Change one meaningful part of the next attempt so you can interpret the result."
     ],
     case: "A general social post gets polite reactions. A permitted post in a bookkeeper community describes the missing-receipt workflow and offers a scoped pilot. You record who asked for details, who brought a real checklist, and who actually tried the output.",
@@ -124,9 +124,9 @@ export const lessons = [
     title: "Test a price against a clear unit of value.",
     author: "Stripe", resource: "SaaS pricing models: a guide",
     url: "https://stripe.com/resources/more/saas-pricing-models-101", origin: "Added companion reading, not confirmed in the reel's list",
-    idea: "Your price, billing unit, and delivery cost should describe a business the customer can understand.",
+    idea: "Make clear what the customer pays for, what you will deliver, and what it costs you to deliver it.",
     paragraphs: [
-      "Stripe explains pricing approaches such as subscriptions, tiers, and usage-based billing. The unit you charge for affects predictability and incentives. Start with how the customer receives value rather than copying another company's pricing table.",
+      "A billing unit is the thing you charge per: a person, a task, a month, or an amount of usage. Choose a unit the customer can connect to a useful result. Then test a real offer with clear scope and terms. A copied pricing table cannot tell you whether customers will pay.",
       "A real offer tests more than asking whether a price sounds fair. State the scope, amount, billing period or unit, cancellation terms, and delivery limits. Account for service costs, including AI usage and manual review. An accepted pilot is evidence of that offer, not proof of enduring demand."
     ],
     case: "The bookkeeper might evaluate a price per client close more easily than a price per AI token. But you still need to test whether that unit fits their workflow and whether your delivery costs leave room for a business.",
@@ -144,9 +144,9 @@ export const lessons = [
     title: "Look for repeated value, not a launch-day spike.",
     author: "Rahul Vohra / First Round Review", resource: "How Superhuman Built an Engine to Find Product Market Fit",
     url: "https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/", origin: "Added companion reading, not confirmed in the reel's list",
-    idea: "Understand who gets value, what they value, and why others leave.",
+    idea: "Look for customers using the service again when their problem happens again.",
     paragraphs: [
-      "Vohra describes how Superhuman used customer feedback and segmentation to make product-market fit more actionable. A segment is a group of users with something relevant in common. Patterns can disappear when you average unlike users together.",
+      "A return means more when the customer had a genuine reason to need the service again. Compare people doing similar jobs at similar points in their workflow. Ask returning customers what helped and non-returners what changed or failed. Their reasons matter alongside the count.",
       "Use surveys as one input, alongside actual use, repeat purchases, and cancellation reasons. For a small pilot, inspect individual journeys before treating percentages as reliable. The case study's survey benchmark is not a universal pass mark, so this course does not turn it into a business score."
     ],
     case: "Some bookkeepers try the summary once and disappear. Others return at the next monthly close. Weekly logins would misread this workflow. Ask what triggered the return and compare users at a relevant stage in their own cycle.",
@@ -164,9 +164,9 @@ export const lessons = [
     title: "Spend the week on the uncertainty that matters.",
     author: "Sam Altman", resource: "Startup Playbook: focus and execution",
     url: "https://playbook.samaltman.com/#focus", origin: "Added companion reading, not confirmed in the reel's list",
-    idea: "A small team's capacity makes focus a decision about what to leave undone.",
+    idea: "Choose one test that will change your next decision. Decide in advance what you will do with its result.",
     paragraphs: [
-      "Altman's playbook connects product, users, execution, and focus. For this course, turn that into a bounded weekly decision: which uncertainty is most likely to invalidate the plan, and what evidence can you gather next?",
+      "Your time is limited, so choose the uncertainty that could most change the plan. State what you believe, what you will observe, and when you will review it. Write down what would make you continue, change direction, or stop before you become attached to the result.",
       "Choose a test with a time limit, a visible result, and a rule for what you will do afterward. The rule can be qualitative when evidence is sparse. Separate continue, change, and stop conditions before you become attached to the result. Sustainable effort and necessary care remain constraints."
     ],
     case: "You could add a dashboard, write a launch thread, or investigate why last month's users did not return. If repeat usefulness is the open question, contact those users and inspect the next close. Postpone the dashboard unless it helps answer that question.",
