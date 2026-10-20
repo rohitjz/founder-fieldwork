@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en" data-palette="signature">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A focused founder course. Learn one idea, check your understanding, and apply it to your own project.">
+  <meta name="theme-color" content="#1c1d20">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1d20'/%3E%3Cpath d='M9 6H25V11H14V15H23V20H14V27H9Z' fill='%23ffd84d'/%3E%3C/svg%3E">
+  <title>Business Levers | Understand the business before you automate it.</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef; --cp-bg-elevated: #fcfbf8; --cp-surface: #ffffff; --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede; --cp-border-strong: #919191; --cp-text: #242424; --cp-text-muted: #5c5c5c; --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b; --cp-accent-hover: #9a1a41; --cp-accent-soft: rgba(177, 31, 75, 0.08); --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a; --cp-danger: #dc2626; --cp-warning: #f59e0b; --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12); --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86); --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55); --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a; --cp-bg-elevated: #343231; --cp-surface: #292929; --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747; --cp-border-strong: #5f5f5f; --cp-text: #dedede; --cp-text-muted: #919191; --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1; --cp-accent-hover: #fb7b91; --cp-accent-soft: rgba(253, 142, 161, 0.14); --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80; --cp-danger: #f87171; --cp-warning: #fbbf24; --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32); --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72); --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04); --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+html[data-palette="signature"] {
+  --cp-bg: #fafafa; --cp-bg-elevated: #f0f0eb; --cp-surface: #ffffff; --cp-surface-soft: #eaeae4;
+  --cp-border: #d6d6cf; --cp-border-strong: #7c7d76; --cp-text: #1c1d20; --cp-text-muted: #595b56; --cp-text-soft: #61635c;
+  --cp-accent: #ca8a04; --cp-accent-hover: #a66d00; --cp-accent-fg: #1c1d20; --cp-accent-soft: #fff5ca; --cp-highlight: #f7e7a0;
+  --cp-success: #13794d; --cp-danger: #b83131; --cp-warning: #ad4d18; --cp-link: #695214;
+  --cp-glass: rgba(250,249,245,.9);
+  --cp-dome: 0 0 6px rgba(0,0,0,.03),0 2px 8px rgba(0,0,0,.06),inset 2.5px 2.5px .5px -2.5px rgba(255,255,255,.95),inset -2.5px -2.5px .5px -2.5px rgba(0,0,0,.2),inset 1px 1px 1px -.5px rgba(255,255,255,.7),inset -1px -1px 1px -.5px rgba(0,0,0,.1),inset 0 0 6px 6px rgba(255,255,255,.08),inset 0 0 2px 2px rgba(255,255,255,.05),0 0 12px rgba(255,255,255,.1);
+  --cp-figure-paper: #e3e3da; --cp-figure-top: #fafaf5; --cp-shade-0: #b6b7af; --cp-shade-1: #c4c5bb; --cp-shade-2: #d2d3c8; --cp-shade-3: #ddded3;
+  --cp-lit: #282a28; --cp-figure-edge: #96998c; --cp-figure-mid: #777b6b; --cp-figure-low: #a7aa9c;
+}
+html[data-palette="signature"][data-theme="dark"] {
+  --cp-bg: #1c1d20; --cp-bg-elevated: #252629; --cp-surface: #2c2d30; --cp-surface-soft: #323337;
+  --cp-border: #404145; --cp-border-strong: #73756f; --cp-text: #f2f1e9; --cp-text-muted: #babbb0; --cp-text-soft: #a2a597;
+  --cp-accent: #ffd84d; --cp-accent-hover: #ffe378; --cp-accent-fg: #1c1d20; --cp-accent-soft: #393626; --cp-highlight: #4a4228;
+  --cp-success: #5dd39e; --cp-danger: #ff8585; --cp-warning: #f59b68; --cp-link: #e5cc79;
+  --cp-glass: rgba(28,29,32,.9);
+  --cp-dome: 0 0 6px rgba(0,0,0,.15),0 2px 10px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.08),inset 2.5px 2.5px .5px -2px rgba(255,255,255,.12),inset -2.5px -2.5px .5px -2px rgba(255,255,255,.06),inset 1px 1px 1px -.5px rgba(255,255,255,.08),inset -1px -1px 1px -.5px rgba(255,255,255,.04),inset 0 0 8px 4px rgba(255,255,255,.02),0 0 14px rgba(255,255,255,.03);
+  --cp-figure-paper: #424640; --cp-figure-top: #666b5e; --cp-shade-0: #292d29; --cp-shade-1: #333830; --cp-shade-2: #40463a; --cp-shade-3: #4e5448;
+  --cp-lit: #ece5c9; --cp-figure-edge: #b6bda7; --cp-figure-mid: #a3ab90; --cp-figure-low: #747d65;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:88px}
+body{margin:0;background:var(--cp-bg);color:var(--cp-text);font:18px/1.75 "Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
+button,textarea{font:inherit;color:inherit}
+a{color:inherit;text-underline-offset:4px}
+button,a,summary{touch-action:manipulation}
+button,summary{cursor:pointer}
+button{min-height:44px}
+button:disabled{opacity:.5;cursor:not-allowed}
+svg{display:block;flex-shrink:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--cp-accent);outline-offset:5px}
+::selection{background:var(--cp-highlight);color:var(--cp-text)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:620;line-height:1.2;text-wrap:balance}
+h1{font-size:42px;letter-spacing:-1.65px}
+h2{font-size:23px;letter-spacing:-.5px}
+h3{font-size:18px}
+p+p{margin-top:18px}
+.page{width:min(calc(100% - 48px),880px);margin:0 auto}
+.reader{width:min(calc(100% - 48px),68ch);max-width:700px;margin:0 auto;padding:36px 0 72px}
+#main-content{min-height:70vh}
+#main-content:focus,h1:focus{outline:none}
+.lg-svg{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.topbar{position:sticky;top:0;z-index:10;background:var(--cp-glass);backdrop-filter:blur(2px) url("#liquid-distort") saturate(150%);-webkit-backdrop-filter:blur(2px) url("#liquid-distort") saturate(150%);box-shadow:var(--cp-dome);border:none}
+.topbar-inner{max-width:1040px;height:64px;margin:auto;padding:0 24px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-size:17px;font-weight:650;letter-spacing:-.5px;white-space:nowrap}
+.brand svg{color:var(--cp-accent)}
+.topbar nav{display:flex;gap:22px;margin-left:auto}
+.topbar nav a{font-size:14px;color:var(--cp-text-muted);min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.topbar nav a[aria-current="page"]{color:var(--cp-text);text-decoration:underline;text-decoration-color:var(--cp-accent);text-decoration-thickness:2px;text-underline-offset:7px}
+.icon-button{width:44px;flex:0 0 44px;display:grid;place-items:center;background:none;border:none;border-radius:8px}
+.icon-button:hover{background:var(--cp-surface-soft)}
+.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 20px;border:0;border-radius:8px;font-size:15px;font-weight:650;line-height:1.5;text-decoration:none}
+.primary{background:var(--cp-accent);color:var(--cp-accent-fg)}
+.primary:hover:not(:disabled){background:var(--cp-accent-hover)}
+.secondary{background:none;color:var(--cp-text);border:1px solid var(--cp-border-strong);font-weight:550}
+.secondary:hover{background:var(--cp-surface-soft)}
+.text-button{border:0;background:none;padding:10px 0;text-decoration:underline;text-underline-offset:4px;font-size:14px}
+.small{font-size:13px;line-height:1.65;color:var(--cp-text-muted)}
+.eyebrow{font-size:13px;color:var(--cp-text-muted);margin-bottom:14px}
+.back-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--cp-text-muted);margin-bottom:10px;text-decoration:none}
+.back-link::before{content:"\2190";margin-right:9px}
+.back-link:hover{text-decoration:underline}
+.course-page{padding:48px 0 64px}
+.course-intro{max-width:650px;padding-bottom:42px}
+.course-intro h1{font-size:50px;max-width:18ch;line-height:1.08;letter-spacing:-2px}
+.course-lead{font-size:20px;line-height:1.6;max-width:47ch;margin:22px 0 24px}
+.course-guidance{font-size:14px;color:var(--cp-text-muted);max-width:57ch;margin-top:16px}
+.course-progress{font-size:13px;color:var(--cp-text-muted);margin-top:12px}
+.chapter{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;padding:28px 0;border-top:1px solid var(--cp-border)}
+.chapter-heading{display:flex;align-items:flex-start;gap:16px}
+.chapter-number{font-size:13px;color:var(--cp-text-soft);line-height:28px;min-width:18px}
+.chapter h2{font-size:23px;margin-bottom:9px}
+.chapter-heading p{font-size:14px;line-height:1.65;color:var(--cp-text-muted);max-width:28ch}
+.lesson-menu{list-style:none;padding:0;margin:0;counter-reset:none}
+.lesson-menu li+li{border-top:1px solid var(--cp-border)}
+.lesson-menu a{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:52px;font-size:15px;text-decoration:none;padding:10px 0}
+.lesson-menu a:hover{color:var(--cp-accent)}
+.lesson-menu-end{flex-shrink:0;color:var(--cp-text-muted)}
+.completion-label{font-size:11px;color:var(--cp-success)}
+.course-boundary{border-top:1px solid var(--cp-border);padding-top:24px;margin-top:8px;font-size:12px;line-height:1.7;color:var(--cp-text-muted)}
+.lesson-location{font-size:12px;color:var(--cp-text-muted);margin:0 0 10px}
+.lesson-location span{margin-inline:8px;color:var(--cp-text-soft)}
+.lesson-header h1{font-size:38px;max-width:26ch}
+.lesson-outcome{font-size:14px;color:var(--cp-text-muted);margin-top:14px}
+.phase-nav{display:flex;gap:32px;border-bottom:1px solid var(--cp-border);margin:26px 0 28px}
+.phase-nav a{display:flex;align-items:center;gap:8px;min-height:48px;padding:0 0 12px;font-size:14px;color:var(--cp-text-muted);text-decoration:none;border-bottom:2px solid transparent}
+.phase-nav a span{font-size:10px;border:1px solid var(--cp-border-strong);border-radius:50%;width:20px;height:20px;display:grid;place-items:center;line-height:1}
+.phase-nav a[aria-current="step"]{color:var(--cp-text);border-bottom-color:var(--cp-accent)}
+.phase-nav a[aria-current="step"] span{border-color:var(--cp-accent);background:var(--cp-accent-soft);color:var(--cp-accent)}
+.lesson-idea{font-size:22px;line-height:1.6;letter-spacing:-.3px;margin-bottom:22px}
+.core-explanation{color:var(--cp-text-muted);font-size:17px;line-height:1.8}
+.worked-example{margin:30px 0;padding:24px;background:var(--cp-bg-elevated);border-radius:8px}
+.worked-example h2{font-size:17px;margin-bottom:15px;letter-spacing:-.2px}
+.worked-example p{font-size:16px;line-height:1.8}
+.worked-example .case-context{font-size:14px;color:var(--cp-text-muted);margin-bottom:16px}
+.example-contrast{margin:22px 0 0;font-size:16px}
+.example-contrast div+div{margin-top:18px;padding-top:18px;border-top:1px solid var(--cp-border)}
+.example-contrast dt{font-size:12px;color:var(--cp-text-muted);margin-bottom:5px}
+.example-contrast dd{margin:0;line-height:1.7}
+.lesson-caution{font-size:14px;color:var(--cp-text-muted);line-height:1.75}
+.lesson-caution strong{color:var(--cp-text);font-weight:600}
+details summary{min-height:44px;padding:11px 0;font-size:14px;line-height:1.6}
+details p{font-size:16px;line-height:1.8;color:var(--cp-text-muted);margin:12px 0}
+.deeper{margin-top:18px}
+.phase-forward{margin-top:30px}
+.phase-forward .small{margin-top:12px}
+.lesson-source{font-size:12px;line-height:1.75;color:var(--cp-text-soft);margin-top:28px;padding-top:18px;border-top:1px solid var(--cp-border)}
+.lesson-phase>h2{font-size:25px;line-height:1.3;margin:0 0 14px}
+.lesson-phase>h2+p{color:var(--cp-text-muted);font-size:16px}
+.editor{margin-top:26px}
+.editor label{display:block;font-size:17px;line-height:1.65;font-weight:550;margin-bottom:12px}
+textarea{display:block;width:100%;min-height:180px;resize:vertical;padding:16px;font-size:16px;line-height:1.75;border:1px solid var(--cp-border-strong);border-radius:8px;background:var(--cp-bg);color:var(--cp-text)}
+textarea::placeholder{color:var(--cp-text-soft);opacity:1}
+#recall-note{min-height:128px}
+.save-state{display:block;font-size:12px;color:var(--cp-text-muted);margin-top:9px}
+.choices{margin-top:28px}
+.choices>summary{display:inline-flex;align-items:center;min-height:48px;padding:11px 20px;background:var(--cp-accent);color:var(--cp-accent-fg);border-radius:8px;font-size:15px;font-weight:650;list-style:none}
+.choices>summary::-webkit-details-marker{display:none}
+.choices[open]>summary{background:none;color:var(--cp-text-muted);padding:10px 0;font-size:13px;font-weight:400;text-decoration:underline}
+fieldset{padding:0;margin:20px 0;border:0;min-width:0}
+legend{padding:0;margin-bottom:18px;font-size:19px;line-height:1.6;font-weight:550}
+.answer{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--cp-border);border-radius:8px;margin:10px 0;cursor:pointer;font-size:16px;line-height:1.7;min-height:48px}
+.answer input{margin:6px 0 0;width:17px;height:17px;accent-color:var(--cp-accent);flex-shrink:0}
+.answer:has(input:checked){background:var(--cp-accent-soft);border-color:var(--cp-accent)}
+.feedback{padding:18px 0;font-size:16px;line-height:1.75}
+.feedback[data-result="incorrect"]{color:var(--cp-warning)}
+.check-passed{font-size:14px;color:var(--cp-text-muted);margin:22px 0 14px}
+.quiet-back{display:block;font-size:13px;color:var(--cp-text-muted);margin-top:24px;min-height:44px;padding:10px 0}
+.guidance{margin-top:22px}
+.guidance ol{padding-left:22px;font-size:16px;line-height:1.8;color:var(--cp-text-muted)}
+.guidance li+li{margin-top:8px}
+.guidance h3{margin-top:20px;font-size:15px}
+.lesson-done{padding-top:40px}
+.lesson-done h1{margin-bottom:30px}
+.lesson-done h2{font-size:16px;margin-bottom:12px}
+.saved-decision{font-size:21px;line-height:1.7;white-space:pre-line;border-left:2px solid var(--cp-accent);padding-left:22px;margin-bottom:20px}
+.notebook-page,.lab-page{padding:36px 0 64px}
+.page-lead{font-size:18px;color:var(--cp-text-muted);max-width:62ch;line-height:1.7;margin-top:18px}
+.notebook-tools{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin:26px 0 18px}
+.notebook-entries{margin-top:32px}
+.notebook-entry{border-top:1px solid var(--cp-border)}
+.notebook-entry:last-child{border-bottom:1px solid var(--cp-border)}
+.notebook-entry>summary{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:17px 0;font-size:16px;list-style:none}
+.entry-status{font-size:12px;color:var(--cp-text-muted);white-space:nowrap}
+.notebook-entry[open]{padding-bottom:24px}
+.notebook-entry[open]>summary{font-weight:600}
+.notebook-entry .editor{margin-top:10px}
+.entry-lesson{display:inline-block;min-height:44px;padding:10px 0;font-size:13px;color:var(--cp-text-muted)}
+.recall-review p{white-space:pre-line}
+.storage-tools{margin-top:32px}
+.storage-tools button{margin:12px 12px 0 0}
+.sources-page h1{margin-bottom:18px}
+.source-boundary{margin:32px 0}
+.source-boundary h2{font-size:21px;margin-bottom:16px}
+.source-boundary p{font-size:16px;line-height:1.8;color:var(--cp-text-muted)}
+.reading-list{padding-left:22px}
+.reading-list li{padding:18px 0 18px 6px;border-top:1px solid var(--cp-border)}
+.reading-list li>a{font-size:17px;font-weight:550}
+.reading-list span{display:block;font-size:14px;color:var(--cp-text-muted);margin-top:5px}
+.reading-list li p{font-size:12px;line-height:1.7;color:var(--cp-text-soft);margin-top:5px}
+.sources-page>.secondary{margin-top:24px}
+.storage-error{width:min(calc(100% - 48px),880px);margin:22px auto;padding:16px;border:1px solid var(--cp-warning);font-size:14px;line-height:1.7}
+.footer{display:flex;gap:20px;flex-wrap:wrap;padding:24px 0 32px;border-top:1px solid var(--cp-border);font-size:12px;color:var(--cp-text-muted)}
+.footer>span{margin-right:auto}
+.footer>a{min-height:44px;display:flex;align-items:center}
+.footer>span{display:flex;align-items:center;min-height:44px}
+.learning-visual{margin-top:22px}
+.example-switch{display:flex;border-bottom:1px solid var(--cp-border);gap:20px;margin-bottom:18px}
+.example-switch button{background:none;border:0;border-bottom:2px solid transparent;color:var(--cp-text-muted);padding:8px 0;min-height:48px;font-size:14px;line-height:1.5;text-align:left}
+.example-switch button[aria-pressed="true"]{color:var(--cp-text);border-bottom-color:var(--cp-accent)}
+.question-example>span,.question-result>span{font-size:12px;color:var(--cp-text-muted)}
+.question-example p{font-size:21px;line-height:1.55;margin:6px 0 18px;letter-spacing:-.4px}
+.question-result{border-left:2px solid var(--cp-border-strong);padding-left:16px}
+.question-result p{font-size:16px;line-height:1.75;margin:6px 0 0}
+.worked-example .visual-hint{font-size:12px;color:var(--cp-text-soft);margin:18px 0 0}
+.scope-drawing{width:100%;height:auto}
+.scope-line{stroke:var(--cp-accent);stroke-width:1.6;fill:none}
+.scope-core rect{fill:var(--cp-surface);stroke:var(--cp-border-strong);stroke-width:1}
+.scope-core text{fill:var(--cp-text);font-size:14px}
+.scope-extra{opacity:.14}
+.expanded .scope-extra{opacity:1}
+.scope-extra path{fill:none;stroke:var(--cp-border-strong);stroke-width:1;stroke-dasharray:3 4}
+.scope-extra rect{fill:var(--cp-bg);stroke:var(--cp-border);stroke-width:1}
+.scope-extra text{fill:var(--cp-text-muted);font-size:13px}
+.scope-key{display:none}
+.worked-example .scope-explanation,.worked-example .scope-extras{font-size:14px;color:var(--cp-text-muted);line-height:1.75}
+.visual-error{font-size:14px;padding:16px;border:1px solid var(--cp-warning)}
+.related-guide{margin-top:18px}
+.economics-explorer{margin-top:22px;padding-top:12px;border-top:1px solid var(--cp-border)}
+.economics-explorer>summary{font-weight:550}
+.economics-explorer .small{margin:12px 0}
+#economics-form{margin-top:20px}
+.numeric-field{display:grid;grid-template-columns:minmax(0,1fr) 140px;align-items:center;gap:20px;margin:12px 0}
+.numeric-field label{font-size:14px;line-height:1.65}
+.numeric-field input{width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--cp-border-strong);border-radius:7px;background:var(--cp-bg);color:var(--cp-text);font:inherit;font-size:16px}
+.example-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:22px}
+.calculation-error{font-size:14px;color:var(--cp-warning);line-height:1.7;margin:16px 0}
+.calculation-rows{margin:24px 0}
+.calculation-rows>div{display:flex;gap:20px;align-items:center;justify-content:space-between;border-top:1px solid var(--cp-border);padding:14px 0}
+.calculation-rows dt{font-size:15px;line-height:1.65}
+.calculation-rows dt small{display:block;font-size:12px;color:var(--cp-text-muted);margin-top:4px}
+.calculation-rows dd{margin:0;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.calculation-rows>div:last-child{border-block:1px solid var(--cp-border-strong)}
+.break-even{font-size:15px;color:var(--cp-text-muted);line-height:1.75}
+.lab-page{max-width:720px}
+.lab-statement{font-size:24px;line-height:1.5;margin:22px 0}
+#lab-questions>.small{margin-top:24px}
+#lab-form>.small{margin-top:24px}
+#lab-form>#next-signal{margin:12px 0 24px}
+.evidence-figure{max-width:540px;margin:32px auto 0;border:1px solid var(--cp-border);border-radius:10px;background:var(--cp-bg-elevated);overflow:hidden}
+.figure-heading{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0;font-size:11px;color:var(--cp-text-muted)}
+.figure-heading h2{font-size:13px;letter-spacing:0;font-weight:550}
+.cabinet-stage{height:300px;padding:0 14px;overflow:hidden}
+.cabinet-svg{width:100%;height:100%;overflow:visible}
+.iso-fill{fill:var(--cp-figure-paper);stroke:none}
+.iso-top{fill:var(--cp-figure-top);stroke:none}
+.iso-shade{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--cp-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--cp-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--cp-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--cp-shade-3)}
+.iso-line{fill:none;stroke:var(--cp-figure-low);stroke-width:.6px;stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--cp-figure-edge)}
+.iso-line[data-tone="mid"]{stroke:var(--cp-figure-mid)}
+.iso-line[data-tone="lo"],.iso-line[data-tone="faint"]{stroke:var(--cp-figure-low)}
+.iso-dots circle{fill:var(--cp-figure-edge)}
+.iso-face-text{fill:var(--cp-figure-mid);font-family:inherit;letter-spacing:.5px}
+.selected .iso-solid[data-lit]>.iso-top,.selected .iso-solid[data-lit]>.iso-shade{fill:var(--cp-accent)}
+.selected .iso-solid[data-lit]>.iso-edge,[data-drawer].selected .iso-edge{stroke:var(--cp-lit)}
+figcaption{padding:10px 20px 20px}
+#signal-reading{font-size:14px;line-height:1.7}
+figcaption .small{font-size:11px;line-height:1.7;margin-top:12px}
+.skip-link{position:fixed;top:-100px;left:20px;z-index:30;padding:10px 16px;background:var(--cp-accent);color:var(--cp-accent-fg)}
+.skip-link:focus{top:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#print-course{display:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.topbar{background:var(--cp-bg);backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(max-width:640px){
+  body{font-size:17px}
+  .topbar-inner{padding-inline:16px;gap:12px}
+  .brand-full{display:none}
+  .brand{font-size:16px;gap:8px}
+  .topbar nav{gap:16px}
+  .topbar nav a{font-size:13px}
+  .page{width:calc(100% - 40px)}
+  .reader{width:calc(100% - 40px);padding-top:24px}
+  .course-page{padding-top:32px}
+  .course-intro{padding-bottom:30px}
+  .course-intro h1{font-size:37px;letter-spacing:-1.4px;max-width:17ch}
+  .course-lead{font-size:18px;margin-top:18px}
+  .course-guidance{font-size:13px}
+  .chapter{display:block;padding:24px 0}
+  .chapter-heading{gap:12px;margin-bottom:12px}
+  .chapter h2{font-size:22px}
+  .chapter-heading p{max-width:none;font-size:14px}
+  .lesson-menu{padding-left:30px}
+  .lesson-menu a{font-size:15px;min-height:52px}
+  .lesson-header h1{font-size:31px;line-height:1.15;letter-spacing:-1px}
+  .lesson-location{font-size:11px}
+  .lesson-outcome{font-size:13px}
+  .phase-nav{gap:28px;margin:22px 0}
+  .phase-nav a{font-size:14px}
+  .lesson-idea{font-size:21px;line-height:1.6}
+  .core-explanation{font-size:17px}
+  .worked-example{padding:20px;margin:26px 0}
+  .worked-example p,.example-contrast{font-size:16px}
+  .lesson-phase>h2{font-size:23px}
+  .primary,.secondary{max-width:100%;font-size:14px;padding:12px 18px;min-height:48px}
+  .editor label{font-size:17px}
+  textarea{padding:14px;min-height:180px}
+  .notebook-page h1,.sources-page h1,.lab-page h1,.lesson-done h1{font-size:32px;letter-spacing:-1px}
+  .page-lead{font-size:17px}
+  .notebook-tools{gap:14px}
+  .notebook-entry>summary{font-size:15px;gap:12px}
+  .entry-status{font-size:11px}
+  .example-switch{gap:16px}
+  .example-switch button{font-size:13px;flex:1}
+  .scope-core text,.scope-extra text{display:none}
+  .scope-key{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:0 0 18px;font-size:12px;line-height:1.5;text-align:center;color:var(--cp-text-muted)}
+  .footer{gap:10px 20px}
+  .footer>span{flex-basis:100%;min-height:20px}
+  .cabinet-stage{height:270px}
+  .figure-heading{gap:12px}
+  .numeric-field{grid-template-columns:minmax(0,1fr) 110px;gap:14px}
+  .numeric-field label{font-size:13px}
+  .calculation-rows dd{font-size:16px}
+  .calculation-rows dt{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{
+  :root,html[data-theme],html[data-palette="signature"],html[data-palette="signature"][data-theme="dark"]{--cp-bg:#ffffff;--cp-text:#000000;--cp-text-muted:#333333;--cp-border:#bbbbbb;color-scheme:light}
+  .topbar,main,.footer,.storage-error,.skip-link{display:none!important}
+  .topbar{backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  #print-course{display:block;font-size:11pt}
+  #print-course h1{font-size:28pt;margin-bottom:20px}
+  #print-course h2{font-size:20pt;margin:28px 0 16px}
+  #print-course h3{margin:18px 0 10px}
+  #print-course article{break-before:page}
+  #print-course a{overflow-wrap:anywhere}
+  #print-course p{margin-bottom:12px;white-space:pre-line}
+  @page{margin:18mm}
+}
+</style>
+</head>
+<body>
+  <svg class="lg-svg" aria-hidden="true" focusable="false"><defs>
+    <filter id="liquid-distort" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.008" numOctaves="1" seed="5" result="turb"/>
+      <feGaussianBlur in="turb" stdDeviation="4" result="softNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="8" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+    <filter id="liquid-distort-sm" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.015" numOctaves="1" seed="7" result="turb"/>
+      <feGaussianBlur in="turb" stdDeviation="2" result="softNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="5" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+  </defs></svg>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#course" aria-label="Founder Fieldwork course">
+        <svg width="22" height="26" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M4 3H24V9H10V14H21V20H10V29H4V3Z" fill="currentColor"/><path d="M24 12V29H14V23H18V12H24Z" fill="currentColor" opacity=".45"/></svg>
+        <span><span class="brand-full">Founder </span>Fieldwork</span>
+      </a>
+      <nav aria-label="Main navigation"><a href="#course" data-nav="course">Course</a><a href="#notebook" data-nav="notebook">Notebook</a></nav>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to light theme">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1V4M12 20V23M1 12H4M20 12H23M4.2 4.2L6.3 6.3M17.7 17.7L19.8 19.8M4.2 19.8L6.3 17.7M17.7 6.3L19.8 4.2"/></svg>
+      </button>
+    </div>
+  </header>
+  <div id="storage-error" class="storage-error" role="status" hidden></div>
+  <main id="main-content" tabindex="-1">
+    <div id="view-content"></div>
+    <section id="lab-section" class="page lab-page" hidden aria-labelledby="lab-title">
+      <a class="back-link" href="#course">Back to the course</a>
+      <div id="lab-questions"></div>
+      <figure class="evidence-figure iso-plate" aria-labelledby="figure-heading">
+        <div class="figure-heading"><span>Optional practice</span><h2 id="figure-heading">The evidence cabinet</h2></div>
+        <div class="cabinet-stage"></div>
+        <figcaption><p id="signal-reading">Check your classification to open the matching drawer.</p><p class="small">A filing analogy, not a startup score. Opinions, behavior, and commitments answer different questions.</p></figcaption>
+      </figure>
+    </section>
+  </main>
+  <footer class="page footer"><span>Notes stay in your browser.</span><a href="#sources">Reading list</a><a href="https://github.com/rohitjz/founder-fieldwork">GitHub</a></footer>
+  <section id="print-course" aria-label="Printable learning guide"></section>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <noscript><section class="page"><h1>This course needs JavaScript.</h1><p>Enable it to open lessons and keep local notes. The course covers customer discovery, a useful first product, early customers, pricing, and repeat use.</p></section></noscript>
+  <script></script>
+  <script id="third-party-licenses" type="text/plain"></script>
+  <script>const course={"id":"levers","title":"Business Levers","storageKey":"business-levers-v1","exportName":"business-levers","eyebrow":"A companion to @thelazyceo's reel","heading":"Understand the business before you automate it.","lead":"Follow the sale, account for its cost, and choose one assumption to test.","guidance":"Use one real business idea throughout. All example figures are invented for learning, not targets or forecasts.","sourceCredit":"An original companion to the reel's business-levers theme.","sourceHeading":"Sources and limits","sourceIntro":"The reel supplied the theme. The lessons, arithmetic model, and practice questions are original and use the primary references below.","sourceParagraphs":["The public reel by @thelazyceo says online businesses follow a similar path and involve levers that AI can help you work faster. Its visible headline makes a personal earnings claim, but does not define whether that means revenue or profit. The reel offers a business guide through a CLAUDE comment.","We did not obtain that promised guide, a step-by-step method, or evidence for the personal earnings claim. This course is not a reconstruction of the creator's guide. The levers taught here are an independently selected teaching model, not a list extracted from the video.","The worked example is a fictional online service. All dollar amounts, visits, orders, rates, and time budgets are illustrative assumptions. No earnings claim, market benchmark, guaranteed outcome, or investment recommendation is implied.","The arithmetic holds other inputs constant to explain relationships. It does not establish that more traffic keeps conversion unchanged, that a price rise leaves demand intact, or that AI can replace customer evidence.","The economics example is a simplified operating model, not financial reporting. Tax, financing, founder pay, depreciation, refunds, and other costs need separate treatment or explicit inclusion before making a real decision."],"reelUrl":"https://www.instagram.com/reels/DerBPXstdkj/","checkedDate":"20 October 2026","caseContext":"Our fictional online service sells a reviewed content brief to independent instructors. The customer checks and approves the work before using it.","printIntro":"Original learning companion inspired by @thelazyceo's business-levers reel. The promised guide and supporting earnings evidence were not publicly available. All figures in the worked example are illustrative.","exportIntro":"Original companion inspired by @thelazyceo's reel.\nThe promised guide was not publicly available. These are independently developed lessons, not the creator's method.","otherGuide":{"url":"../","label":"Founder Fieldwork: customer discovery and pilots"},"lab":false,"calculator":true};
+const lessons=[{"id":"claim","group":"Check the starting point","short":"Read the claim carefully","title":"A revenue number does not tell you what the owner kept.","author":"Stripe","resource":"How to calculate the break-even point","url":"https://stripe.com/resources/more/how-to-calculate-the-break-even-point","origin":"Added teaching reference; not identified as a resource in the reel","idea":"Before learning from an earnings claim, ask what was measured, over what period, and after which costs.","paragraphs":["Revenue is the value of sales. A cost is what the business spends to make and support those sales. Profit depends on which costs have been deducted. Cash received is another question: a sale can be recorded before the customer pays, and a payment can arrive before you deliver.","Ask for the currency, period, business activity, refunds, costs, and the evidence behind the number. A personal result is one person's account, not a forecast for you. The useful lesson is how a business works, not a target you must copy."],"case":"Imagine an online service with $1,000 in sales for one month. It spends $300 delivering orders, $200 acquiring customers, and $400 on fixed costs. The modeled remainder is $100 before tax and any omitted costs. Saying it made $1,000 would leave the most important part unclear.","distinction":["Sales","$1,000 of revenue in the example month.","Modeled remainder","$100 after the example's specified costs, before tax and omitted items."],"task":"Write the questions you would ask before trusting an earnings claim.","steps":["Name the metric, currency, and period.","Ask which costs and refunds are included.","Separate what was shown from what you are assuming."],"prompt":"Which number are you trying to understand, what does it include, and what evidence is missing?","example":"I need monthly revenue, direct delivery costs, acquisition costs, fixed costs, refunds, and owner pay separately. A screenshot of sales alone will not answer what the business keeps.","trap":"Do not infer the creator's costs or actual profit. The reel's personal claim has not been verified here.","quiz":{"question":"A screenshot shows $10,000 in payments received. What can you conclude?","options":["The owner earned $10,000 in profit.","You need the period, refunds, delivery obligations, and costs before judging earnings.","Every similar business can reach the same result."],"correct":1,"explanations":["Payments received do not show expenses, refunds, or unfinished obligations.","The screenshot alone cannot establish profit or what the owner can take home.","One account cannot establish a transferable outcome for another business."]},"takeaway":"Name the metric before you borrow the ambition."},{"id":"buyer","group":"Check the starting point","short":"Find a buyer with a real problem","title":"A reachable buyer comes before a traffic target.","author":"Rob Fitzpatrick","resource":"The Mom Test","url":"https://www.momtestbook.com/","origin":"Added teaching reference; not identified as a resource in the reel","idea":"Find someone with a problem they already spend effort solving. Then test a small, clear offer.","paragraphs":["A buyer is not simply everyone who might like the idea. Choose a person you can reach, a task they struggle with, and an outcome you can safely deliver. Ask about their last attempt before presenting your product. Their actual workaround gives you a starting point.","Interest, a request for information, a completed trial, and payment are different observations. Record them separately. You can use AI to help prepare questions, but generated customer quotes or personas cannot replace conversations with real people."],"case":"Our fictional service could promise AI content for everyone. A narrower test is a reviewed brief for an independent instructor preparing a course launch. Ask how they prepared the last launch, what took time, and whether they already paid someone to help.","distinction":["An audience category","Anyone building a personal brand.","A testable buyer situation","An independent instructor preparing a course launch who can describe the last preparation process."],"task":"Name a reachable buyer and a small offer.","steps":["Choose a person or group you can actually contact.","Ask about the most recent occurrence of the problem.","Describe a limited outcome, permissions, and delivery terms."],"prompt":"Who will you talk to, what recent problem will you investigate, and what small result could you offer?","example":"I will ask an independent instructor about their last launch brief. If the preparation was painful, I will offer one reviewed brief using permitted inputs, with the scope and price agreed first.","trap":"A polite yes is not a purchase. Do not pressure people or treat a fictional persona as observed demand.","quiz":{"question":"Which observation is the strongest starting point for investigation?","options":["A person shows the process they used to prepare their last launch.","AI estimates that many people might want content help.","Friends like the name of your service."],"correct":0,"explanations":["A recent process gives you something real to inspect. You still need to investigate cost and urgency.","A generated estimate does not establish a customer's behavior or buying decision.","Branding feedback does not show a recurring problem."]},"takeaway":"Find the job before you count the visitors."},{"id":"funnel","group":"Follow the money","short":"Connect visits to sales","title":"Make the path from attention to an order explicit.","author":"Shopify","resource":"Ecommerce conversion rate","url":"https://www.shopify.com/blog/ecommerce-conversion-rate","origin":"Added teaching reference; not identified as a resource in the reel","idea":"For a simple order funnel, visits multiplied by the order rate gives modeled orders. Orders multiplied by average net revenue gives modeled revenue.","paragraphs":["Choose one period and one denominator. In this guide, the order rate is completed orders divided by site visits in that same period. A visit is a session, not a unique person. One person may visit several times. Do not replace visits with followers or total registered users.","This is a simple direct-sale teaching model. Some businesses need extra stages such as a qualified lead, a sales call, or an approval. Label the stages and use matching periods before comparing rates. Improving a metric requires a test; changing a number in a model is not evidence you can achieve it."],"case":"With 1,000 visits and 20 completed orders, the example order rate is 20 / 1,000 = 2%. At $50 average net revenue per order, modeled revenue is $1,000. Raising the rate to 3% while holding everything else constant gives 30 modeled orders and $1,500 revenue.","distinction":["A defined rate","20 orders / 1,000 visits in one month = 2%.","An incompatible denominator","20 orders / everyone who has ever followed the account."],"task":"Write a small funnel with clearly labeled stages.","steps":["Define the start, the completed action, and the period.","Use the same population and period in numerator and denominator.","Choose one possible source of friction to investigate."],"prompt":"What starts your funnel, what counts as a completed sale, and which rate could you measure honestly?","example":"I will count visits to the pilot-offer page and completed paid orders during the same month. I will keep requests for information separate from purchases.","trap":"A higher order rate can reflect a different audience or mix of visitors. It does not automatically prove the page improved.","quiz":{"question":"You have 800 visits and 16 completed orders in one period. What is the order rate?","options":["16%.","50%.","2%."],"correct":2,"explanations":["16 is the order count, not the percentage of visits.","Dividing visits by orders reverses the question.","16 / 800 = 0.02, which is 2%. Keep the numerator and denominator labeled."]},"takeaway":"Every rate needs an action, a denominator, and a period."},{"id":"economics","group":"Follow the money","short":"Check what each sale leaves","title":"More orders help only when the economics support them.","author":"Stripe","resource":"Break-even analysis and contribution","url":"https://stripe.com/resources/more/how-to-calculate-the-break-even-point","origin":"Added teaching reference; not identified as a resource in the reel","idea":"Subtract the cost that grows with each order before deciding how much more volume is worth.","paragraphs":["Variable cost grows with delivery: payment fees, materials, model usage, or review work may belong here. Contribution per order is net revenue per order minus variable cost per order. Total contribution still has to cover acquisition spending and fixed costs before the modeled business has a surplus.","Customer acquisition cost, or CAC, is matched sales and marketing cost divided by new customers acquired. It is not cost divided by every order, signup, or existing customer. In a simple acquisition-period view, $200 for 10 new customers is $20 per new customer. Long sales cycles require careful timing and attribution. Do not subtract the same acquisition expense twice."],"case":"In the example month, 20 orders at $50 produce $1,000 revenue. Delivery costs are $15 per order, or $300 total. The $700 contribution then covers $200 acquisition spending and $400 fixed costs, leaving $100 before tax and omitted costs. If variable cost rises above $50 per order, selling more adds loss before those fixed costs.","distinction":["Contribution per order","$50 net revenue - $15 variable cost = $35.","Modeled monthly remainder","20 x $35 - $200 acquisition spending - $400 fixed costs = $100."],"task":"List costs before deciding to buy more traffic.","steps":["Name the costs that grow with each order.","List the period's acquisition spending and fixed costs separately.","Check whether owner time, refunds, taxes, and other expenses are missing."],"prompt":"What is left from one order, which other costs must it cover, and what is still missing from your estimate?","example":"A $50 brief with $15 variable delivery cost contributes $35 before acquisition and fixed costs. I still need to account for my review time, refunds, and tax before judging real earnings.","trap":"The explorer is a simplified model, not a profit forecast. A traffic or price change may also change acquisition costs, conversion, support load, and refunds.","quiz":{"question":"Net revenue is $40 per order and variable delivery cost is $45. What happens if orders rise while those figures stay the same?","options":["Each additional order adds $5 of loss before acquisition and fixed costs.","Volume automatically fixes the loss.","The business breaks even after any fixed number of orders."],"correct":0,"explanations":["Contribution is $40 - $45 = -$5. More of the same orders makes that part of the loss larger.","Negative contribution is not repaired by multiplying it.","There is no volume that covers positive fixed costs with negative contribution under these assumptions."]},"takeaway":"Inspect contribution before you scale the order count."},{"id":"repeat","group":"Improve one thing at a time","short":"Look for a reason to return","title":"A second purchase needs a second reason to buy.","author":"Rahul Vohra / First Round Review","resource":"How Superhuman Built an Engine to Find Product Market Fit","url":"https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/","origin":"Added teaching reference; not identified as a resource in the reel","idea":"Look for return behavior when the customer needs the outcome again. Do not assume every customer buys on a fixed schedule.","paragraphs":["A cohort is a group defined by a shared starting point, such as the month of a first purchase. To investigate return use, compare customers who actually reached another opportunity to use the service. Record the outcome and ask why people returned or did not return.","A subscription, a one-off service, and a repeat-purchase store have different cadences. A monthly charge does not prove monthly value. Avoid turning a short, small pilot into a lifetime-value estimate or assuming a survey benchmark proves product-market fit."],"case":"Of 10 instructors who bought a brief, only four have another launch during the observation window. Two buy again. That is two repeat buyers out of four eligible customers, or 50% for this small eligible group. It is also two out of the original 10, or 20% of that cohort. Both are labeled facts; they answer different questions.","distinction":["Eligible return rate","2 repeat buyers / 4 with another launch = 50% in this example.","Original-cohort repeat share","2 repeat buyers / 10 initial buyers = 20% over the observation window."],"task":"Define the next real opportunity to buy again.","steps":["Name the event that creates another customer need.","Separate eligible customers from those not yet due to return.","Ask returners and non-returners what happened."],"prompt":"When should your customer need this again, who would be eligible, and what would you observe?","example":"I will look at instructors with another launch during the next observation window. I will report both the original cohort and the eligible subset, then ask why they did or did not buy.","trap":"The example percentages come from tiny invented counts. They are not benchmarks or stable estimates of future retention.","quiz":{"question":"Three of 12 initial buyers face the job again, and one buys again. Which report is clearest?","options":["Retention is definitely 33%, without qualification.","All 12 customers had an equal reason to return.","One of three eligible buyers returned; also report one of 12 original buyers over the window."],"correct":2,"explanations":["The small sample and eligibility definition change what the number means.","The scenario says only three faced the job again.","Both denominators are useful when labeled. Neither tiny fraction is a universal retention rate."]},"takeaway":"Count returns against a real opportunity to return."},{"id":"ai-test","group":"Improve one thing at a time","short":"Use AI on a testable task","title":"Use AI to shorten the work, not to invent the evidence.","author":"Anthropic with Rick Dakan and Joseph Feller","resource":"AI Fluency: Framework and foundations","url":"https://academy.claude.com/courses/ai-fluency-framework-foundations","origin":"Added teaching reference; not identified as a resource in the reel","idea":"Give AI a bounded task, review the result, and measure whether the total workflow improved.","paragraphs":["Claude or another AI tool can help draft interview questions, organize permitted notes, explain formulas, or produce a first draft of an offer. You remain responsible for the claims and the decision. State the task, allowed inputs, constraints, and how you will check the output.","Measure total time including preparation, checking, and rework. A faster draft can create more work if errors reach the customer. Keep sensitive data out unless you have the right permissions and an appropriate data-handling setup. Do not send campaigns, spend money, or change customer records without deliberate approval."],"case":"An invented manual workflow takes 40 minutes per brief. An AI-assisted attempt takes eight minutes to draft and 37 minutes to check and repair. Total time is 45 minutes, so it is not faster. Try a narrower drafting task and compare reviewed outputs before rolling it out.","distinction":["Misleading speed claim","The draft took eight minutes instead of 40.","Full workflow comparison","Eight minutes drafting + 37 minutes reviewing = 45 minutes, versus 40 before."],"task":"Plan one bounded AI-assisted experiment.","steps":["Choose a repeated task and define acceptable output.","Use permitted or fictional inputs and review against the same standard.","Compare total time, errors, and customer usefulness; write a stop rule."],"prompt":"Which task will you test, what evidence will you use, and what result would make you keep, change, or stop the approach?","example":"Use fictional inputs to draft a launch brief. Require a human check for unsupported claims, scope, and accuracy. Compare total reviewed time against the manual process. Stop if review costs cancel the time saved.","trap":"Generated interviews, fake testimonials, and model confidence are not customer evidence. No AI prompt establishes demand or guarantees earnings.","quiz":{"question":"AI drafts an offer in five minutes but it takes 30 more minutes to fix. The manual process took 25 minutes. Which comparison is valid?","options":["AI was five times faster because drafting took five minutes.","The AI-assisted workflow took 35 minutes, so it was slower on this attempt.","The checking time should be ignored because it is human work."],"correct":1,"explanations":["That comparison ignores the work required to make the draft usable.","Count drafting and review together, and compare quality under the same standard.","Review is part of the delivery process and must be counted."]},"takeaway":"Keep the faster workflow only after counting the whole job."}];
+const learningGoals={"claim":{"label":"Read the earnings claim carefully","artifact":"A checklist of missing evidence","recall":"What do you need to know before treating a revenue claim as profit?"},"buyer":{"label":"Find the buyer and the problem","artifact":"A reachable buyer and a small offer","recall":"What does an existing customer workaround tell you that a generated persona cannot?"},"funnel":{"label":"Connect visits to orders","artifact":"A funnel with a defined rate","recall":"How do visits, order rate, and average net revenue connect in a simple order model?"},"economics":{"label":"Check what each sale leaves","artifact":"A cost model with its omissions named","recall":"Why can more orders make the loss larger when contribution per order is negative?"},"repeat":{"label":"Understand repeat purchases","artifact":"A definition of an eligible return","recall":"Why should you distinguish the original customer cohort from those with a new opportunity to buy?"},"ai-test":{"label":"Choose one AI-assisted test","artifact":"An experiment with a review standard","recall":"Which parts of the workflow must you count before claiming AI saved time?"}};
+const chapters=[{"title":"Check the starting point","question":"What do you know, and who might buy?","ids":["claim","buyer"]},{"title":"Follow the money","question":"How does a visit become a sale, and what remains?","ids":["funnel","economics"]},{"title":"Improve one thing at a time","question":"What brings people back, and where can AI help?","ids":["repeat","ai-test"]}];
+const signals=[];
+const cabinetMotion=[];
+const visualLessonIds=[];
+const categories = ["opinion", "behavior", "commitment"];
+
+function evaluateSignal(signal, answer) {
+  if (!categories.includes(answer)) throw new RangeError("Choose a valid evidence category.");
+  return { correct: signal.category === answer, category: signal.category, explanation: signal.why, next: signal.next };
+}
+
+function emptyProgress() {
+  return { version: 1, notes: {}, recalls: {}, passed: [], completed: [], theme: "dark" };
+}
+
+function parseProgress(raw, ids) {
+  const saved = JSON.parse(raw);
+  if (!saved || saved.version !== 1 || typeof saved.notes !== "object" || saved.notes === null ||
+      Array.isArray(saved.notes) || !Array.isArray(saved.passed) || !Array.isArray(saved.completed) ||
+      !["dark", "light"].includes(saved.theme)) {
+    throw new TypeError("Saved field notes have an unsupported format.");
+  }
+  if(saved.recalls!==undefined&&(typeof saved.recalls!=="object"||saved.recalls===null||Array.isArray(saved.recalls))) {
+    throw new TypeError("Saved recall notes have an unsupported format.");
+  }
+  const notes = {},recalls={};
+  for (const id of ids) {
+    if (Object.hasOwn(saved.notes, id)) {
+      if (typeof saved.notes[id] !== "string") throw new TypeError("A saved field note is not text.");
+      notes[id] = saved.notes[id];
+    }
+    if(saved.recalls&&Object.hasOwn(saved.recalls,id)) {
+      if(typeof saved.recalls[id]!=="string")throw new TypeError("A saved recall note is not text.");
+      recalls[id]=saved.recalls[id];
+    }
+  }
+  const passed = [...new Set(saved.passed.filter(id => ids.includes(id)))];
+  const completed = [...new Set(saved.completed.filter(id => ids.includes(id) && passed.includes(id) && notes[id]?.trim()))];
+  return { version: 1, notes, recalls, passed, completed, theme: saved.theme };
+}
+
+function canComplete(state, id) {
+  return state.passed.includes(id) && Boolean(state.notes[id]?.trim());
+}
+
+function makeNotebook(lessons, state, courseInfo) {
+  const title=courseInfo?courseInfo.title:"Founder Fieldwork";
+  const intro=courseInfo?courseInfo.exportIntro:"Original companion course inspired by @davecto's reel.\nThe full nine-resource list was not publicly visible. This is an independently curated selection.";
+  const lines = [`# ${title}`, "", intro, "", "Personal notes exported from this browser. Course completion is not business validation.", ""];
+  for (const lesson of lessons) {
+    lines.push(`## ${lesson.short}`, "", `${lesson.author}: ${lesson.resource}`, lesson.url, "", `Practice: ${lesson.task}`, "", state.notes[lesson.id]?.trim() || "(No note yet.)", "", `Practice complete: ${state.completed.includes(lesson.id) ? "yes" : "no"}`, "");
+    if(state.recalls?.[lesson.id]?.trim())lines.push("Recall note:",state.recalls[lesson.id],"");
+  }
+  return lines.join("\n");
+}
+
+const lessonPhases=["learn","check","apply"];
+function parseLearningRoute(hash,ids) {
+  const value=hash.replace(/^#/,"");
+  if(!value||value==="course")return {view:"course"};
+  if(["notebook","sources","lab"].includes(value))return {view:value};
+  if(value==="resources")return {view:"sources"};
+  const params=new URLSearchParams(value);
+  const id=params.get("lesson"),phase=params.get("step")||"learn";
+  if(ids.includes(id)&&[...lessonPhases,"done"].includes(phase))return {view:"lesson",id,phase};
+  return {view:"not-found"};
+}
+function lessonHref(id,phase="learn") {
+  if(![...lessonPhases,"done"].includes(phase))throw new RangeError("Unknown lesson phase.");
+  return `#lesson=${encodeURIComponent(id)}${phase==="learn"?"":`&step=${phase}`}`;
+}
+function nextUnfinishedLesson(lessons,state) {
+  return lessons.find(l=>!state.completed.includes(l.id))||lessons[0];
+}
+function resumePhase(id,state) {
+  return state.passed.includes(id)?"apply":state.recalls?.[id]?.trim()?"check":"learn";
+}
+
+const exampleInputs={visits:1000,rate:2,price:50,variable:15,acquisition:200,fixed:400};
+const economicsFields=[
+  {id:"visits",label:"Site visits in one month",value:1000,min:0,max:10000000,step:1},
+  {id:"rate",label:"Completed-order rate (%)",value:2,min:0,max:100,step:0.1},
+  {id:"price",label:"Average net revenue per order (USD)",value:50,min:0,max:1000000,step:0.01},
+  {id:"variable",label:"Variable cost per order (USD)",value:15,min:0,max:1000000,step:0.01},
+  {id:"acquisition",label:"Acquisition spending this month (USD)",value:200,min:0,max:100000000,step:0.01},
+  {id:"fixed",label:"Other fixed costs this month (USD)",value:400,min:0,max:100000000,step:0.01}
+];
+function calculateEconomics(input) {
+  for(const field of economicsFields) {
+    const value=input[field.id];
+    if(typeof value!=="number"||!Number.isFinite(value)||value<field.min||value>field.max)throw new RangeError(`${field.label} must be between ${field.min} and ${field.max}.`);
+    if(field.id==="visits"&&!Number.isInteger(value))throw new RangeError("Site visits must be a whole number.");
+    if(!["visits","rate"].includes(field.id)&&Math.abs(value*100-Math.round(value*100))>0.00001)throw new RangeError(`${field.label} must use no more than two decimal places.`);
+  }
+  const priceCents=Math.round(input.price*100),variableCents=Math.round(input.variable*100);
+  const periodCostCents=Math.round(input.acquisition*100)+Math.round(input.fixed*100);
+  const orders=input.visits*input.rate/100;
+  const revenue=orders*priceCents/100,variableCost=orders*variableCents/100;
+  const contributionPerOrder=(priceCents-variableCents)/100;
+  const contribution=revenue-variableCost;
+  const periodCost=periodCostCents/100;
+  const surplus=contribution-periodCost;
+  const breakEvenOrders=priceCents>variableCents?Math.ceil(periodCostCents/(priceCents-variableCents)):null;
+  return {orders,revenue,variableCost,contributionPerOrder,contribution,periodCost,surplus,breakEvenOrders};
+}
+
+const money=value=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
+const quantity=value=>new Intl.NumberFormat("en-US",{maximumFractionDigits:6}).format(value);
+function calculatorMarkup() {
+  return `<details class="economics-explorer"><summary>Try the arithmetic with different assumptions</summary><p class="small">One illustrative month, in USD. These inputs are invented. Change one at a time to understand the relationship, not to predict your earnings.</p>
+  <form id="economics-form">${economicsFields.map(f=>`<div class="numeric-field"><label for="econ-${f.id}">${f.label}</label><input id="econ-${f.id}" name="${f.id}" type="number" value="${f.value}" min="${f.min}" max="${f.max}" step="${f.step}" required></div>`).join("")}
+  <div class="example-actions"><button class="secondary" type="submit">Calculate this example</button><button id="reset-example" class="text-button" type="button">Restore the example</button></div><p id="economics-error" class="calculation-error" role="alert" hidden></p></form>
+  <section id="economics-results" aria-label="Illustrative economics result" aria-live="polite"></section>
+  <p class="small">Order counts are modeled quantities and can be fractional. Displayed dollar amounts are rounded to cents; calculations use unrounded quantities. This guide uses completed orders / visits; it does not mix those visits with unique people. Rates above 100% are outside this simplified model.</p>
+  <p class="small">Break-even holds acquisition spending, fixed costs, and per-order contribution constant. In real life, changing traffic or price can also change conversion, acquisition spending, and delivery costs. Tax, financing, owner pay, refunds, depreciation, and any unlisted expenses need separate treatment or explicit inclusion. This is not a profit forecast.</p></details>`;
+}
+function wireCalculator() {
+  const form=$("#economics-form");
+  if(!form)return;
+  function draw(input) {
+    const r=calculateEconomics(input);
+    const rows=[
+      ["Modeled orders",quantity(r.orders),`${quantity(input.visits)} visits x ${quantity(input.rate)}%`],
+      ["Modeled net revenue",money(r.revenue),`${quantity(r.orders)} orders x ${money(input.price)}`],
+      ["Variable delivery cost",money(r.variableCost),`${quantity(r.orders)} orders x ${money(input.variable)}`],
+      ["Contribution",money(r.contribution),`${money(r.revenue)} - ${money(r.variableCost)}`],
+      ["Acquisition + fixed costs",money(r.periodCost),`${money(input.acquisition)} + ${money(input.fixed)}`],
+      [r.surplus<0?"Modeled shortfall before tax":"Modeled surplus before tax",money(r.surplus),`${money(r.contribution)} - ${money(r.periodCost)}`]
+    ];
+    $("#economics-results").innerHTML=`<dl class="calculation-rows">${rows.map(([name,value,formula])=>`<div><dt>${name}<small>${formula}</small></dt><dd>${value}</dd></div>`).join("")}</dl>
+    <p class="break-even">${r.breakEvenOrders===null?"No positive per-order contribution: more of these orders cannot cover a positive acquisition/fixed-cost budget.":`Modeled cost-covering volume: ${quantity(r.breakEvenOrders)} whole orders at ${money(r.contributionPerOrder)} contribution per order.`}</p>`;
+    $("#economics-error").hidden=true;$("#economics-results").hidden=false;
+  }
+  function update() {
+    try {
+      const data=new FormData(form),input={};
+      for(const field of economicsFields) {
+        const raw=data.get(field.id);
+        if(typeof raw!=="string"||raw.trim()==="")throw new RangeError(`Enter ${field.label.toLowerCase()}.`);
+        input[field.id]=Number(raw);
+      }
+      draw(input);
+    } catch(error) {
+      if(!(error instanceof RangeError))throw error;
+      $("#economics-results").hidden=true;$("#economics-error").textContent=error.message;$("#economics-error").hidden=false;
+    }
+  }
+  form.addEventListener("submit",event=>{event.preventDefault();update();});
+  form.addEventListener("input",()=>{$("#economics-results").hidden=true;$("#economics-error").textContent="Inputs changed. Calculate again to see a matching result.";$("#economics-error").hidden=false;});
+  $("#reset-example").addEventListener("click",()=>{form.reset();draw(exampleInputs);});
+  draw(exampleInputs);
+}
+
+const $=selector=>document.querySelector(selector);
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const storageKey=course.storageKey;
+const ids=lessons.map(l=>l.id);
+let state=emptyProgress(),storageAvailable=true,storageCorrupt=false,saveTimer;
+let activeRoute={view:"course"},labIndex=0,labCorrect=0,labChecked=false;
+function storageError(message){$("#storage-error").textContent=message;$("#storage-error").hidden=false;}
+try {
+  const raw=localStorage.getItem(storageKey);
+  if(raw!==null)state=parseProgress(raw,ids);
+} catch(error) {
+  if(error instanceof SyntaxError||error instanceof TypeError) {
+    storageCorrupt=true;
+    storageError("Saved notes could not be read. They have not been overwritten. Open Notebook to export the original saved data before resetting.");
+  } else {
+    storageAvailable=false;
+    storageError("Browser storage is unavailable. Notes work in this tab, but will not survive a reload. Export them from Notebook before leaving.");
+  }
+  console.error("Fieldwork storage could not be loaded:",error);
+}
+const requestedTheme=new URLSearchParams(location.search).get("scoutTheme");
+if(["light","dark"].includes(requestedTheme))state.theme=requestedTheme;
+function save() {
+  clearTimeout(saveTimer);
+  if(!storageAvailable||storageCorrupt)return false;
+  try{localStorage.setItem(storageKey,JSON.stringify(state));return true;}
+  catch(error){storageAvailable=false;storageError("Your latest changes could not be saved. Export your notes from Notebook before leaving.");console.error("Fieldwork notes could not be saved:",error);return false;}
+}
+function announce(text){$("#announcement").textContent=text;}
+function updateTheme() {
+  document.documentElement.dataset.theme=state.theme;
+  $("#theme-toggle").setAttribute("aria-label",`Switch to ${state.theme==="dark"?"light":"dark"} theme`);
+}
+updateTheme();
+$("#theme-toggle").addEventListener("click",()=>{state.theme=state.theme==="dark"?"light":"dark";updateTheme();save();});
+$(".skip-link").addEventListener("click",event=>{event.preventDefault();$("#main-content").focus();$("#main-content").scrollIntoView({block:"start",behavior:"instant"});});
+function saveStatus(saved) {
+  for(const el of document.querySelectorAll(".save-state"))el.textContent=saved?"Saved in this browser":"Not saved to storage. Export before leaving.";
+}
+function wireEditors() {
+  for(const editor of document.querySelectorAll("textarea[data-note],textarea[data-recall]"))editor.addEventListener("input",()=>{
+    const id=editor.dataset.note||editor.dataset.recall;
+    if(editor.dataset.note) {
+      state.notes[id]=editor.value;
+      if(!editor.value.trim())state.completed=state.completed.filter(item=>item!==id);
+      const entry=editor.closest(".notebook-entry");
+      if(entry)entry.querySelector(".entry-status").textContent=state.completed.includes(id)?"Complete":editor.value.trim()?"Draft":"No note yet";
+      updateFinishButton();
+    } else state.recalls[id]=editor.value;
+    const status=editor.parentElement.querySelector(".save-state");
+    if(status)status.textContent=storageAvailable&&!storageCorrupt?"Saving...":"Not saved to storage. Export before leaving.";
+    clearTimeout(saveTimer);saveTimer=setTimeout(()=>saveStatus(save()),300);
+  });
+}
+function pageTitle(title){document.title=title===course.title?title:`${title} | ${course.title}`;}
+function clearLessonVisual(){if(visualLessonIds.length)FieldworkVisuals.unmountLessonVisual();}
+function byId(id){return lessons.find(l=>l.id===id);}
+function lessonSource(l){return `<p class="lesson-source">Based on <a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a> by ${esc(l.author)}. <a href="#sources">Source notes</a>.</p>`;}
+function renderCourse() {
+  const next=nextUnfinishedLesson(lessons,state),hasWork=Object.values(state.notes).some(n=>n.trim())||Object.values(state.recalls).some(n=>n.trim())||state.passed.length>0;
+  const allDone=state.completed.length===lessons.length;
+  const start=lessonHref(next.id,allDone?"learn":resumePhase(next.id,state));
+  pageTitle(course.title);
+  $("#view-content").innerHTML=`<section class="page course-page" aria-labelledby="course-title">
+    <div class="course-intro"><p class="eyebrow">${esc(course.eyebrow)}</p><h1 id="course-title" tabindex="-1">${esc(course.heading)}</h1>
+    <p class="course-lead">${esc(course.lead)}</p>
+    <a id="start-course" class="primary" href="${start}">${allDone?"Review lesson 1":hasWork?`Continue: ${esc(learningGoals[next.id].label)}`:"Start lesson 1"}</a>
+    <p class="course-guidance">${esc(course.guidance)}</p>
+    ${hasWork?`<p class="course-progress">${state.completed.length} of ${lessons.length} practices complete. ${allDone?'<a href="#notebook">Review your next steps</a>.':""}</p>`:""}</div>
+    <div class="course-outline">${chapters.map((chapter,index)=>`<section class="chapter" aria-labelledby="chapter-${index}"><div class="chapter-heading"><span class="chapter-number" aria-hidden="true">${index+1}</span><div><h2 id="chapter-${index}">${esc(chapter.title)}</h2><p>${esc(chapter.question)}</p></div></div>
+      <ol class="lesson-menu" start="${lessons.findIndex(l=>l.id===chapter.ids[0])+1}">${chapter.ids.map(id=>`<li><a href="${lessonHref(id)}"><span>${esc(learningGoals[id].label)}</span><span class="lesson-menu-end">${state.completed.includes(id)?'<span class="completion-label">Complete</span>':'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 8H12M8 4L12 8L8 12"/></svg>'}</span></a></li>`).join("")}</ol></section>`).join("")}</div>
+    <p class="course-boundary">${esc(course.sourceCredit)} <a href="#sources">Read the source boundary and original readings.</a></p><p class="small related-guide">Another guide: <a href="${esc(course.otherGuide.url)}">${esc(course.otherGuide.label)}</a>.</p></section>`;
+}
+function lessonHeader(l,phase) {
+  const goal=learningGoals[l.id],index=lessons.indexOf(l);
+  return `<header class="lesson-header"><a class="back-link" href="#course">All lessons</a><p class="lesson-location">Lesson ${index+1} of ${lessons.length}</p><h1 id="lesson-title" tabindex="-1">${esc(goal.label)}</h1><p class="lesson-outcome">You will leave with: ${esc(goal.artifact.toLowerCase())}.</p></header>
+    <nav class="phase-nav" aria-label="Lesson steps">${lessonPhases.map((step,i)=>`<a href="${lessonHref(l.id,step)}"${step===phase?' aria-current="step"':""}><span aria-hidden="true">${i+1}</span>${["Learn","Check","Apply"][i]}</a>`).join("")}</nav>`;
+}
+function visualError(error) {
+  console.error("OpenUI example could not render:",error);
+  const warning=$("#visual-warning");
+  if(warning){warning.hidden=false;warning.textContent="The interactive example could not render. The written example is still available.";}
+}
+function renderLearn(l) {
+  const interactive=visualLessonIds.includes(l.id);
+  return `<section class="lesson-phase" data-phase="learn" aria-label="Learn the idea"><p class="lesson-idea">${esc(l.idea)}</p>
+    <p class="core-explanation">${esc(l.paragraphs[0])}</p>
+    <section class="worked-example" aria-labelledby="example-title"><h2 id="example-title">An example</h2>${l.id===lessons[0].id?`<p class="case-context">${esc(course.caseContext)}</p>`:""}<p>${esc(l.case)}</p>
+    ${interactive?`<div id="lesson-visual" data-lesson-visual="${l.id}" data-visual-state="loading"></div><p id="visual-warning" class="visual-error" role="alert" hidden></p>`:
+    `<dl class="example-contrast"><div><dt>${esc(l.distinction[0])}</dt><dd>${esc(l.distinction[1])}</dd></div><div><dt>${esc(l.distinction[2])}</dt><dd>${esc(l.distinction[3])}</dd></div></dl>`}</section>
+    <p class="lesson-caution"><strong>Keep this distinction.</strong> ${esc(l.trap)}</p>
+    <details class="deeper"><summary>Go a little deeper</summary><p>${esc(l.paragraphs[1])}</p></details>
+    ${course.calculator&&l.id==="economics"?calculatorMarkup():""}
+    <div class="phase-forward"><a class="primary" href="${lessonHref(l.id,"check")}">Check your understanding</a></div>${lessonSource(l)}</section>`;
+}
+function renderCheck(l) {
+  const passed=state.passed.includes(l.id);
+  return `<section class="lesson-phase" data-phase="check" aria-labelledby="check-heading"><h2 id="check-heading">Explain it before you look.</h2><p>Try to answer from memory. Then compare your reasoning with the choices.</p>
+    <div class="editor"><label for="recall-note">${esc(learningGoals[l.id].recall)}</label><textarea id="recall-note" data-recall="${l.id}" placeholder="A sentence or two in your own words.">${esc(state.recalls[l.id]||"")}</textarea><span class="save-state">${storageAvailable&&!storageCorrupt?"Optional recall note. Saved locally as you write.":"Not saved to storage. Export before leaving."}</span></div>
+    <details id="answer-choices" class="choices"><summary>Reveal the answer choices</summary>
+    <form id="lesson-quiz"><fieldset><legend>${esc(l.quiz.question)}</legend>${l.quiz.options.map((option,i)=>`<label class="answer"><input type="radio" name="answer" value="${i}" required><span>${esc(option)}</span></label>`).join("")}</fieldset>
+    <button id="check-answer" class="${passed?"secondary":"primary"}" type="submit">Check answer</button><div id="quiz-feedback" class="feedback" role="status" hidden></div></form></details>
+    <div id="check-next"${passed?"":" hidden"}><p class="check-passed">${passed?"You have completed this check. Apply the idea to your own project next.":""}</p><a class="primary" href="${lessonHref(l.id,"apply")}">Apply it to your project</a></div>
+    <a class="quiet-back" href="${lessonHref(l.id)}">Read the explanation again</a></section>`;
+}
+function renderApply(l) {
+  const done=state.completed.includes(l.id);
+  return `<section class="lesson-phase" data-phase="apply" aria-labelledby="apply-heading"><h2 id="apply-heading">${esc(l.task)}</h2><p>This is the decision you will take back to your own project.</p>
+    <div class="editor"><label for="lesson-note">${esc(l.prompt)}</label><textarea id="lesson-note" data-note="${l.id}" placeholder="Write the decision or next step for your project.">${esc(state.notes[l.id]||"")}</textarea><span class="save-state">${storageAvailable&&!storageCorrupt?"Saved in this browser as you write.":"Not saved to storage. Export before leaving."}</span></div>
+    <div class="phase-forward"><button id="finish-lesson" class="primary" type="button" aria-describedby="finish-hint"${!canComplete(state,l.id)?" disabled":""}>${done?"Review your takeaway":"Finish this lesson"}</button><p id="finish-hint" class="small"></p></div>
+    <details class="guidance"><summary>Need a starting point?</summary><ol>${l.steps.map(step=>`<li>${esc(step)}</li>`).join("")}</ol><h3>A fictional example</h3><p>${esc(l.example)}</p><p>Use your own situation. The example is guidance, not a note to copy.</p></details></section>`;
+}
+function renderDone(l) {
+  const index=lessons.indexOf(l);
+  if(!state.completed.includes(l.id))return `<section class="reader"><a class="back-link" href="#course">All lessons</a><h1 tabindex="-1">Finish the practice first.</h1><p>The summary is available after you complete the check and write a project note.</p><a class="primary" href="${lessonHref(l.id,"apply")}">Return to Apply</a></section>`;
+  return `<section class="reader lesson-done"><a class="back-link" href="#course">All lessons</a><p class="eyebrow">Lesson ${index+1} complete</p><h1 id="done-title" tabindex="-1">${esc(l.takeaway)}</h1><h2>Your next step</h2><p class="saved-decision">${esc(state.notes[l.id])}</p><p class="small">This records your practice, not proof that the business works.</p><div class="phase-forward"><a class="primary" href="${index<lessons.length-1?lessonHref(lessons[index+1].id):"#notebook"}">${index<lessons.length-1?`Next: ${esc(learningGoals[lessons[index+1].id].label)}`:"Open your notebook"}</a></div><a class="quiet-back" href="${lessonHref(l.id,"apply")}">Edit your decision</a></section>`;
+}
+function updateFinishButton() {
+  const button=$("#finish-lesson");
+  if(!button||activeRoute.view!=="lesson")return;
+  const id=activeRoute.id;
+  button.disabled=!canComplete(state,id);
+  $("#finish-hint").innerHTML=!state.passed.includes(id)?`Complete the <a href="${lessonHref(id,"check")}">Check step</a> first.`:!state.notes[id]?.trim()?"Write a decision for your project before finishing.":"Your note remains editable in Notebook.";
+}
+function renderLesson(l,phase) {
+  pageTitle(learningGoals[l.id].label);
+  if(phase==="done"){$("#view-content").innerHTML=renderDone(l);return;}
+  $("#view-content").innerHTML=`<article class="reader" data-lesson="${l.id}">${lessonHeader(l,phase)}${phase==="learn"?renderLearn(l):phase==="check"?renderCheck(l):renderApply(l)}</article>`;
+  if(phase==="learn"&&visualLessonIds.includes(l.id))FieldworkVisuals.mountLessonVisual($("#lesson-visual"),l.id,{onError:visualError});
+  if(phase==="learn"&&course.calculator&&l.id==="economics")wireCalculator();
+  if(phase==="check")$("#lesson-quiz").addEventListener("submit",event=>{
+    event.preventDefault();
+    const answer=new FormData(event.currentTarget).get("answer");
+    if(answer===null)return;
+    const index=Number(answer),correct=index===l.quiz.correct;
+    const feedback=$("#quiz-feedback");feedback.hidden=false;feedback.dataset.result=correct?"correct":"incorrect";
+    feedback.textContent=`${correct?"Yes.":"Look at the evidence again."} ${l.quiz.explanations[index]}`;
+    if(correct) {
+      if(!state.passed.includes(l.id))state.passed.push(l.id);
+      save();
+      for(const input of document.querySelectorAll('#lesson-quiz input'))input.disabled=true;
+      $("#check-answer").hidden=true;$("#check-next").hidden=false;
+      $("#check-next .check-passed").textContent="Now make the decision for your own project.";
+    }
+  });
+  if(phase==="apply") {
+    updateFinishButton();
+    $("#finish-lesson").addEventListener("click",()=>{
+      if(!canComplete(state,l.id))return;
+      if(!state.completed.includes(l.id))state.completed.push(l.id);
+      save();location.hash=lessonHref(l.id,"done");
+    });
+  }
+  wireEditors();
+}
+function download(name,text,type="text/markdown;charset=utf-8") {
+  const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement("a");
+  a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function preparePrint() {
+  $("#print-course").innerHTML=`<h1>${esc(course.title)}</h1><p>${esc(course.printIntro)}</p><p>${esc(course.caseContext)} Course completion is not business validation.</p>`+
+  lessons.map(l=>`<article><h2>${esc(learningGoals[l.id].label)}</h2><p>${esc(l.author)}: <a href="${esc(l.url)}">${esc(l.resource)}</a></p><p>${esc(l.origin)}.</p><h3>Learn</h3><p>${esc(l.idea)}</p>${l.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")}<p>${esc(l.case)}</p><p>${esc(l.trap)}</p><h3>Check</h3><p>${esc(learningGoals[l.id].recall)}</p><p>${esc(state.recalls[l.id]||"(No recall note yet.)")}</p><p>${esc(l.quiz.question)}</p><ol>${l.quiz.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ol><p>Answer: ${l.quiz.correct+1}. ${esc(l.quiz.explanations[l.quiz.correct])}</p><h3>Apply</h3><p>${esc(l.task)}</p><ol>${l.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol><p>${esc(l.prompt)}</p><p>${esc(state.notes[l.id]||"(No project note yet.)")}</p></article>`).join("");
+}
+function renderNotebook() {
+  pageTitle("Your notebook");
+  $("#view-content").innerHTML=`<section class="page notebook-page"><a class="back-link" href="#course">Back to the course</a><h1 id="notebook-title" tabindex="-1">Your founder notebook.</h1><p class="page-lead">Review the decisions you will take back to your project. Open a lesson below to edit its note.</p>
+    <div class="notebook-tools"><button class="primary" id="export-notes" type="button">Export my notes</button><button class="text-button" id="print-guide" type="button">Print the full guide</button></div>
+    <p class="small">These notes stay in this browser. Export before moving devices or clearing site data. Avoid private customer details.</p>
+    <div class="notebook-entries">${lessons.map((l,i)=>`<details class="notebook-entry"><summary><span>${i+1}. ${esc(learningGoals[l.id].label)}</span><span class="entry-status">${state.completed.includes(l.id)?"Complete":state.notes[l.id]?.trim()?"Draft":"No note yet"}</span></summary><div class="editor"><label for="note-${l.id}">${esc(l.prompt)}</label><textarea id="note-${l.id}" data-note="${l.id}">${esc(state.notes[l.id]||"")}</textarea><span class="save-state">${storageAvailable&&!storageCorrupt?"Saved locally as you write.":"Not saved to storage. Export before leaving."}</span></div>${state.recalls[l.id]?.trim()?`<details class="recall-review"><summary>Your recall note</summary><p>${esc(state.recalls[l.id])}</p></details>`:""}<a class="entry-lesson" href="${lessonHref(l.id,"apply")}">Return to this practice</a></details>`).join("")}</div>
+    <details class="storage-tools"><summary>Storage and reset</summary><p class="small">Reset removes only this course's notes and progress from this browser. Downloaded copies are unchanged.</p>${storageCorrupt?'<button class="secondary" id="export-original" type="button">Export original saved data</button>':""}<button class="secondary" id="reset-request" type="button" aria-expanded="false">Reset this course</button><div id="reset-confirm" hidden><p>Export first if you need a copy.</p><button class="secondary" id="reset-cancel" type="button">Keep my notes</button><button class="secondary" id="reset-yes" type="button">Delete my course notes</button></div></details></section>`;
+  if(storageCorrupt)$(".storage-tools").open=true;
+  $("#export-notes").addEventListener("click",()=>{save();download(`${course.exportName}-notes.md`,makeNotebook(lessons,state,course));announce("Notes exported.");});
+  $("#print-guide").addEventListener("click",()=>{preparePrint();window.print();});
+  if(storageCorrupt)$("#export-original").addEventListener("click",()=>{
+    try{const raw=localStorage.getItem(storageKey);if(raw===null)throw new Error("The original record is no longer present.");download(`${course.exportName}-original.txt`,raw,"text/plain;charset=utf-8");}
+    catch(error){storageError("The original data could not be exported. Your current in-tab notes can still be exported separately.");console.error("Original note export failed:",error);}
+  });
+  $("#reset-request").addEventListener("click",()=>{$("#reset-confirm").hidden=false;$("#reset-request").setAttribute("aria-expanded","true");$("#reset-cancel").focus();});
+  $("#reset-cancel").addEventListener("click",()=>{$("#reset-confirm").hidden=true;$("#reset-request").setAttribute("aria-expanded","false");$("#reset-request").focus();});
+  $("#reset-yes").addEventListener("click",()=>{
+    clearTimeout(saveTimer);
+    try{localStorage.removeItem(storageKey);}catch(error){storageError("Reset failed because browser storage is blocked. The notes in this tab have not been cleared.");console.error("Reset failed:",error);return;}
+    const theme=state.theme;state=emptyProgress();state.theme=theme;storageAvailable=true;storageCorrupt=false;
+    $("#storage-error").hidden=true;save();renderNotebook();$("#notebook-title").focus({preventScroll:true});announce("Course notes and progress reset.");
+  });
+  for(const entry of document.querySelectorAll(".notebook-entry"))entry.addEventListener("toggle",()=>{if(entry.open)for(const other of document.querySelectorAll(".notebook-entry"))if(other!==entry)other.open=false;});
+  wireEditors();
+}
+function renderSources() {
+  pageTitle("Reading list");
+  $("#view-content").innerHTML=`<section class="reader sources-page"><a class="back-link" href="#course">Back to the course</a><h1 tabindex="-1">${esc(course.sourceHeading)}</h1><p class="page-lead">${esc(course.sourceIntro)}</p>
+    <section class="source-boundary"><h2>What came from the reel?</h2><a class="small" href="${esc(course.reelUrl)}" rel="noopener noreferrer">View the original reel</a>${course.sourceParagraphs.map(p=>`<p>${esc(p)}</p>`).join("")}</section>
+    <ol class="reading-list">${lessons.map(l=>`<li><a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a><span>${esc(l.author)}</span><p>${esc(l.origin)}.</p></li>`).join("")}</ol>${course.calculator?'<p class="small">Additional definition check: <a href="https://stripe.com/resources/more/cac-in-saas" rel="noopener noreferrer">Stripe on customer acquisition cost</a>. The example separates new customers from orders and treats timing and attribution as conditions, not guarantees.</p>':""}<p class="small">Public titles and source pages checked on ${esc(course.checkedDate)}. Advice is context-dependent.</p>${course.lab?'<a class="secondary" href="#lab">Try optional evidence practice</a>':""}</section>`;
+}
+function renderLab() {
+  pageTitle("Evidence practice");
+  const final=labIndex>=signals.length;
+  $(".evidence-figure").hidden=final;
+  $("#lab-questions").innerHTML=`<p class="eyebrow">Optional practice</p><h1 id="lab-title" tabindex="-1">What does this signal prove?</h1><p class="page-lead">An opinion, an observed behavior, and a commitment answer different questions. Sort the statement, then inspect the limit.</p>
+    ${final?`<p class="lab-statement">You classified ${labCorrect} of ${signals.length} correctly on the first try.</p><p>This is practice with evidence categories, not a startup score.</p><button id="restart-lab" class="primary" type="button">Try again</button>`:
+    `<p class="small">Statement ${labIndex+1} of ${signals.length}</p><p class="lab-statement">${esc(signals[labIndex].text)}</p><form id="lab-form"><fieldset><legend>Which category fits?</legend>${categories.map(c=>`<label class="answer"><input type="radio" name="category" value="${c}" required><span>${c[0].toUpperCase()+c.slice(1)}</span></label>`).join("")}</fieldset><button id="check-signal" class="primary" type="submit">Check my classification</button><div id="lab-feedback" class="feedback" role="status" hidden></div><button id="next-signal" class="primary" type="button" hidden>${labIndex===signals.length-1?"Review the practice":"Next statement"}</button></form><p class="small">Opinion: a reaction or prediction. Behavior: something that happened. Commitment: a specific investment of time, effort, or money.</p>`}`;
+  if(final){$("#restart-lab").addEventListener("click",()=>{labIndex=0;labCorrect=0;renderLab();setDrawer(null);});return;}
+  labChecked=false;
+  $("#lab-form").addEventListener("submit",event=>{
+    event.preventDefault();if(labChecked)return;
+    const result=evaluateSignal(signals[labIndex],new FormData(event.currentTarget).get("category"));
+    if(result.correct)labCorrect++;labChecked=true;
+    const feedback=$("#lab-feedback");feedback.hidden=false;feedback.dataset.result=result.correct?"correct":"incorrect";
+    feedback.innerHTML=`<p><strong>${result.correct?"That fits.":`This is ${esc(result.category)}.`}</strong> ${esc(result.explanation)}</p><p>Next: ${esc(result.next)}</p>`;
+    setDrawer(result.category,result.explanation);
+    $("#check-signal").hidden=true;for(const input of document.querySelectorAll("#lab-form input"))input.disabled=true;
+    $("#next-signal").hidden=false;
+  });
+  $("#next-signal").addEventListener("click",()=>{labIndex++;renderLab();setDrawer(null);$("#lab-title").focus({preventScroll:true});});
+}
+function renderRoute({focus=false}={}) {
+  save();clearLessonVisual();
+  activeRoute=parseLearningRoute(location.hash,ids);
+  if(activeRoute.view==="lab"&&!course.lab)activeRoute={view:"not-found"};
+  const lab=activeRoute.view==="lab";$("#view-content").hidden=lab;$("#lab-section").hidden=!lab;
+  if(activeRoute.view==="course")renderCourse();
+  else if(activeRoute.view==="lesson")renderLesson(byId(activeRoute.id),activeRoute.phase);
+  else if(activeRoute.view==="notebook")renderNotebook();
+  else if(activeRoute.view==="sources")renderSources();
+  else if(lab)renderLab();
+  else {pageTitle("Page not found");$("#view-content").innerHTML='<section class="reader"><h1 tabindex="-1">That lesson was not found.</h1><p>The link may be incomplete or out of date.</p><a class="primary" href="#course">Open the course</a></section>';}
+  for(const link of document.querySelectorAll("[data-nav]")) {
+    const current=link.dataset.nav==="course"?["course","lesson"].includes(activeRoute.view):activeRoute.view==="notebook";
+    if(current)link.setAttribute("aria-current","page");else link.removeAttribute("aria-current");
+  }
+  if(focus){window.scrollTo({top:0,behavior:"instant"});const heading=$(lab?"#lab-title":"#view-content h1");if(heading)heading.focus({preventScroll:true});}
+}
+window.addEventListener("hashchange",()=>renderRoute({focus:true}));
+window.addEventListener("pagehide",save);window.addEventListener("beforeprint",preparePrint);
+
+const reduceMotion=matchMedia("(prefers-reduced-motion: reduce)");
+const parts=[...document.querySelectorAll("#cabinet-parts>[data-part]")];
+const opening=Object.fromEntries(categories.map(c=>[c,0]));
+let selectedDrawer=null,visible=false,frame=0,last=0;
+function paintCabinet() {
+  for(const part of parts){const share=opening[part.dataset.drawer]||0;part.setAttribute("transform",`translate(${cabinetMotion[0]*share} ${cabinetMotion[1]*share})`);part.classList.toggle("selected",part.dataset.drawer===selectedDrawer);}
+  const sorted=[...parts].sort((a,b)=>(Number(a.dataset.key)+Number(a.dataset.lift)*(opening[a.dataset.drawer]||0))-(Number(b.dataset.key)+Number(b.dataset.lift)*(opening[b.dataset.drawer]||0)));
+  for(const part of sorted)$("#cabinet-parts").append(part);
+}
+function tick(now) {
+  const dt=last?Math.min((now-last)/1000,1/30):1/60;last=now;let moving=false;
+  for(const category of categories){const target=category===selectedDrawer?1:0;opening[category]=reduceMotion.matches?target:opening[category]+(target-opening[category])*(1-Math.exp(-dt/.16));if(Math.abs(target-opening[category])<.001)opening[category]=target;else moving=true;}
+  paintCabinet();frame=visible&&moving?requestAnimationFrame(tick):0;
+}
+function wakeCabinet(){if(reduceMotion.matches){for(const c of categories)opening[c]=c===selectedDrawer?1:0;paintCabinet();return;}if(visible&&!frame){last=0;frame=requestAnimationFrame(tick);}}
+function setDrawer(category,explanation="Check your classification to open the matching drawer.") {
+  if(category!==null&&!categories.includes(category))throw new RangeError("Unknown evidence category.");
+  selectedDrawer=category;$("#signal-reading").textContent=explanation;wakeCabinet();
+}
+if(course.lab)new IntersectionObserver(entries=>{visible=entries[entries.length-1].isIntersecting;if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}else if(visible)wakeCabinet();},{rootMargin:"120px 0px"}).observe($(".cabinet-stage"));
+reduceMotion.addEventListener("change",wakeCabinet);
+renderRoute();
+</script>
+</body>
+</html>

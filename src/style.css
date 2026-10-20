@@ -207,6 +207,23 @@ legend{padding:0;margin-bottom:18px;font-size:19px;line-height:1.6;font-weight:5
 .scope-key{display:none}
 .worked-example .scope-explanation,.worked-example .scope-extras{font-size:14px;color:var(--cp-text-muted);line-height:1.75}
 .visual-error{font-size:14px;padding:16px;border:1px solid var(--cp-warning)}
+.related-guide{margin-top:18px}
+.economics-explorer{margin-top:22px;padding-top:12px;border-top:1px solid var(--cp-border)}
+.economics-explorer>summary{font-weight:550}
+.economics-explorer .small{margin:12px 0}
+#economics-form{margin-top:20px}
+.numeric-field{display:grid;grid-template-columns:minmax(0,1fr) 140px;align-items:center;gap:20px;margin:12px 0}
+.numeric-field label{font-size:14px;line-height:1.65}
+.numeric-field input{width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--cp-border-strong);border-radius:7px;background:var(--cp-bg);color:var(--cp-text);font:inherit;font-size:16px}
+.example-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:22px}
+.calculation-error{font-size:14px;color:var(--cp-warning);line-height:1.7;margin:16px 0}
+.calculation-rows{margin:24px 0}
+.calculation-rows>div{display:flex;gap:20px;align-items:center;justify-content:space-between;border-top:1px solid var(--cp-border);padding:14px 0}
+.calculation-rows dt{font-size:15px;line-height:1.65}
+.calculation-rows dt small{display:block;font-size:12px;color:var(--cp-text-muted);margin-top:4px}
+.calculation-rows dd{margin:0;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.calculation-rows>div:last-child{border-block:1px solid var(--cp-border-strong)}
+.break-even{font-size:15px;color:var(--cp-text-muted);line-height:1.75}
 .lab-page{max-width:720px}
 .lab-statement{font-size:24px;line-height:1.5;margin:22px 0}
 #lab-questions>.small{margin-top:24px}
@@ -286,6 +303,10 @@ figcaption .small{font-size:11px;line-height:1.7;margin-top:12px}
   .footer>span{flex-basis:100%;min-height:20px}
   .cabinet-stage{height:270px}
   .figure-heading{gap:12px}
+  .numeric-field{grid-template-columns:minmax(0,1fr) 110px;gap:14px}
+  .numeric-field label{font-size:13px}
+  .calculation-rows dd{font-size:16px}
+  .calculation-rows dt{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{

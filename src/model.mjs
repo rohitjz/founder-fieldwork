@@ -39,8 +39,10 @@ export function canComplete(state, id) {
   return state.passed.includes(id) && Boolean(state.notes[id]?.trim());
 }
 
-export function makeNotebook(lessons, state) {
-  const lines = ["# Founder Fieldwork", "", "Original companion course inspired by @davecto's reel.", "The full nine-resource list was not publicly visible. This is an independently curated selection.", "", "Personal notes exported from this browser. Course completion is not business validation.", ""];
+export function makeNotebook(lessons, state, courseInfo) {
+  const title=courseInfo?courseInfo.title:"Founder Fieldwork";
+  const intro=courseInfo?courseInfo.exportIntro:"Original companion course inspired by @davecto's reel.\nThe full nine-resource list was not publicly visible. This is an independently curated selection.";
+  const lines = [`# ${title}`, "", intro, "", "Personal notes exported from this browser. Course completion is not business validation.", ""];
   for (const lesson of lessons) {
     lines.push(`## ${lesson.short}`, "", `${lesson.author}: ${lesson.resource}`, lesson.url, "", `Practice: ${lesson.task}`, "", state.notes[lesson.id]?.trim() || "(No note yet.)", "", `Practice complete: ${state.completed.includes(lesson.id) ? "yes" : "no"}`, "");
     if(state.recalls?.[lesson.id]?.trim())lines.push("Recall note:",state.recalls[lesson.id],"");

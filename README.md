@@ -4,6 +4,20 @@
 
 A focused course for solo founders and people building apps with AI. Learn one idea, check your understanding, and make one decision for your own project.
 
+## Business Levers companion
+
+[Open Business Levers](https://rohitjz.github.io/founder-fieldwork/business-levers/).
+
+This separate guide follows [@thelazyceo's reel](https://www.instagram.com/reels/DerBPXstdkj/). The public caption supplies a broad business-levers theme and a claim that AI can speed up launching. It offers a further guide through a comment. The promised guide and evidence supporting the earnings headline were not available in the inspected public material.
+
+The six original lessons cover reading an earnings claim, finding a buyer, relating visits to orders, contribution and costs, repeat purchases, and a bounded AI-assisted experiment. This is an independent companion, not the creator's hidden guide or a verified income method.
+
+It uses the same focused Learn / Check / Apply reader, with its own curriculum, source notes, exports, and `business-levers-v1` storage record. It does not overwrite the existing founder course or its notes. Links between the two guides sit after the course outline.
+
+The optional arithmetic explorer uses one fictional month in USD. It computes orders, net revenue, variable delivery cost, contribution, and a remainder after separately named acquisition and fixed costs. Break-even rounds up whole orders and uses integer cents for per-order contribution. Non-positive contribution produces an explicit limit rather than a false break-even quantity. Invalid or changed inputs hide stale results.
+
+All example figures are invented assumptions, not benchmarks. Holding inputs constant explains arithmetic, not causality. The remainder is before tax and omitted costs, so it is not an earnings forecast. The companion has no OpenUI/React bundle, cabinet, API calls, account, or external assets; its generated HTML is under 100KB.
+
 ## The learning structure
 
 The course follows a customer problem through a useful first offer and repeated use:
@@ -64,12 +78,16 @@ python3 -m http.server 8768 --bind 127.0.0.1
 Open `http://127.0.0.1:8768/`. GitHub Pages serves the committed HTML from `main`. Regenerate it after editing sources.
 
 - `src/lessons.mjs`: explanations, examples, exercises, checks, and original source links.
-- `src/learning.mjs`: decision labels, course chapters, recall prompts, routing, and continue behavior.
+- `src/curriculum.mjs`: the original course's decision labels, chapters, and recall prompts.
+- `src/learning.mjs`: shared routing and continue behavior; re-exports the original curriculum for compatibility.
+- `src/course-config.mjs`: per-guide identity, source boundary, storage, and export settings.
+- `src/levers.mjs`: the separate Business Levers lessons and curriculum.
+- `src/economics.mjs`, `src/calculator.js`: bounded arithmetic model and its optional example explorer.
 - `src/model.mjs`: progress validation, evidence classification, and export.
 - `src/template.html`, `src/style.css`, `src/app.js`: the guided reader and supporting views.
 - `src/visual-programs.mjs`, `src/openui-visuals.jsx`: the two focused interactive examples.
 - `src/cabinet.mjs`: the optional evidence cabinet's recorded geometry.
-- `build.mjs`: validates the programs and creates the offline page with embedded runtime licenses.
+- `build.mjs`: builds both self-contained guides and includes the renderer only where needed.
 
 Useful direct links:
 
@@ -94,6 +112,7 @@ Browser checks are Playwright page functions. Run them with `playwright-cli run-
 - `tests/browser-check.js`: measurable IA criteria, all nine guided lessons, notebook, export, print, optional practice, sources, navigation, and responsive fit.
 - `tests/storage-browser-check.js`: existing version-one records, unreadable-data preservation, recovery export, confirmed reset, and blocked-storage behavior.
 - `tests/openui-browser-check.js`: only the two designated visuals, keyboard/touch controls, readable mobile labels, theme inheritance, and network-free interaction.
+- `tests/levers-browser-check.js`: all six companion lessons, arithmetic and invalid-input handling, export/print, source boundaries, and storage isolation.
 
 `npm run audit` runs the cabinet's true-shape geometry audit. Geometry has not been replaced by the information-architecture redesign.
 
@@ -102,6 +121,8 @@ Fewer controls and less scrolling are interface results. No user study has estab
 ## Privacy and recovery
 
 Notes use `founder-fieldwork-v1` in browser local storage. Existing notes, completion marks, and theme preference remain compatible. Optional recall notes extend the same record without a destructive version change. Nothing is uploaded to GitHub.
+
+Business Levers uses the separate `business-levers-v1` key and its own export filename. Resetting one guide does not reset the other. Arithmetic examples reset on reload; they are not stored as financial records.
 
 If storage is blocked, the page reports it and keeps the current session usable. Export before leaving. Unreadable data is preserved until you explicitly reset it; Notebook provides an export of the original record. Reset removes only this course's stored record after confirmation.
 

@@ -1,6 +1,6 @@
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const storageKey="founder-fieldwork-v1";
+const storageKey=course.storageKey;
 const ids=lessons.map(l=>l.id);
 let state=emptyProgress(),storageAvailable=true,storageCorrupt=false,saveTimer;
 let activeRoute={view:"course"},labIndex=0,labCorrect=0,labChecked=false;
@@ -52,23 +52,24 @@ function wireEditors() {
     clearTimeout(saveTimer);saveTimer=setTimeout(()=>saveStatus(save()),300);
   });
 }
-function pageTitle(title){document.title=`${title} | Founder Fieldwork`;}
+function pageTitle(title){document.title=title===course.title?title:`${title} | ${course.title}`;}
+function clearLessonVisual(){if(visualLessonIds.length)FieldworkVisuals.unmountLessonVisual();}
 function byId(id){return lessons.find(l=>l.id===id);}
 function lessonSource(l){return `<p class="lesson-source">Based on <a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a> by ${esc(l.author)}. <a href="#sources">Source notes</a>.</p>`;}
 function renderCourse() {
   const next=nextUnfinishedLesson(lessons,state),hasWork=Object.values(state.notes).some(n=>n.trim())||Object.values(state.recalls).some(n=>n.trim())||state.passed.length>0;
   const allDone=state.completed.length===lessons.length;
   const start=lessonHref(next.id,allDone?"learn":resumePhase(next.id,state));
-  pageTitle("The founder course");
+  pageTitle(course.title);
   $("#view-content").innerHTML=`<section class="page course-page" aria-labelledby="course-title">
-    <div class="course-intro"><p class="eyebrow">A practical founder course</p><h1 id="course-title" tabindex="-1">Learn the work after the prototype.</h1>
-    <p class="course-lead">Find a real problem. Test a small offer. Learn whether people return.</p>
+    <div class="course-intro"><p class="eyebrow">${esc(course.eyebrow)}</p><h1 id="course-title" tabindex="-1">${esc(course.heading)}</h1>
+    <p class="course-lead">${esc(course.lead)}</p>
     <a id="start-course" class="primary" href="${start}">${allDone?"Review lesson 1":hasWork?`Continue: ${esc(learningGoals[next.id].label)}`:"Start lesson 1"}</a>
-    <p class="course-guidance">Use one app or business idea throughout. Each lesson ends with one decision for your project.</p>
+    <p class="course-guidance">${esc(course.guidance)}</p>
     ${hasWork?`<p class="course-progress">${state.completed.length} of ${lessons.length} practices complete. ${allDone?'<a href="#notebook">Review your next steps</a>.':""}</p>`:""}</div>
     <div class="course-outline">${chapters.map((chapter,index)=>`<section class="chapter" aria-labelledby="chapter-${index}"><div class="chapter-heading"><span class="chapter-number" aria-hidden="true">${index+1}</span><div><h2 id="chapter-${index}">${esc(chapter.title)}</h2><p>${esc(chapter.question)}</p></div></div>
-      <ol class="lesson-menu" start="${index*3+1}">${chapter.ids.map(id=>`<li><a href="${lessonHref(id)}"><span>${esc(learningGoals[id].label)}</span><span class="lesson-menu-end">${state.completed.includes(id)?'<span class="completion-label">Complete</span>':'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 8H12M8 4L12 8L8 12"/></svg>'}</span></a></li>`).join("")}</ol></section>`).join("")}</div>
-    <p class="course-boundary">An independently curated companion to @davecto's reel. <a href="#sources">Read the source boundary and original readings.</a></p></section>`;
+      <ol class="lesson-menu" start="${lessons.findIndex(l=>l.id===chapter.ids[0])+1}">${chapter.ids.map(id=>`<li><a href="${lessonHref(id)}"><span>${esc(learningGoals[id].label)}</span><span class="lesson-menu-end">${state.completed.includes(id)?'<span class="completion-label">Complete</span>':'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 8H12M8 4L12 8L8 12"/></svg>'}</span></a></li>`).join("")}</ol></section>`).join("")}</div>
+    <p class="course-boundary">${esc(course.sourceCredit)} <a href="#sources">Read the source boundary and original readings.</a></p><p class="small related-guide">Another guide: <a href="${esc(course.otherGuide.url)}">${esc(course.otherGuide.label)}</a>.</p></section>`;
 }
 function lessonHeader(l,phase) {
   const goal=learningGoals[l.id],index=lessons.indexOf(l);
@@ -84,11 +85,12 @@ function renderLearn(l) {
   const interactive=visualLessonIds.includes(l.id);
   return `<section class="lesson-phase" data-phase="learn" aria-label="Learn the idea"><p class="lesson-idea">${esc(l.idea)}</p>
     <p class="core-explanation">${esc(l.paragraphs[0])}</p>
-    <section class="worked-example" aria-labelledby="example-title"><h2 id="example-title">An example</h2>${l.id==="problem"?'<p class="case-context">Our fictional product helps independent bookkeepers collect missing receipts so they can finish a client&#39;s monthly accounts.</p>':""}<p>${esc(l.case)}</p>
+    <section class="worked-example" aria-labelledby="example-title"><h2 id="example-title">An example</h2>${l.id===lessons[0].id?`<p class="case-context">${esc(course.caseContext)}</p>`:""}<p>${esc(l.case)}</p>
     ${interactive?`<div id="lesson-visual" data-lesson-visual="${l.id}" data-visual-state="loading"></div><p id="visual-warning" class="visual-error" role="alert" hidden></p>`:
     `<dl class="example-contrast"><div><dt>${esc(l.distinction[0])}</dt><dd>${esc(l.distinction[1])}</dd></div><div><dt>${esc(l.distinction[2])}</dt><dd>${esc(l.distinction[3])}</dd></div></dl>`}</section>
     <p class="lesson-caution"><strong>Keep this distinction.</strong> ${esc(l.trap)}</p>
     <details class="deeper"><summary>Go a little deeper</summary><p>${esc(l.paragraphs[1])}</p></details>
+    ${course.calculator&&l.id==="economics"?calculatorMarkup():""}
     <div class="phase-forward"><a class="primary" href="${lessonHref(l.id,"check")}">Check your understanding</a></div>${lessonSource(l)}</section>`;
 }
 function renderCheck(l) {
@@ -125,6 +127,7 @@ function renderLesson(l,phase) {
   if(phase==="done"){$("#view-content").innerHTML=renderDone(l);return;}
   $("#view-content").innerHTML=`<article class="reader" data-lesson="${l.id}">${lessonHeader(l,phase)}${phase==="learn"?renderLearn(l):phase==="check"?renderCheck(l):renderApply(l)}</article>`;
   if(phase==="learn"&&visualLessonIds.includes(l.id))FieldworkVisuals.mountLessonVisual($("#lesson-visual"),l.id,{onError:visualError});
+  if(phase==="learn"&&course.calculator&&l.id==="economics")wireCalculator();
   if(phase==="check")$("#lesson-quiz").addEventListener("submit",event=>{
     event.preventDefault();
     const answer=new FormData(event.currentTarget).get("answer");
@@ -155,7 +158,7 @@ function download(name,text,type="text/markdown;charset=utf-8") {
   a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function preparePrint() {
-  $("#print-course").innerHTML=`<h1>Founder Fieldwork</h1><p>Original teaching material, independently curated from sources named in @davecto's reel and added companion readings. The full nine-resource list was not publicly visible.</p><p>The receipt-chasing product is a fictional running example. Course completion is not business validation.</p>`+
+  $("#print-course").innerHTML=`<h1>${esc(course.title)}</h1><p>${esc(course.printIntro)}</p><p>${esc(course.caseContext)} Course completion is not business validation.</p>`+
   lessons.map(l=>`<article><h2>${esc(learningGoals[l.id].label)}</h2><p>${esc(l.author)}: <a href="${esc(l.url)}">${esc(l.resource)}</a></p><p>${esc(l.origin)}.</p><h3>Learn</h3><p>${esc(l.idea)}</p>${l.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")}<p>${esc(l.case)}</p><p>${esc(l.trap)}</p><h3>Check</h3><p>${esc(learningGoals[l.id].recall)}</p><p>${esc(state.recalls[l.id]||"(No recall note yet.)")}</p><p>${esc(l.quiz.question)}</p><ol>${l.quiz.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ol><p>Answer: ${l.quiz.correct+1}. ${esc(l.quiz.explanations[l.quiz.correct])}</p><h3>Apply</h3><p>${esc(l.task)}</p><ol>${l.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol><p>${esc(l.prompt)}</p><p>${esc(state.notes[l.id]||"(No project note yet.)")}</p></article>`).join("");
 }
 function renderNotebook() {
@@ -166,10 +169,10 @@ function renderNotebook() {
     <div class="notebook-entries">${lessons.map((l,i)=>`<details class="notebook-entry"><summary><span>${i+1}. ${esc(learningGoals[l.id].label)}</span><span class="entry-status">${state.completed.includes(l.id)?"Complete":state.notes[l.id]?.trim()?"Draft":"No note yet"}</span></summary><div class="editor"><label for="note-${l.id}">${esc(l.prompt)}</label><textarea id="note-${l.id}" data-note="${l.id}">${esc(state.notes[l.id]||"")}</textarea><span class="save-state">${storageAvailable&&!storageCorrupt?"Saved locally as you write.":"Not saved to storage. Export before leaving."}</span></div>${state.recalls[l.id]?.trim()?`<details class="recall-review"><summary>Your recall note</summary><p>${esc(state.recalls[l.id])}</p></details>`:""}<a class="entry-lesson" href="${lessonHref(l.id,"apply")}">Return to this practice</a></details>`).join("")}</div>
     <details class="storage-tools"><summary>Storage and reset</summary><p class="small">Reset removes only this course's notes and progress from this browser. Downloaded copies are unchanged.</p>${storageCorrupt?'<button class="secondary" id="export-original" type="button">Export original saved data</button>':""}<button class="secondary" id="reset-request" type="button" aria-expanded="false">Reset this course</button><div id="reset-confirm" hidden><p>Export first if you need a copy.</p><button class="secondary" id="reset-cancel" type="button">Keep my notes</button><button class="secondary" id="reset-yes" type="button">Delete my course notes</button></div></details></section>`;
   if(storageCorrupt)$(".storage-tools").open=true;
-  $("#export-notes").addEventListener("click",()=>{save();download("founder-fieldwork-notes.md",makeNotebook(lessons,state));announce("Notes exported.");});
+  $("#export-notes").addEventListener("click",()=>{save();download(`${course.exportName}-notes.md`,makeNotebook(lessons,state,course));announce("Notes exported.");});
   $("#print-guide").addEventListener("click",()=>{preparePrint();window.print();});
   if(storageCorrupt)$("#export-original").addEventListener("click",()=>{
-    try{const raw=localStorage.getItem(storageKey);if(raw===null)throw new Error("The original record is no longer present.");download("founder-fieldwork-original.txt",raw,"text/plain;charset=utf-8");}
+    try{const raw=localStorage.getItem(storageKey);if(raw===null)throw new Error("The original record is no longer present.");download(`${course.exportName}-original.txt`,raw,"text/plain;charset=utf-8");}
     catch(error){storageError("The original data could not be exported. Your current in-tab notes can still be exported separately.");console.error("Original note export failed:",error);}
   });
   $("#reset-request").addEventListener("click",()=>{$("#reset-confirm").hidden=false;$("#reset-request").setAttribute("aria-expanded","true");$("#reset-cancel").focus();});
@@ -185,9 +188,9 @@ function renderNotebook() {
 }
 function renderSources() {
   pageTitle("Reading list");
-  $("#view-content").innerHTML=`<section class="reader sources-page"><a class="back-link" href="#course">Back to the course</a><h1 tabindex="-1">Read the originals.</h1><p class="page-lead">The lessons and exercises are original teaching material. These sources carry the authors' fuller arguments.</p>
-    <section class="source-boundary"><h2>What came from the reel?</h2><p>The public <a href="https://www.instagram.com/reels/DeW-3XAxxpG/" rel="noopener noreferrer">reel by @davecto</a> names Paul Graham, Y Combinator, and <em>The Mom Test</em>. It offers the complete nine-resource list through a comment-triggered message.</p><p>That full list was not visible in the inspected public material. This course is an independently curated companion, not a reconstruction of the creator's list. It selects readings from the named sources and adds Stripe, Rahul Vohra's Superhuman case study, and Sam Altman's playbook.</p><p>The receipt-chasing business is fictional. Exercises are practice, not evidence that a real business will succeed.</p></section>
-    <ol class="reading-list">${lessons.map(l=>`<li><a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a><span>${esc(l.author)}</span><p>${esc(l.origin)}.</p></li>`).join("")}</ol><p class="small">Public titles and source pages checked on 18 October 2026. Advice is context-dependent.</p><a class="secondary" href="#lab">Try optional evidence practice</a></section>`;
+  $("#view-content").innerHTML=`<section class="reader sources-page"><a class="back-link" href="#course">Back to the course</a><h1 tabindex="-1">${esc(course.sourceHeading)}</h1><p class="page-lead">${esc(course.sourceIntro)}</p>
+    <section class="source-boundary"><h2>What came from the reel?</h2><a class="small" href="${esc(course.reelUrl)}" rel="noopener noreferrer">View the original reel</a>${course.sourceParagraphs.map(p=>`<p>${esc(p)}</p>`).join("")}</section>
+    <ol class="reading-list">${lessons.map(l=>`<li><a href="${esc(l.url)}" rel="noopener noreferrer">${esc(l.resource)}</a><span>${esc(l.author)}</span><p>${esc(l.origin)}.</p></li>`).join("")}</ol>${course.calculator?'<p class="small">Additional definition check: <a href="https://stripe.com/resources/more/cac-in-saas" rel="noopener noreferrer">Stripe on customer acquisition cost</a>. The example separates new customers from orders and treats timing and attribution as conditions, not guarantees.</p>':""}<p class="small">Public titles and source pages checked on ${esc(course.checkedDate)}. Advice is context-dependent.</p>${course.lab?'<a class="secondary" href="#lab">Try optional evidence practice</a>':""}</section>`;
 }
 function renderLab() {
   pageTitle("Evidence practice");
@@ -211,8 +214,9 @@ function renderLab() {
   $("#next-signal").addEventListener("click",()=>{labIndex++;renderLab();setDrawer(null);$("#lab-title").focus({preventScroll:true});});
 }
 function renderRoute({focus=false}={}) {
-  save();FieldworkVisuals.unmountLessonVisual();
+  save();clearLessonVisual();
   activeRoute=parseLearningRoute(location.hash,ids);
+  if(activeRoute.view==="lab"&&!course.lab)activeRoute={view:"not-found"};
   const lab=activeRoute.view==="lab";$("#view-content").hidden=lab;$("#lab-section").hidden=!lab;
   if(activeRoute.view==="course")renderCourse();
   else if(activeRoute.view==="lesson")renderLesson(byId(activeRoute.id),activeRoute.phase);
@@ -248,6 +252,6 @@ function setDrawer(category,explanation="Check your classification to open the m
   if(category!==null&&!categories.includes(category))throw new RangeError("Unknown evidence category.");
   selectedDrawer=category;$("#signal-reading").textContent=explanation;wakeCabinet();
 }
-new IntersectionObserver(entries=>{visible=entries[entries.length-1].isIntersecting;if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}else if(visible)wakeCabinet();},{rootMargin:"120px 0px"}).observe($(".cabinet-stage"));
+if(course.lab)new IntersectionObserver(entries=>{visible=entries[entries.length-1].isIntersecting;if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}else if(visible)wakeCabinet();},{rootMargin:"120px 0px"}).observe($(".cabinet-stage"));
 reduceMotion.addEventListener("change",wakeCabinet);
 renderRoute();
